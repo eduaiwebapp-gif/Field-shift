@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { REGIONS, FIRST_SEASON, LAST_SEASON, BASELINE_PERIOD, RECENT_PERIOD, HOT_DAY_C } from './config.mjs';
 import { CROPS } from './crops.mjs';
+import { ROTATIONS, SOIL_LABELS } from './rotations.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const RAW_DIR = join(ROOT, 'raw');
@@ -181,6 +182,102 @@ function singleSeasonScenario(raw, crop, season) {
   };
 }
 
+// ---------- rotations ----------
+const CROP_BY_ID = Object.fromEntries(CROPS.map((c) => [c.id, c]));
+const LEGUMES = new Set(['chickpea', 'lentil', 'faba']);
+const CEREALS = new Set(['wheat', 'barley']);
+// A cereal after a legume needs roughly 30 kg/ha less nitrogen fertiliser (~500 MAD/ha). First estimate.
+const N_CREDIT_MAD = 500;
+
+function cropSeason(raw, crop, season, previousId = null) {
+  const inp = cropInputs(raw, crop, season);
+  if (!inp) return null;
+  const r = evaluate(crop, inp);
+  const credit = previousId && LEGUMES.has(previousId) && CEREALS.has(crop.id) ? N_CREDIT_MAD : 0;
+  const profit = r.yieldT * 1000 * crop.price_mad_per_kg - (crop.cost_mad_per_ha - credit);
+  return { ...r, profit };
+}
+
+// Replays a rotation over real seasons, for every possible starting crop, and averages.
+function replayRotation(raw, rot, [a, b]) {
+  const years = range(a, b);
+  const L = rot.sequence.length;
+  const runs = rot.sequence.map((_, offset) =>
+    years
+      .map((y, i) =>
+        cropSeason(raw, CROP_BY_ID[rot.sequence[(i + offset) % L]], y, rot.sequence[(i + offset - 1 + L) % L]),
+      )
+      .filter(Boolean),
+  );
+  const all = runs.flat();
+  return {
+    seasons: years.length,
+    score: Math.round(mean(all.map((r) => r.score))),
+    profit: Math.round(mean(all.map((r) => r.profit)) / 100) * 100,
+    failed: round(mean(runs.map((run) => run.filter((r) => r.profit < 0).length)), 1),
+    water: Math.round(mean(all.map((r) => r.irrigation))),
+  };
+}
+
+function buildRotations(raw, driestYear) {
+  const out = ROTATIONS.map((rot) => {
+    const recent = replayRotation(raw, rot, RECENT_PERIOD);
+    const baseline = replayRotation(raw, rot, BASELINE_PERIOD);
+    const dry = rot.sequence.map((id) => cropSeason(raw, CROP_BY_ID[id], driestYear));
+    return {
+      id: rot.id,
+      name: rot.name,
+      current: !!rot.current,
+      sequence: rot.sequence,
+      metrics: {
+        score: recent.score,
+        baseline_score: baseline.score,
+        avg_profit_mad_ha: recent.profit,
+        failed_seasons: recent.failed,
+        seasons: recent.seasons,
+        dry_year: driestYear,
+        dry_year_score: Math.round(mean(dry.map((r) => r.score))),
+        extra_water_mm: recent.water,
+      },
+      soil: rot.soil,
+      why: rot.why,
+      benefits: rot.benefits,
+      risks: rot.risks,
+      gaps: rot.gaps,
+    };
+  });
+  const base = out.find((r) => r.current);
+  for (const r of out) {
+    const m = r.metrics;
+    const [a, b] = RECENT_PERIOD;
+    r.evidence = [
+      `Replayed on the real ${a}-${b} seasons, it would have lost money in ${m.failed_seasons} of ${m.seasons} seasons` +
+        (r.current ? '.' : ` (wheat after wheat: ${base.metrics.failed_seasons}).`),
+      `Climate fit ${m.score}/100 today, ${m.baseline_score}/100 with the 1991-2005 climate.`,
+      `In the driest recent season (${m.dry_year - 1}-${m.dry_year}), its crops score ${m.dry_year_score}/100` +
+        (r.current ? '.' : ` (wheat after wheat: ${base.metrics.dry_year_score}).`),
+      `Needs about ${m.extra_water_mm} mm of extra water per season to reach full yield (${m.extra_water_mm * 10} m³/ha).`,
+    ];
+    if (r.sequence.some((id) => LEGUMES.has(id))) {
+      r.evidence.push(`Income includes about ${N_CREDIT_MAD} MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate).`);
+    }
+  }
+  return out;
+}
+
+// Average month of the recent period: rain, heat, hot days. Used for the season calendar.
+function monthlyProfile(raw, [a, b]) {
+  return range(1, 12).map((m) => {
+    const recs = range(a, b).map((y) => raw.get(`${y}${String(m).padStart(2, '0')}`)).filter(Boolean);
+    return {
+      month: m,
+      rain_mm: round(mean(recs.map((r) => r.rain))),
+      t_max_c: round(mean(recs.map((r) => r.tmax)), 1),
+      hot_days: round(mean(recs.map((r) => r.hot)), 1),
+    };
+  });
+}
+
 // ---------- main ----------
 async function buildRegion(region) {
   const raw = aggregateMonths(JSON.parse(await readFile(join(RAW_DIR, `${region.id}.json`), 'utf8')));
@@ -196,6 +293,7 @@ async function buildRegion(region) {
       baseline: periodSummary(seasons, BASELINE_PERIOD),
       recent: periodSummary(seasons, RECENT_PERIOD),
     },
+    monthly: monthlyProfile(raw, RECENT_PERIOD),
   };
 
   const recent = seasons.filter((s) => s.year >= RECENT_PERIOD[0] && s.year <= RECENT_PERIOD[1]);
@@ -211,6 +309,8 @@ async function buildRegion(region) {
       planting_window: crop.planting_window,
       harvest_window: crop.harvest_window,
       water_need_mm: crop.water_need_mm,
+      months: crop.months,
+      critical_months: crop.critical_months,
       price_mad_per_kg: crop.price_mad_per_kg,
       cost_mad_per_ha: crop.cost_mad_per_ha,
       scenarios: { baseline, recent: recentS, dry_year: singleSeasonScenario(raw, crop, driest.year) },
@@ -224,6 +324,8 @@ async function buildRegion(region) {
     generated_at: new Date().toISOString(),
     method: 'rule-based v1 (water balance + heat stress + root zone soil wetness)',
     crops,
+    rotations: buildRotations(raw, driest.year),
+    soil_labels: SOIL_LABELS,
   };
 
   const dir = join(OUT_DIR, region.id);
@@ -240,6 +342,13 @@ async function buildRegion(region) {
   );
   for (const c of crops) {
     console.log(`   ${c.name.padEnd(20)} score ${c.scenarios.baseline.score} -> ${c.scenarios.recent.score}`);
+  }
+  for (const r of recommendations.rotations) {
+    const m = r.metrics;
+    console.log(
+      `   ROT ${r.name.padEnd(24)} score ${m.baseline_score} -> ${m.score} | dry ${m.dry_year_score} | ` +
+        `profit ${m.avg_profit_mad_ha} MAD/ha | lost money ${m.failed_seasons}/${m.seasons} | water ${m.extra_water_mm} mm`,
+    );
   }
 }
 

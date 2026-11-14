@@ -4,13 +4,17 @@ import ClimatePanel from './components/ClimatePanel';
 import CropList from './components/CropList';
 import IncomeSimulator from './components/IncomeSimulator';
 import SensorPanel from './components/SensorPanel';
+import RotationsPanel from './components/RotationsPanel';
+import LearnPanel from './components/LearnPanel';
 import { loadRegions, loadRegionData, scoreLabel } from './lib/data';
 
 const TABS = [
-  { id: 'plant', label: 'What to plant' },
+  { id: 'rotations', label: 'Rotations' },
   { id: 'climate', label: 'What changed' },
+  { id: 'plant', label: 'Crops' },
   { id: 'income', label: 'Income' },
   { id: 'sensor', label: 'Field sensor' },
+  { id: 'learn', label: 'How it works' },
 ];
 
 export default function App() {
@@ -18,7 +22,7 @@ export default function App() {
   const [regionId, setRegionId] = useState('chaouia');
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
-  const [tab, setTab] = useState('plant');
+  const [tab, setTab] = useState('rotations');
   const [scenario, setScenario] = useState('recent');
   const [cropId, setCropId] = useState(null);
 
@@ -39,6 +43,9 @@ export default function App() {
     .slice()
     .sort((a, b) => b.scenarios.recent.score - a.scenarios.recent.score)[0];
   const summary = data?.climate.summary;
+  const rots = data?.recommendations.rotations || [];
+  const current = rots.find((r) => r.current);
+  const safest = rots.slice().sort((a, b) => a.metrics.failed_seasons - b.metrics.failed_seasons)[0];
 
   return (
     <div className="app">
@@ -73,9 +80,21 @@ export default function App() {
                 <b>{summary.recent.hot_days_spring}</b> days a year, and dry seasons went from{' '}
                 <b>{summary.baseline.dry_seasons}</b> to <b>{summary.recent.dry_seasons}</b> per 15 years.
               </p>
+              {safest && current && (
+                <div className="best">
+                  <span className="muted small">Most resilient rotation, 2011-2025</span>
+                  <div className="best-row">
+                    <span className="best-name">{safest.name}</span>
+                  </div>
+                  <p className="muted small" style={{ margin: '4px 0 0' }}>
+                    At a loss in {safest.metrics.failed_seasons} of {safest.metrics.seasons} seasons, vs{' '}
+                    {current.metrics.failed_seasons} for {current.name.toLowerCase()}.
+                  </p>
+                </div>
+              )}
               {top && (
                 <div className="best">
-                  <span className="muted small">Best fit for next season</span>
+                  <span className="muted small">Best single crop for next season</span>
                   <div className="best-row">
                     <span className="best-name">{top.name}</span>
                     <span className={`pill ${scoreLabel(top.scenarios.recent.score).tone}`}>
@@ -101,6 +120,8 @@ export default function App() {
             <div className="panel loading">Loading NASA data…</div>
           ) : (
             <>
+              {tab === 'rotations' && <RotationsPanel recommendations={data.recommendations} climate={data.climate} />}
+              {tab === 'learn' && <LearnPanel />}
               {tab === 'plant' && (
                 <CropList recommendations={data.recommendations} scenario={scenario} setScenario={setScenario} onSimulate={simulate} />
               )}

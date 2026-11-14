@@ -1,6 +1,6 @@
 {
   "region_id": "chaouia",
-  "generated_at": "2026-11-14T12:37:14.334Z",
+  "generated_at": "2026-11-14T14:32:54.731Z",
   "method": "rule-based v1 (water balance + heat stress + root zone soil wetness)",
   "crops": [
     {
@@ -10,6 +10,24 @@
       "planting_window": "Perennial (plant Nov - Mar)",
       "harvest_window": "Oct - Dec",
       "water_need_mm": 600,
+      "months": [
+        10,
+        11,
+        12,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "critical_months": [
+        5,
+        6
+      ],
       "price_mad_per_kg": 5,
       "cost_mad_per_ha": 12000,
       "scenarios": {
@@ -52,6 +70,19 @@
       "planting_window": "Nov - Dec",
       "harvest_window": "May",
       "water_need_mm": 350,
+      "months": [
+        11,
+        12,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "critical_months": [
+        3,
+        4
+      ],
       "price_mad_per_kg": 2.8,
       "cost_mad_per_ha": 3800,
       "scenarios": {
@@ -94,6 +125,18 @@
       "planting_window": "Dec - Jan",
       "harvest_window": "May",
       "water_need_mm": 300,
+      "months": [
+        12,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "critical_months": [
+        3,
+        4
+      ],
       "price_mad_per_kg": 12,
       "cost_mad_per_ha": 7000,
       "scenarios": {
@@ -136,6 +179,18 @@
       "planting_window": "Nov",
       "harvest_window": "Apr - May",
       "water_need_mm": 400,
+      "months": [
+        11,
+        12,
+        1,
+        2,
+        3,
+        4
+      ],
+      "critical_months": [
+        2,
+        3
+      ],
       "price_mad_per_kg": 8,
       "cost_mad_per_ha": 6500,
       "scenarios": {
@@ -178,6 +233,18 @@
       "planting_window": "Jan - Feb",
       "harvest_window": "Jun",
       "water_need_mm": 300,
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "critical_months": [
+        4,
+        5
+      ],
       "price_mad_per_kg": 12,
       "cost_mad_per_ha": 7000,
       "scenarios": {
@@ -220,6 +287,19 @@
       "planting_window": "Nov - Dec",
       "harvest_window": "May - Jun",
       "water_need_mm": 450,
+      "months": [
+        11,
+        12,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "critical_months": [
+        4,
+        5
+      ],
       "price_mad_per_kg": 3,
       "cost_mad_per_ha": 4500,
       "scenarios": {
@@ -262,6 +342,17 @@
       "planting_window": "Mar - Apr",
       "harvest_window": "Jun - Aug",
       "water_need_mm": 600,
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "critical_months": [
+        6,
+        7
+      ],
       "price_mad_per_kg": 2,
       "cost_mad_per_ha": 70000,
       "scenarios": {
@@ -297,5 +388,201 @@
       "score_change": 3,
       "notes": "High income but needs full irrigation, so it depends on water access."
     }
-  ]
+  ],
+  "rotations": [
+    {
+      "id": "wheat_mono",
+      "name": "Wheat after wheat",
+      "current": true,
+      "sequence": [
+        "wheat"
+      ],
+      "metrics": {
+        "score": 68,
+        "baseline_score": 69,
+        "avg_profit_mad_ha": 500,
+        "failed_seasons": 9,
+        "seasons": 15,
+        "dry_year": 2023,
+        "dry_year_score": 48,
+        "extra_water_mm": 198
+      },
+      "soil": {
+        "nitrogen": 0,
+        "cover": 1,
+        "organic_matter": 1,
+        "pest_break": 0,
+        "forage": 1
+      },
+      "why": "This is the most common practice in the region today. It is the baseline the other strategies are compared with.",
+      "benefits": [
+        "Known market, guaranteed reference price and simple to manage",
+        "Farmers already have the seeds, equipment and experience"
+      ],
+      "risks": [
+        "Wheat is the crop most hurt by spring heat and dry seasons in the NASA data",
+        "Growing the same cereal every year builds up pests and root diseases (Hessian fly, root rot) and depletes soil nitrogen",
+        "Needs more nitrogen fertiliser every year"
+      ],
+      "gaps": [
+        "Actual fertiliser use and yields on each farm",
+        "Local pest pressure"
+      ],
+      "evidence": [
+        "Replayed on the real 2011-2025 seasons, it would have lost money in 9 of 15 seasons.",
+        "Climate fit 68/100 today, 69/100 with the 1991-2005 climate.",
+        "In the driest recent season (2022-2023), its crops score 48/100.",
+        "Needs about 198 mm of extra water per season to reach full yield (1980 m³/ha)."
+      ]
+    },
+    {
+      "id": "wheat_chickpea",
+      "name": "Wheat → Chickpea",
+      "current": false,
+      "sequence": [
+        "wheat",
+        "chickpea"
+      ],
+      "metrics": {
+        "score": 68,
+        "baseline_score": 69,
+        "avg_profit_mad_ha": 1600,
+        "failed_seasons": 5.5,
+        "seasons": 15,
+        "dry_year": 2023,
+        "dry_year_score": 49,
+        "extra_water_mm": 171
+      },
+      "soil": {
+        "nitrogen": 2,
+        "cover": 1,
+        "organic_matter": 1,
+        "pest_break": 2,
+        "forage": 0
+      },
+      "why": "Chickpea is a legume that fixes nitrogen from the air and is sown in late winter, after the wettest months, so it uses rain that wheat cannot.",
+      "benefits": [
+        "Leaves nitrogen in the soil for the next wheat crop, so less fertiliser",
+        "Breaks the cereal disease and pest cycle",
+        "High value per kg, a second source of income"
+      ],
+      "risks": [
+        "Chickpea is sensitive to heat in May and to ascochyta blight in wet springs",
+        "Harvest is more labour intensive, prices vary more than wheat"
+      ],
+      "gaps": [
+        "Local chickpea prices and demand",
+        "Disease pressure in the farmer's area"
+      ],
+      "evidence": [
+        "Replayed on the real 2011-2025 seasons, it would have lost money in 5.5 of 15 seasons (wheat after wheat: 9).",
+        "Climate fit 68/100 today, 69/100 with the 1991-2005 climate.",
+        "In the driest recent season (2022-2023), its crops score 49/100 (wheat after wheat: 48).",
+        "Needs about 171 mm of extra water per season to reach full yield (1710 m³/ha).",
+        "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ]
+    },
+    {
+      "id": "barley_faba",
+      "name": "Barley → Faba bean",
+      "current": false,
+      "sequence": [
+        "barley",
+        "faba"
+      ],
+      "metrics": {
+        "score": 76,
+        "baseline_score": 75,
+        "avg_profit_mad_ha": 1700,
+        "failed_seasons": 1,
+        "seasons": 15,
+        "dry_year": 2023,
+        "dry_year_score": 60,
+        "extra_water_mm": 142
+      },
+      "soil": {
+        "nitrogen": 3,
+        "cover": 2,
+        "organic_matter": 2,
+        "pest_break": 2,
+        "forage": 3
+      },
+      "why": "Barley is the most drought tolerant cereal and is harvested before the late spring heat. Faba bean is a legume that fixes a lot of nitrogen and its residues feed livestock.",
+      "benefits": [
+        "The most resilient option in dry seasons according to the NASA data",
+        "Strong nitrogen fixation and organic matter from faba residues",
+        "Both crops can be used as forage, useful for farms with sheep or cattle"
+      ],
+      "risks": [
+        "Barley earns less per tonne than wheat",
+        "Faba bean needs more water than other legumes and is sensitive to heat at flowering"
+      ],
+      "gaps": [
+        "Whether the farm has livestock or a forage market nearby",
+        "Soil type: faba bean does poorly on very shallow soils"
+      ],
+      "evidence": [
+        "Replayed on the real 2011-2025 seasons, it would have lost money in 1 of 15 seasons (wheat after wheat: 9).",
+        "Climate fit 76/100 today, 75/100 with the 1991-2005 climate.",
+        "In the driest recent season (2022-2023), its crops score 60/100 (wheat after wheat: 48).",
+        "Needs about 142 mm of extra water per season to reach full yield (1420 m³/ha).",
+        "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ]
+    },
+    {
+      "id": "wheat_lentil_barley",
+      "name": "Wheat → Lentil → Barley",
+      "current": false,
+      "sequence": [
+        "wheat",
+        "lentil",
+        "barley"
+      ],
+      "metrics": {
+        "score": 74,
+        "baseline_score": 74,
+        "avg_profit_mad_ha": 1100,
+        "failed_seasons": 4.7,
+        "seasons": 15,
+        "dry_year": 2023,
+        "dry_year_score": 56,
+        "extra_water_mm": 144
+      },
+      "soil": {
+        "nitrogen": 2,
+        "cover": 1,
+        "organic_matter": 2,
+        "pest_break": 3,
+        "forage": 2
+      },
+      "why": "A three-year rotation spreads the risk across three crops with different calendars and keeps wheat only one year in three.",
+      "benefits": [
+        "Longest break in the cereal pest cycle",
+        "Lentil fixes nitrogen and has a short cycle that escapes part of the spring heat",
+        "Diversified income: no single crop failure ruins the farm"
+      ],
+      "risks": [
+        "More complex to plan: three seed types and harvest periods",
+        "Lentil is sensitive to heat at flowering (March - April)"
+      ],
+      "gaps": [
+        "Access to lentil seeds and buyers",
+        "Equipment for harvesting legumes"
+      ],
+      "evidence": [
+        "Replayed on the real 2011-2025 seasons, it would have lost money in 4.7 of 15 seasons (wheat after wheat: 9).",
+        "Climate fit 74/100 today, 74/100 with the 1991-2005 climate.",
+        "In the driest recent season (2022-2023), its crops score 56/100 (wheat after wheat: 48).",
+        "Needs about 144 mm of extra water per season to reach full yield (1440 m³/ha).",
+        "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ]
+    }
+  ],
+  "soil_labels": {
+    "nitrogen": "Adds nitrogen",
+    "cover": "Covers the soil (less erosion)",
+    "organic_matter": "Builds organic matter",
+    "pest_break": "Breaks pest and disease cycles",
+    "forage": "Feeds livestock"
+  }
 }

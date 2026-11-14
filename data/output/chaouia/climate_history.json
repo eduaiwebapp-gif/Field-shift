@@ -308,5 +308,79 @@
       "soil_wetness": 0.588,
       "dry_seasons": 3
     }
-  }
+  },
+  "monthly": [
+    {
+      "month": 1,
+      "rain_mm": 41.6,
+      "t_max_c": 18.8,
+      "hot_days": 0
+    },
+    {
+      "month": 2,
+      "rain_mm": 40.3,
+      "t_max_c": 19.9,
+      "hot_days": 0.1
+    },
+    {
+      "month": 3,
+      "rain_mm": 79.7,
+      "t_max_c": 22,
+      "hot_days": 1.6
+    },
+    {
+      "month": 4,
+      "rain_mm": 32.1,
+      "t_max_c": 25,
+      "hot_days": 4.9
+    },
+    {
+      "month": 5,
+      "rain_mm": 37.8,
+      "t_max_c": 28.7,
+      "hot_days": 11.9
+    },
+    {
+      "month": 6,
+      "rain_mm": 2.4,
+      "t_max_c": 32,
+      "hot_days": 18
+    },
+    {
+      "month": 7,
+      "rain_mm": 10.3,
+      "t_max_c": 35.9,
+      "hot_days": 29.1
+    },
+    {
+      "month": 8,
+      "rain_mm": 3,
+      "t_max_c": 36.7,
+      "hot_days": 30.3
+    },
+    {
+      "month": 9,
+      "rain_mm": 38.5,
+      "t_max_c": 32.3,
+      "hot_days": 21.5
+    },
+    {
+      "month": 10,
+      "rain_mm": 33.3,
+      "t_max_c": 29.1,
+      "hot_days": 13.7
+    },
+    {
+      "month": 11,
+      "rain_mm": 70,
+      "t_max_c": 22.9,
+      "hot_days": 1.4
+    },
+    {
+      "month": 12,
+      "rain_mm": 40.6,
+      "t_max_c": 20,
+      "hot_days": 0
+    }
+  ]
 }

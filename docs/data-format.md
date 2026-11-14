@@ -77,6 +77,28 @@ One entry per **agricultural season**, labelled by its harvest year (season 2024
 - `irrigation_mm`: extra water needed on top of rainfall to reach full yield (1 mm on 1 ha = 10 m³).
 - `baseline` = 1991-2005 climate, `recent` = 2010-2024 climate (what to expect next season), `dry_year` = driest season of the recent period.
 
+### Rotations (`recommendations.json` → `rotations`)
+
+Defined in `data/pipeline/rotations.mjs`, numbers computed in `build.mjs` by replaying each rotation on the real seasons (every starting crop, averaged).
+
+```json
+{
+  "id": "barley_faba", "name": "Barley → Faba bean", "current": false,
+  "sequence": ["barley", "faba"],
+  "metrics": {
+    "score": 76, "baseline_score": 75,          // climate fit, 2011-2025 vs 1991-2005
+    "avg_profit_mad_ha": 1700,                  // per ha per year, 2011-2025
+    "failed_seasons": 1, "seasons": 15,         // seasons with a loss
+    "dry_year": 2023, "dry_year_score": 60,     // fit in the driest recent season
+    "extra_water_mm": 142
+  },
+  "soil": { "nitrogen": 3, "cover": 2, "organic_matter": 2, "pest_break": 2, "forage": 3 },  // 0-3, agronomy knowledge
+  "why": "...", "evidence": ["..."], "benefits": ["..."], "risks": ["..."], "gaps": ["..."]
+}
+```
+
+`climate_history.json` also has `monthly`: 12 entries `{ "month", "rain_mm", "t_max_c", "hot_days" }`, averages of 2011-2025, used by the season calendar.
+
 ## 4. Sensor reading (`sensor_sample.json` or live endpoint)
 
 What the ESP32 sends. The app accepts one object or an array of them.
