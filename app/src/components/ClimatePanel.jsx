@@ -1,5 +1,5 @@
 import {
-  ResponsiveContainer, ComposedChart, Bar, Cell, XAxis, YAxis, Tooltip, ReferenceLine, CartesianGrid, Line,
+  ResponsiveContainer, ComposedChart, Bar, Cell, XAxis, YAxis, Tooltip, ReferenceLine, CartesianGrid, Area,
 } from 'recharts';
 import { fmt } from '../lib/data';
 
@@ -67,7 +67,7 @@ export default function ClimatePanel({ climate }) {
             <ReferenceLine y={DRY_MM} stroke="var(--bad)" strokeDasharray="4 4" label={{ value: 'dry', fontSize: 11, fill: 'var(--bad)', position: 'insideTopLeft' }} />
             <Bar dataKey="rain_season_mm" radius={[3, 3, 0, 0]}>
               {data.map((s) => (
-                <Cell key={s.year} fill={s.rain_season_mm < DRY_MM ? 'var(--bad)' : 'var(--water)'} />
+                <Cell key={s.year} fill={s.rain_season_mm < DRY_MM ? '#c2462f' : '#3a7bbf'} />
               ))}
             </Bar>
           </ComposedChart>
@@ -83,7 +83,13 @@ export default function ClimatePanel({ climate }) {
             <YAxis tick={{ fontSize: 11 }} width={64} />
             <Tooltip formatter={(v) => [`${v} days`, 'Hot days']} labelFormatter={(y) => `Spring ${y}`} />
             <ReferenceLine y={baseline.hot_days_spring} stroke="var(--muted)" strokeDasharray="4 4" label={{ value: `${b0}-${b1} avg`, fontSize: 11, position: 'insideTopLeft' }} />
-            <Line dataKey="hot_days_spring" stroke="var(--heat)" strokeWidth={2.5} dot={{ r: 2 }} />
+            <defs>
+              <linearGradient id="gHeat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#d9622b" stopOpacity={0.35} />
+                <stop offset="100%" stopColor="#d9622b" stopOpacity={0.02} />
+              </linearGradient>
+            </defs>
+            <Area dataKey="hot_days_spring" type="monotone" stroke="#d9622b" fill="url(#gHeat)" strokeWidth={2.5} dot={{ r: 2, fill: '#d9622b' }} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

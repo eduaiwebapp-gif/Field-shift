@@ -19,6 +19,11 @@ export async function loadRegionData(regionId) {
 
 export const loadSensorSample = () => getJson('sensor_sample.json');
 
+export async function loadClimatePoint(regionId) {
+  const g = await getJson(`field-shift/${regionId}/climate_point.geojson`);
+  return g.features[0]?.properties || null;
+}
+
 // Data science outputs (Python pipeline in data-science/), served from /data/field-shift/<region>/
 export async function loadPlantingData(regionId) {
   const [screening, replay, outlook] = await Promise.all([
