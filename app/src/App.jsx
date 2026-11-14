@@ -7,11 +7,13 @@ import SensorPanel from './components/SensorPanel';
 import RotationsPanel from './components/RotationsPanel';
 import LearnPanel from './components/LearnPanel';
 import LayerControl from './components/LayerControl';
+import PlantingPanel from './components/PlantingPanel';
 import Icon from './components/Icon';
 import { loadRegions, loadRegionData, scoreLabel, fmt } from './lib/data';
 
 const TABS = [
   { id: 'rotations', label: 'Rotations', icon: 'rotate' },
+  { id: 'planting', label: 'Planting time', icon: 'drop' },
   { id: 'climate', label: 'What changed', icon: 'chart' },
   { id: 'plant', label: 'Crops', icon: 'sprout' },
   { id: 'income', label: 'Income', icon: 'coins' },
@@ -103,13 +105,14 @@ export default function App() {
             <div className="hero-main">
               <p className="hero-eyebrow"><Icon name="satellite" size={15} /> 35 years of NASA data · {region.name}</p>
               <h1 className="hero-title">
-                Wheat after wheat lost money in <em>{fmt(current.metrics.failed_seasons, current.metrics.failed_seasons % 1 ? 1 : 0)} of the last {current.metrics.seasons} seasons</em>.
+                Wheat after wheat would have lost money in <em>{fmt(current.metrics.failed_seasons, current.metrics.failed_seasons % 1 ? 1 : 0)} of the last {current.metrics.seasons} seasons</em>.
                 <br />
                 <span className="hero-accent">{safest.name}: {fmt(safest.metrics.failed_seasons, safest.metrics.failed_seasons % 1 ? 1 : 0)}.</span>
               </h1>
               <p className="hero-sub">
                 The climate of {shortName} has shifted. Field Shift replays crop rotations on the real seasons measured
-                by NASA, so farmers can pick the one that protects their soil and their income.
+                by NASA, so farmers can explore the ones that protect their soil and their income.
+                <span className="hero-note"> Simulation on NASA climate data with provisional crop inputs, not observed farm results.</span>
               </p>
               <button className="hero-cta" onClick={() => { setTab('rotations'); document.getElementById('tabs')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 Compare rotations <span aria-hidden>→</span>
@@ -118,7 +121,7 @@ export default function App() {
             <div className="hero-stats">
               <HeroStat icon="alert" label="Dry seasons per 15 years" before={summary.baseline.dry_seasons} after={summary.recent.dry_seasons} tone="bad" />
               <HeroStat icon="sun" label="Hot spring days (≥ 30 °C)" before={fmt(summary.baseline.hot_days_spring, 1)} after={fmt(summary.recent.hot_days_spring, 1)} unit="/ yr" tone="heat" />
-              <HeroStat icon="drop" label="Profit, best rotation vs today" before={fmt(current.metrics.avg_profit_mad_ha)} after={fmt(safest.metrics.avg_profit_mad_ha)} unit="MAD/ha" tone="good" />
+              <HeroStat icon="drop" label="Simulated profit, best rotation vs today" before={fmt(current.metrics.avg_profit_mad_ha)} after={fmt(safest.metrics.avg_profit_mad_ha)} unit="MAD/ha" tone="good" />
               <p className="hero-period">1991-2005 → 2011-2025</p>
             </div>
           </section>
@@ -160,6 +163,7 @@ export default function App() {
               <div className="tab-body" key={`${tab}-${regionId}`}>
                 {tab === 'rotations' && <RotationsPanel recommendations={data.recommendations} climate={data.climate} />}
                 {tab === 'learn' && <LearnPanel />}
+                {tab === 'planting' && <PlantingPanel regionId={regionId} />}
                 {tab === 'plant' && (
                   <CropList recommendations={data.recommendations} scenario={scenario} setScenario={setScenario} onSimulate={simulate} />
                 )}

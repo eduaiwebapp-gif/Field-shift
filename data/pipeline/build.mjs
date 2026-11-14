@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile, cp } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { REGIONS, FIRST_SEASON, LAST_SEASON, BASELINE_PERIOD, RECENT_PERIOD, HOT_DAY_C } from './config.mjs';
-import { CROPS } from './crops.mjs';
+import { CROPS, CROP_SOURCES } from './crops.mjs';
 import { ROTATIONS, SOIL_LABELS } from './rotations.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -244,6 +244,7 @@ function buildRotations(raw, driestYear) {
       benefits: rot.benefits,
       risks: rot.risks,
       gaps: rot.gaps,
+      sources: rot.sources || [],
     };
   });
   const base = out.find((r) => r.current);
@@ -316,6 +317,7 @@ async function buildRegion(region) {
       scenarios: { baseline, recent: recentS, dry_year: singleSeasonScenario(raw, crop, driest.year) },
       score_change: recentS.score - baseline.score,
       notes: crop.notes,
+      sources: CROP_SOURCES[crop.id] || [],
     };
   }).sort((a, b) => b.scenarios.recent.score - a.scenarios.recent.score);
 
@@ -326,6 +328,14 @@ async function buildRegion(region) {
     crops,
     rotations: buildRotations(raw, driest.year),
     soil_labels: SOIL_LABELS,
+    assumptions: [
+      `Effective rainfall: ${EFFECTIVE_RAIN * 100} % of the rain in the growing months reaches the crop (assumption).`,
+      'Heat penalty: each °C of mean daily max above the crop limit during flowering removes 12.5 % of yield (assumption).',
+      `Nitrogen credit: a cereal after a legume saves about ${N_CREDIT_MAD} MAD/ha of fertiliser (assumption, needs local validation).`,
+      'Yields, prices and costs are provisional inputs, to verify by region, cultivar and season.',
+      'Profits, losses and seasons at a loss are simulation outputs, not observed farm results.',
+      'Soil ratings (0-3) are qualitative and depend on residue management.',
+    ],
     // Inputs so the app can re-run the same model in the browser (what-if sliders).
     model: {
       effective_rain: EFFECTIVE_RAIN,

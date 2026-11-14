@@ -29,6 +29,18 @@ const TERMS = [
   },
 ];
 
+const SOURCES = [
+  { label: 'NASA POWER daily API', url: 'https://power.larc.nasa.gov/docs/services/api/temporal/daily/' },
+  { label: 'NASA GIBS (MODIS NDVI, SMAP soil moisture)', url: 'https://gibs.earthdata.nasa.gov' },
+  { label: 'FAO-56: crop evapotranspiration and root zone water balance', url: 'https://www.fao.org/4/x0490e/x0490e0b.htm' },
+  { label: 'FAO: crop water needs', url: 'https://www.fao.org/4/s2022e/s2022e02.htm' },
+  { label: 'Morocco cereal guide (sowing calendar, rotations)', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' },
+  { label: 'Morocco legume guide', url: 'https://www.ardna.org/fr/articles/detail?id=84' },
+  { label: 'INRA Morocco: farming systems', url: 'https://www.inra.org.ma/sites/default/files/sustainable_farming_system11.pdf' },
+  { label: 'INRA Morocco: rainfall onset threshold for sowing', url: 'https://www.inra.org.ma/sites/default/files/publications/ouvrages/prediction1212.pdf' },
+  { label: 'INRA Morocco: olive guide', url: 'https://www.inra.org.ma/sites/default/files/publications/ouvrages/olivierkafacifr.pdf' },
+];
+
 export default function LearnPanel() {
   return (
     <section className="panel">
@@ -71,6 +83,18 @@ export default function LearnPanel() {
           <div key={t.term}><dt>{t.term}</dt><dd>{t.text}</dd></div>
         ))}
       </dl>
+
+      <h3>How the team built it</h3>
+      <ul className="limits">
+        <li><b>Rotation model (JavaScript):</b> replays each rotation on the real 2011-2025 seasons with a water balance, heat stress at flowering and root zone soil wetness.</li>
+        <li><b>Data science (Python):</b> NASA POWER daily data 2006-2025, rainfed cereal screening with Hargreaves reference ET × FAO-56 crop coefficients, and a logistic regression for the arrival of autumn rains, tested on 5 unseen seasons.</li>
+        <li><b>Field irrigation (MATLAB/Simulink):</b> a root zone water balance, dθ/dt = 100/Zr × (I + P − Kc × ET0), with a sensor and an on/off irrigation controller.</li>
+      </ul>
+
+      <h3>Sources</h3>
+      <ul className="sources">
+        {SOURCES.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.label}</a></li>)}
+      </ul>
 
       <h3>Limits of the model</h3>
       <ul className="limits">

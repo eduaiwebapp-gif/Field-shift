@@ -13,19 +13,24 @@ export const ROTATIONS = [
     current: true,
     sequence: ['wheat'],
     soil: { nitrogen: 0, cover: 1, organic_matter: 1, pest_break: 0, forage: 1 },
-    why: 'This is the most common practice in the region today. It is the baseline the other strategies are compared with.',
+    why: 'Continuous cereal is the baseline the other strategies are compared with.',
     benefits: [
-      'Known market, guaranteed reference price and simple to manage',
+      'Established market and simple to manage',
       'Farmers already have the seeds, equipment and experience',
     ],
     risks: [
-      'Wheat is the crop most hurt by spring heat and dry seasons in the NASA data',
-      'Growing the same cereal every year builds up pests and root diseases (Hessian fly, root rot) and depletes soil nitrogen',
-      'Needs more nitrogen fertiliser every year',
+      'In our simulation, wheat is the crop most hurt by spring heat and dry seasons',
+      'Growing the same cereal every year can build up cereal pests and root diseases',
+      'Relies on nitrogen fertiliser, since no legume adds nitrogen to the soil',
     ],
     gaps: [
-      'Actual fertiliser use and yields on each farm',
+      'How common continuous wheat is locally, actual fertiliser use and yields',
       'Local pest pressure',
+      'Soil cover, organic matter and forage depend on how residues are managed',
+    ],
+    sources: [
+      { label: 'Morocco cereal guide (crop rotations)', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' },
+      { label: 'INRA, farming systems', url: 'https://www.inra.org.ma/sites/default/files/sustainable_farming_system11.pdf' },
     ],
   },
   {
@@ -33,10 +38,10 @@ export const ROTATIONS = [
     name: 'Wheat → Chickpea',
     sequence: ['wheat', 'chickpea'],
     soil: { nitrogen: 2, cover: 1, organic_matter: 1, pest_break: 2, forage: 0 },
-    why: 'Chickpea is a legume that fixes nitrogen from the air and is sown in late winter, after the wettest months, so it uses rain that wheat cannot.',
+    why: 'Spring chickpea is a legume that diversifies a cereal sequence and can fix nitrogen from the air.',
     benefits: [
-      'Leaves nitrogen in the soil for the next wheat crop, so less fertiliser',
-      'Breaks the cereal disease and pest cycle',
+      'Can leave nitrogen for the next wheat crop, so potentially less fertiliser',
+      'May help interrupt specific cereal disease cycles',
       'High value per kg, a second source of income',
     ],
     risks: [
@@ -44,8 +49,13 @@ export const ROTATIONS = [
       'Harvest is more labour intensive, prices vary more than wheat',
     ],
     gaps: [
+      'Nitrogen benefit depends on nodulation and residue management',
       'Local chickpea prices and demand',
       'Disease pressure in the farmer\'s area',
+    ],
+    sources: [
+      { label: 'INRA, farming systems and cereal-legume evidence', url: 'https://www.inra.org.ma/sites/default/files/sustainable_farming_system11.pdf' },
+      { label: 'INRA, crop protection guide', url: 'https://www.inra.org.ma/sites/default/files/publications/ouvrages/guidephyto2015r.pdf' },
     ],
   },
   {
@@ -55,8 +65,8 @@ export const ROTATIONS = [
     soil: { nitrogen: 3, cover: 2, organic_matter: 2, pest_break: 2, forage: 3 },
     why: 'Barley is the most drought tolerant cereal and is harvested before the late spring heat. Faba bean is a legume that fixes a lot of nitrogen and its residues feed livestock.',
     benefits: [
-      'The most resilient option in dry seasons according to the NASA data',
-      'Strong nitrogen fixation and organic matter from faba residues',
+      'The most resilient option in dry seasons in our simulation on NASA data',
+      'Potential nitrogen benefit and organic matter from faba residues',
       'Both crops can be used as forage, useful for farms with sheep or cattle',
     ],
     risks: [
@@ -65,17 +75,22 @@ export const ROTATIONS = [
     ],
     gaps: [
       'Whether the farm has livestock or a forage market nearby',
+      'Forage and soil cover depend on whether residues are fed, grazed or retained',
       'Soil type: faba bean does poorly on very shallow soils',
+    ],
+    sources: [
+      { label: 'Morocco cereal guide (regional rotation examples)', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' },
+      { label: 'INRA, farming systems', url: 'https://www.inra.org.ma/sites/default/files/sustainable_farming_system11.pdf' },
     ],
   },
   {
     id: 'wheat_lentil_barley',
     name: 'Wheat → Lentil → Barley',
     sequence: ['wheat', 'lentil', 'barley'],
-    soil: { nitrogen: 2, cover: 1, organic_matter: 2, pest_break: 3, forage: 2 },
+    soil: { nitrogen: 2, cover: 1, organic_matter: 2, pest_break: 2, forage: 2 },
     why: 'A three-year rotation spreads the risk across three crops with different calendars and keeps wheat only one year in three.',
     benefits: [
-      'Longest break in the cereal pest cycle',
+      'Breaks the wheat cycle, though wheat and barley can share some pests and diseases',
       'Lentil fixes nitrogen and has a short cycle that escapes part of the spring heat',
       'Diversified income: no single crop failure ruins the farm',
     ],
@@ -84,8 +99,13 @@ export const ROTATIONS = [
       'Lentil is sensitive to heat at flowering (March - April)',
     ],
     gaps: [
+      'The exact three-year sequence is a scenario to validate locally',
       'Access to lentil seeds and buyers',
       'Equipment for harvesting legumes',
+    ],
+    sources: [
+      { label: 'Morocco cereal guide (regional rotation examples)', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' },
+      { label: 'Morocco legume guide', url: 'https://www.ardna.org/fr/articles/detail?id=84' },
     ],
   },
 ];

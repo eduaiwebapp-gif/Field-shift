@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "site_id": "settat",
+  "source": "NASA POWER",
+  "mode": "historical_rainfall_indicator",
+  "crop_ids": [
+    "wheat",
+    "barley"
+  ],
+  "production_system": "rainfed",
+  "threshold_mm": 25.0,
+  "window_days": 10,
+  "seasons": 20,
+  "onset_counts": {
+    "October": 7,
+    "November": 9,
+    "December": 2,
+    "No qualifying window": 2
+  },
+  "interpretation": "First autumn rainfall window meeting the threshold. Soil and crop conditions still determine suitability."
+}

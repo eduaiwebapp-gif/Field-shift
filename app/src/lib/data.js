@@ -19,6 +19,16 @@ export async function loadRegionData(regionId) {
 
 export const loadSensorSample = () => getJson('sensor_sample.json');
 
+// Data science outputs (Python pipeline in data-science/), served from /data/field-shift/<region>/
+export async function loadPlantingData(regionId) {
+  const [screening, replay, outlook] = await Promise.all([
+    getJson(`field-shift/${regionId}/recommendations.json`),
+    getJson(`field-shift/${regionId}/planting_ml.json`),
+    getJson(`field-shift/${regionId}/planting_outlook.json`),
+  ]);
+  return { screening, replay, outlook };
+}
+
 export const SCENARIOS = [
   { id: 'recent', label: 'Next season', hint: 'Expected conditions, based on the last 15 seasons' },
   { id: 'dry_year', label: 'Dry year', hint: 'If next season is as dry as the driest recent one' },

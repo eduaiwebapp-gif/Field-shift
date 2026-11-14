@@ -1,0 +1,27 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {"type": "Point", "coordinates": [-7.61662, 33.00103]},
+      "properties": {
+        "site_id": "settat",
+        "site_name": "Settat",
+        "site_role": "primary_climate_reference",
+        "country_code": "MA",
+        "coordinate_source": "https://www.geonames.org/2537406/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {"type": "Point", "coordinates": [-8.42769, 32.65236]},
+      "properties": {
+        "site_id": "doukkala",
+        "site_name": "Sidi Bennour",
+        "site_role": "candidate_comparison",
+        "country_code": "MA",
+        "coordinate_source": "https://www.geonames.org/2536074/sidi-bennour.html"
+      }
+    }
+  ]
+}

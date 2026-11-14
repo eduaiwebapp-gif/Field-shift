@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.61662,
+          33.00103
+        ]
+      },
+      "properties": {
+        "site_id": "settat",
+        "site_name": "Settat",
+        "site_role": "primary_climate_reference",
+        "country_code": "MA",
+        "coordinate_source": "https://www.geonames.org/2537406/",
+        "climate_source": "NASA POWER",
+        "spatial_support": "gridded_point_reference",
+        "period_start": "2006-01-01",
+        "period_end": "2025-12-31",
+        "mean_annual_temperature_c": 18.75,
+        "mean_annual_precipitation_mm": 449.5,
+        "temperature_trend_c_decade": 0.681,
+        "precipitation_trend_mm_decade": -13.104,
+        "temperature_years_used": 20,
+        "precipitation_years_used": 20
+      }
+    }
+  ]
+}

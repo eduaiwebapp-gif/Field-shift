@@ -12,7 +12,7 @@ export const CROPS = [
   {
     id: 'wheat', name: 'Wheat', system: 'rainfed',
     months: [11, 12, 1, 2, 3, 4, 5], critical_months: [4, 5],
-    planting_window: 'Nov - Dec', harvest_window: 'May - Jun',
+    planting_window: 'Nov 1 - Dec 15', harvest_window: 'May - Jun',
     water_need_mm: 450, heat_limit_c: 26,
     yield_t_ha: [0.4, 3.0], price_mad_per_kg: 3.0, cost_mad_per_ha: 4500,
     notes: 'Main cereal of the region. Hurt by dry springs and heat during grain filling (Apr - May).',
@@ -20,7 +20,7 @@ export const CROPS = [
   {
     id: 'barley', name: 'Barley', system: 'rainfed',
     months: [11, 12, 1, 2, 3, 4, 5], critical_months: [3, 4],
-    planting_window: 'Nov - Dec', harvest_window: 'May',
+    planting_window: 'Nov 1 - Dec 15', harvest_window: 'May',
     water_need_mm: 350, heat_limit_c: 27,
     yield_t_ha: [0.3, 2.2], price_mad_per_kg: 2.8, cost_mad_per_ha: 3800,
     notes: 'More drought tolerant than wheat and harvested earlier, so it escapes some of the late heat.',
@@ -66,3 +66,19 @@ export const CROPS = [
     notes: 'High income but needs full irrigation, so it depends on water access.',
   },
 ];
+
+// Sources checked by the data scientist (docs/for-data-scientist and data-science/handoff/review).
+const CEREAL_GUIDE = { label: 'Morocco cereal guide, Table 11', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' };
+const FAO_WATER = { label: 'FAO, crop water needs (Table 5)', url: 'https://www.fao.org/4/s2022e/s2022e02.htm' };
+const FAO56 = { label: 'FAO-56, crop evapotranspiration', url: 'https://www.fao.org/4/x0490e/x0490e0b.htm' };
+const LEGUME_GUIDE = { label: 'Morocco legume guide', url: 'https://www.ardna.org/fr/articles/detail?id=84' };
+
+export const CROP_SOURCES = {
+  wheat: [CEREAL_GUIDE, FAO_WATER, FAO56],
+  barley: [CEREAL_GUIDE, FAO_WATER, FAO56],
+  chickpea: [{ label: 'INRA, spring chickpea', url: 'https://www.inra.org.ma/sites/default/files/06903.pdf' }, LEGUME_GUIDE],
+  lentil: [LEGUME_GUIDE],
+  faba: [LEGUME_GUIDE, { label: 'INRA, crop protection guide', url: 'https://www.inra.org.ma/sites/default/files/publications/ouvrages/guidephyto2015r.pdf' }],
+  olive: [{ label: 'INRA, olive guide', url: 'https://www.inra.org.ma/sites/default/files/publications/ouvrages/olivierkafacifr.pdf' }, FAO56],
+  tomato: [FAO_WATER, FAO56],
+};

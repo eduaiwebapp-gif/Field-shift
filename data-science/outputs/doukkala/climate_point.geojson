@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.42769,
+          32.65236
+        ]
+      },
+      "properties": {
+        "site_id": "doukkala",
+        "site_name": "Sidi Bennour",
+        "site_role": "candidate_comparison",
+        "country_code": "MA",
+        "coordinate_source": "https://www.geonames.org/2536074/sidi-bennour.html",
+        "climate_source": "NASA POWER",
+        "spatial_support": "gridded_point_reference",
+        "period_start": "2006-01-01",
+        "period_end": "2025-12-31",
+        "mean_annual_temperature_c": 19.16,
+        "mean_annual_precipitation_mm": 361.3,
+        "temperature_trend_c_decade": 0.622,
+        "precipitation_trend_mm_decade": -36.69,
+        "temperature_years_used": 20,
+        "precipitation_years_used": 20
+      }
+    }
+  ]
+}

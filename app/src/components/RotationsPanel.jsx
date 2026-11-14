@@ -69,11 +69,11 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
       <div className="rot-metrics">
         <div><span className="k">Climate fit today</span><span className="v">{m.score}/100</span></div>
         <div>
-          <span className="k">Avg. profit per ha per year</span>
+          <span className="k">Simulated profit per ha per year</span>
           <span className={`v ${m.avg_profit_mad_ha < 0 ? 'bad' : ''}`}>{fmt(m.avg_profit_mad_ha)} MAD</span>
           {!r.current && <span className={`d ${profitDiff >= 0 ? 'good' : 'bad'}`}>{profitDiff >= 0 ? '+' : ''}{fmt(profitDiff)} vs current</span>}
         </div>
-        <div><span className="k">Seasons at a loss{whatIfLabel ? ' (what-if)' : ', 2011-2025'}</span><span className="v">{fmt(m.failed_seasons, m.failed_seasons % 1 ? 1 : 0)} of {m.seasons}</span></div>
+        <div><span className="k">Simulated seasons at a loss{whatIfLabel ? ' (what-if)' : ', 2011-2025'}</span><span className="v">{fmt(m.failed_seasons, m.failed_seasons % 1 ? 1 : 0)} of {m.seasons}</span></div>
         <div><span className="k">Fit in the driest year</span><span className="v">{m.dry_year_score}/100</span></div>
         <div><span className="k">Extra water for full yield</span><span className="v">{fmt(m.extra_water_mm)} mm</span></div>
       </div>
@@ -91,7 +91,7 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
         <div className="rot-details">
           <h4>Why it is suggested</h4>
           <p>{r.why}</p>
-          <h4>Evidence from NASA data</h4>
+          <h4>Simulation results on NASA data</h4>
           <ul>{r.evidence.map((e, i) => <li key={i}>{e}</li>)}</ul>
           <h4>Benefits</h4>
           <ul>{r.benefits.map((e, i) => <li key={i}>{e}</li>)}</ul>
@@ -99,6 +99,14 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
           <ul>{r.risks.map((e, i) => <li key={i}>{e}</li>)}</ul>
           <h4>What we don't know yet</h4>
           <ul>{r.gaps.map((e, i) => <li key={i}>{e}</li>)}</ul>
+          {r.sources?.length > 0 && (
+            <>
+              <h4>Sources</h4>
+              <ul className="sources">
+                {r.sources.map((s) => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.label}</a></li>)}
+              </ul>
+            </>
+          )}
         </div>
       )}
     </article>
@@ -210,6 +218,13 @@ export default function RotationsPanel({ recommendations, climate }) {
         ))}
       </div>
       <SeasonCalendar rotation={calRotation} crops={recommendations.crops} monthly={climate.monthly} />
+
+      {recommendations.assumptions && (
+        <details className="assume">
+          <summary>Model assumptions</summary>
+          <ul className="assumptions">{recommendations.assumptions.map((a) => <li key={a}>{a}</li>)}</ul>
+        </details>
+      )}
 
       <div className="callout mid">
         Field Shift helps you explore options. It does not replace your own experience or the advice of a local

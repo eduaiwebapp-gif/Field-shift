@@ -1,0 +1,926 @@
+{
+  "schema_version": "1.0",
+  "site_id": "doukkala",
+  "climate": {
+    "source": "NASA POWER",
+    "source_url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+    "input_mode": "api",
+    "spatial_support": "gridded_point_reference",
+    "period_start": "2006-01-01",
+    "period_end": "2025-12-31",
+    "expected_days": 7305,
+    "time_standard": "UTC",
+    "parameters": {
+      "T2M": {
+        "source_units": "C",
+        "valid_days": 7305
+      },
+      "T2M_MIN": {
+        "source_units": "C",
+        "valid_days": 7305
+      },
+      "T2M_MAX": {
+        "source_units": "C",
+        "valid_days": 7305
+      },
+      "PRECTOTCORR": {
+        "source_units": "mm/day",
+        "valid_days": 7305
+      }
+    },
+    "source_datasets": [
+      "MERRA2",
+      "POWER"
+    ],
+    "response_coordinates_lon_lat": [
+      -8.428,
+      32.652
+    ],
+    "annual": [
+      {
+        "year": 2006,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.951342465753424,
+        "total_precipitation_mm": 290.75
+      },
+      {
+        "year": 2007,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.589315068493153,
+        "total_precipitation_mm": 257.57
+      },
+      {
+        "year": 2008,
+        "expected_days": 366,
+        "valid_temperature_days": 366,
+        "valid_precipitation_days": 366,
+        "mean_temperature_c": 18.402841530054644,
+        "total_precipitation_mm": 367.49
+      },
+      {
+        "year": 2009,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 19.099013698630138,
+        "total_precipitation_mm": 536.59
+      },
+      {
+        "year": 2010,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 19.35309589041096,
+        "total_precipitation_mm": 532.55
+      },
+      {
+        "year": 2011,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.94358904109589,
+        "total_precipitation_mm": 438.14
+      },
+      {
+        "year": 2012,
+        "expected_days": 366,
+        "valid_temperature_days": 366,
+        "valid_precipitation_days": 366,
+        "mean_temperature_c": 18.92295081967213,
+        "total_precipitation_mm": 305.19
+      },
+      {
+        "year": 2013,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.827424657534248,
+        "total_precipitation_mm": 297.88
+      },
+      {
+        "year": 2014,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.92049315068493,
+        "total_precipitation_mm": 528.51
+      },
+      {
+        "year": 2015,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.891260273972605,
+        "total_precipitation_mm": 223.87
+      },
+      {
+        "year": 2016,
+        "expected_days": 366,
+        "valid_temperature_days": 366,
+        "valid_precipitation_days": 366,
+        "mean_temperature_c": 19.33327868852459,
+        "total_precipitation_mm": 410.11
+      },
+      {
+        "year": 2017,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 19.793397260273974,
+        "total_precipitation_mm": 221.32999999999998
+      },
+      {
+        "year": 2018,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 17.589095890410956,
+        "total_precipitation_mm": 597.48
+      },
+      {
+        "year": 2019,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.814493150684932,
+        "total_precipitation_mm": 207.07
+      },
+      {
+        "year": 2020,
+        "expected_days": 366,
+        "valid_temperature_days": 366,
+        "valid_precipitation_days": 366,
+        "mean_temperature_c": 19.424125683060108,
+        "total_precipitation_mm": 368.16
+      },
+      {
+        "year": 2021,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 18.407232876712328,
+        "total_precipitation_mm": 559.42
+      },
+      {
+        "year": 2022,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 20.344246575342464,
+        "total_precipitation_mm": 293.62
+      },
+      {
+        "year": 2023,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 20.384657534246575,
+        "total_precipitation_mm": 163.85
+      },
+      {
+        "year": 2024,
+        "expected_days": 366,
+        "valid_temperature_days": 366,
+        "valid_precipitation_days": 366,
+        "mean_temperature_c": 20.259726775956285,
+        "total_precipitation_mm": 194.8
+      },
+      {
+        "year": 2025,
+        "expected_days": 365,
+        "valid_temperature_days": 365,
+        "valid_precipitation_days": 365,
+        "mean_temperature_c": 19.91821917808219,
+        "total_precipitation_mm": 430.69
+      }
+    ],
+    "seasonal": [
+      {
+        "season": "MAM",
+        "year": 2006,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.611630434782608,
+        "total_precipitation_mm": 38.8
+      },
+      {
+        "season": "JJA",
+        "year": 2006,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.034891304347827,
+        "total_precipitation_mm": 10.36
+      },
+      {
+        "season": "SON",
+        "year": 2006,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 21.502087912087912,
+        "total_precipitation_mm": 65.38
+      },
+      {
+        "season": "DJF",
+        "year": 2007,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 12.195333333333332,
+        "total_precipitation_mm": 52.42
+      },
+      {
+        "season": "MAM",
+        "year": 2007,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 16.670434782608698,
+        "total_precipitation_mm": 77.10000000000001
+      },
+      {
+        "season": "JJA",
+        "year": 2007,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 24.997826086956525,
+        "total_precipitation_mm": 7.29
+      },
+      {
+        "season": "SON",
+        "year": 2007,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.01923076923077,
+        "total_precipitation_mm": 102.82000000000001
+      },
+      {
+        "season": "DJF",
+        "year": 2008,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 13.075274725274724,
+        "total_precipitation_mm": 105.28
+      },
+      {
+        "season": "MAM",
+        "year": 2008,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.309782608695652,
+        "total_precipitation_mm": 40.25
+      },
+      {
+        "season": "JJA",
+        "year": 2008,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 25.69010869565217,
+        "total_precipitation_mm": 0.16
+      },
+      {
+        "season": "SON",
+        "year": 2008,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 18.08659340659341,
+        "total_precipitation_mm": 213.67
+      },
+      {
+        "season": "DJF",
+        "year": 2009,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 10.944,
+        "total_precipitation_mm": 270.8
+      },
+      {
+        "season": "MAM",
+        "year": 2009,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 16.825978260869565,
+        "total_precipitation_mm": 71.6
+      },
+      {
+        "season": "JJA",
+        "year": 2009,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.333695652173912,
+        "total_precipitation_mm": 18.65
+      },
+      {
+        "season": "SON",
+        "year": 2009,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.73,
+        "total_precipitation_mm": 90.58
+      },
+      {
+        "season": "DJF",
+        "year": 2010,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 13.636222222222223,
+        "total_precipitation_mm": 327.82
+      },
+      {
+        "season": "MAM",
+        "year": 2010,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.286195652173912,
+        "total_precipitation_mm": 69.29
+      },
+      {
+        "season": "JJA",
+        "year": 2010,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.419999999999998,
+        "total_precipitation_mm": 5.79
+      },
+      {
+        "season": "SON",
+        "year": 2010,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.00945054945055,
+        "total_precipitation_mm": 185.3
+      },
+      {
+        "season": "DJF",
+        "year": 2011,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 12.629333333333335,
+        "total_precipitation_mm": 141.33
+      },
+      {
+        "season": "MAM",
+        "year": 2011,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.690217391304348,
+        "total_precipitation_mm": 223.34
+      },
+      {
+        "season": "JJA",
+        "year": 2011,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 25.83271739130435,
+        "total_precipitation_mm": 2.85
+      },
+      {
+        "season": "SON",
+        "year": 2011,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.376593406593408,
+        "total_precipitation_mm": 138.48
+      },
+      {
+        "season": "DJF",
+        "year": 2012,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 10.883296703296704,
+        "total_precipitation_mm": 47.24
+      },
+      {
+        "season": "MAM",
+        "year": 2012,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.63695652173913,
+        "total_precipitation_mm": 68.57000000000001
+      },
+      {
+        "season": "JJA",
+        "year": 2012,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.804347826086957,
+        "total_precipitation_mm": 1.9100000000000001
+      },
+      {
+        "season": "SON",
+        "year": 2012,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.23164835164835,
+        "total_precipitation_mm": 176.88
+      },
+      {
+        "season": "DJF",
+        "year": 2013,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 11.72022222222222,
+        "total_precipitation_mm": 53.81
+      },
+      {
+        "season": "MAM",
+        "year": 2013,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 16.879347826086956,
+        "total_precipitation_mm": 157.22
+      },
+      {
+        "season": "JJA",
+        "year": 2013,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.31478260869565,
+        "total_precipitation_mm": 1.47
+      },
+      {
+        "season": "SON",
+        "year": 2013,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.181098901098903,
+        "total_precipitation_mm": 77.49
+      },
+      {
+        "season": "DJF",
+        "year": 2014,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 11.888222222222224,
+        "total_precipitation_mm": 128.31
+      },
+      {
+        "season": "MAM",
+        "year": 2014,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.348260869565216,
+        "total_precipitation_mm": 84.57000000000001
+      },
+      {
+        "season": "JJA",
+        "year": 2014,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 24.617065217391303,
+        "total_precipitation_mm": 2.98
+      },
+      {
+        "season": "SON",
+        "year": 2014,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 21.02274725274725,
+        "total_precipitation_mm": 263.82
+      },
+      {
+        "season": "DJF",
+        "year": 2015,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 10.508444444444445,
+        "total_precipitation_mm": 129.1
+      },
+      {
+        "season": "MAM",
+        "year": 2015,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.465978260869566,
+        "total_precipitation_mm": 88.37
+      },
+      {
+        "season": "JJA",
+        "year": 2015,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.065434782608694,
+        "total_precipitation_mm": 28.18
+      },
+      {
+        "season": "SON",
+        "year": 2015,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.082087912087914,
+        "total_precipitation_mm": 47.73
+      },
+      {
+        "season": "DJF",
+        "year": 2016,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 13.933406593406595,
+        "total_precipitation_mm": 63.8
+      },
+      {
+        "season": "MAM",
+        "year": 2016,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 16.304347826086957,
+        "total_precipitation_mm": 127.03
+      },
+      {
+        "season": "JJA",
+        "year": 2016,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 27.14184782608696,
+        "total_precipitation_mm": 7.55
+      },
+      {
+        "season": "SON",
+        "year": 2016,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.78098901098901,
+        "total_precipitation_mm": 138.67
+      },
+      {
+        "season": "DJF",
+        "year": 2017,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 11.602666666666666,
+        "total_precipitation_mm": 168.1
+      },
+      {
+        "season": "MAM",
+        "year": 2017,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.585978260869567,
+        "total_precipitation_mm": 20.02
+      },
+      {
+        "season": "JJA",
+        "year": 2017,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 27.392934782608698,
+        "total_precipitation_mm": 2.23
+      },
+      {
+        "season": "SON",
+        "year": 2017,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 22.00989010989011,
+        "total_precipitation_mm": 61.11
+      },
+      {
+        "season": "DJF",
+        "year": 2018,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 10.524888888888889,
+        "total_precipitation_mm": 192.62
+      },
+      {
+        "season": "MAM",
+        "year": 2018,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 15.35086956521739,
+        "total_precipitation_mm": 183.0
+      },
+      {
+        "season": "JJA",
+        "year": 2018,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 23.817065217391306,
+        "total_precipitation_mm": 3.14
+      },
+      {
+        "season": "SON",
+        "year": 2018,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 19.776483516483516,
+        "total_precipitation_mm": 258.31
+      },
+      {
+        "season": "DJF",
+        "year": 2019,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 12.235888888888889,
+        "total_precipitation_mm": 34.55
+      },
+      {
+        "season": "MAM",
+        "year": 2019,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.33141304347826,
+        "total_precipitation_mm": 60.260000000000005
+      },
+      {
+        "season": "JJA",
+        "year": 2019,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 24.334891304347824,
+        "total_precipitation_mm": 2.22
+      },
+      {
+        "season": "SON",
+        "year": 2019,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.068351648351648,
+        "total_precipitation_mm": 45.5
+      },
+      {
+        "season": "DJF",
+        "year": 2020,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 13.41989010989011,
+        "total_precipitation_mm": 85.36
+      },
+      {
+        "season": "MAM",
+        "year": 2020,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.195326086956523,
+        "total_precipitation_mm": 106.08
+      },
+      {
+        "season": "JJA",
+        "year": 2020,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.19054347826087,
+        "total_precipitation_mm": 14.58
+      },
+      {
+        "season": "SON",
+        "year": 2020,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.124505494505495,
+        "total_precipitation_mm": 190.25
+      },
+      {
+        "season": "DJF",
+        "year": 2021,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 12.450555555555555,
+        "total_precipitation_mm": 189.78
+      },
+      {
+        "season": "MAM",
+        "year": 2021,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 16.633695652173913,
+        "total_precipitation_mm": 331.53000000000003
+      },
+      {
+        "season": "JJA",
+        "year": 2021,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 23.623695652173915,
+        "total_precipitation_mm": 1.84
+      },
+      {
+        "season": "SON",
+        "year": 2021,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 20.322967032967036,
+        "total_precipitation_mm": 48.76
+      },
+      {
+        "season": "DJF",
+        "year": 2022,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 14.441222222222223,
+        "total_precipitation_mm": 55.88
+      },
+      {
+        "season": "MAM",
+        "year": 2022,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 17.547608695652173,
+        "total_precipitation_mm": 113.12
+      },
+      {
+        "season": "JJA",
+        "year": 2022,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 26.85967391304348,
+        "total_precipitation_mm": 4.63
+      },
+      {
+        "season": "SON",
+        "year": 2022,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 22.017362637362638,
+        "total_precipitation_mm": 71.21
+      },
+      {
+        "season": "DJF",
+        "year": 2023,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 13.236444444444444,
+        "total_precipitation_mm": 137.66
+      },
+      {
+        "season": "MAM",
+        "year": 2023,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 19.572065217391305,
+        "total_precipitation_mm": 29.74
+      },
+      {
+        "season": "JJA",
+        "year": 2023,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 27.46945652173913,
+        "total_precipitation_mm": 8.36
+      },
+      {
+        "season": "SON",
+        "year": 2023,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 21.56175824175824,
+        "total_precipitation_mm": 45.09
+      },
+      {
+        "season": "DJF",
+        "year": 2024,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 14.933846153846154,
+        "total_precipitation_mm": 81.59
+      },
+      {
+        "season": "MAM",
+        "year": 2024,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.406086956521737,
+        "total_precipitation_mm": 68.32
+      },
+      {
+        "season": "JJA",
+        "year": 2024,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 25.655760869565217,
+        "total_precipitation_mm": 8.61
+      },
+      {
+        "season": "SON",
+        "year": 2024,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 21.79230769230769,
+        "total_precipitation_mm": 49.39
+      },
+      {
+        "season": "DJF",
+        "year": 2025,
+        "expected_days": 90,
+        "valid_temperature_days": 90,
+        "valid_precipitation_days": 90,
+        "mean_temperature_c": 13.745,
+        "total_precipitation_mm": 57.47
+      },
+      {
+        "season": "MAM",
+        "year": 2025,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 18.07467391304348,
+        "total_precipitation_mm": 123.84
+      },
+      {
+        "season": "JJA",
+        "year": 2025,
+        "expected_days": 92,
+        "valid_temperature_days": 92,
+        "valid_precipitation_days": 92,
+        "mean_temperature_c": 27.159021739130434,
+        "total_precipitation_mm": 57.76
+      },
+      {
+        "season": "SON",
+        "year": 2025,
+        "expected_days": 91,
+        "valid_temperature_days": 91,
+        "valid_precipitation_days": 91,
+        "mean_temperature_c": 21.42978021978022,
+        "total_precipitation_mm": 46.17
+      }
+    ],
+    "trends_per_decade": {
+      "method": "ordinary_least_squares_complete_calendar_years",
+      "temperature_c": {
+        "slope_per_decade": 0.622,
+        "years_used": 20
+      },
+      "precipitation_mm": {
+        "slope_per_decade": -36.69,
+        "years_used": 20
+      }
+    }
+  }
+}

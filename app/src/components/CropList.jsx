@@ -37,6 +37,14 @@ function CropCard({ crop, scenario, rank, onSimulate }) {
         </p>
       )}
       <p className="muted small">{crop.notes}</p>
+      {crop.sources?.length > 0 && (
+        <p className="muted small crop-src">
+          Sources:{' '}
+          {crop.sources.map((s, i) => (
+            <span key={s.url}>{i > 0 && ' · '}<a href={s.url} target="_blank" rel="noreferrer">{s.label}</a></span>
+          ))}
+        </p>
+      )}
       <button className="btn-link" onClick={() => onSimulate(crop.id)}>Simulate income →</button>
     </article>
   );

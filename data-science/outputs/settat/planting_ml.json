@@ -1,0 +1,2041 @@
+{
+  "schema_version": "1.0",
+  "site_id": "settat",
+  "source": "NASA POWER",
+  "mode": "historical_replay",
+  "time_standard": "UTC",
+  "as_of_timing": "End of the given day. The next 14 days start on the following day.",
+  "target": "First autumn 10-day rainfall total at or above 25 mm within the next 14 days",
+  "threshold_source": "https://www.inra.org.ma/sites/default/files/publications/ouvrages/prediction1212.pdf",
+  "autumn_period": "October 1 through December 31",
+  "rain_window_days": 10,
+  "rain_threshold_mm": 25.0,
+  "forecast_horizon_days": 14,
+  "model": "L2-regularized logistic regression",
+  "features": [
+    "day_of_autumn",
+    "log1p_past_10_day_rainfall_mm",
+    "past_10_day_mean_temperature_c"
+  ],
+  "baseline": "Same-date historical event rates with Laplace smoothing",
+  "primary_probability_field": "historical_probability",
+  "evaluation": {
+    "training_years": [
+      2006,
+      2020
+    ],
+    "holdout_years": [
+      2021,
+      2025
+    ],
+    "training_rows": 503,
+    "holdout_rows": 219,
+    "holdout_seasons_scored": 5,
+    "brier_score_aggregation": "Mean of season-level Brier scores. Lower is better.",
+    "ml_brier_score": 0.25932,
+    "historical_brier_score": 0.25274
+  },
+  "replay": [
+    {
+      "year": 2021,
+      "observed_first_rain_date": "2021-11-26",
+      "forecasts": [
+        {
+          "as_of": "2021-10-10",
+          "forecast_through": "2021-10-24",
+          "past_10_day_rainfall_mm": 0.85,
+          "past_10_day_mean_temperature_c": 22.85,
+          "ml_probability": 0.258,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-11",
+          "forecast_through": "2021-10-25",
+          "past_10_day_rainfall_mm": 0.83,
+          "past_10_day_mean_temperature_c": 22.94,
+          "ml_probability": 0.2606,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-12",
+          "forecast_through": "2021-10-26",
+          "past_10_day_rainfall_mm": 0.96,
+          "past_10_day_mean_temperature_c": 22.88,
+          "ml_probability": 0.2611,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-13",
+          "forecast_through": "2021-10-27",
+          "past_10_day_rainfall_mm": 1.04,
+          "past_10_day_mean_temperature_c": 22.93,
+          "ml_probability": 0.2618,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-14",
+          "forecast_through": "2021-10-28",
+          "past_10_day_rainfall_mm": 1.14,
+          "past_10_day_mean_temperature_c": 23.11,
+          "ml_probability": 0.2609,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-15",
+          "forecast_through": "2021-10-29",
+          "past_10_day_rainfall_mm": 1.22,
+          "past_10_day_mean_temperature_c": 23.3,
+          "ml_probability": 0.2605,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-16",
+          "forecast_through": "2021-10-30",
+          "past_10_day_rainfall_mm": 1.24,
+          "past_10_day_mean_temperature_c": 23.09,
+          "ml_probability": 0.265,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-17",
+          "forecast_through": "2021-10-31",
+          "past_10_day_rainfall_mm": 1.23,
+          "past_10_day_mean_temperature_c": 22.66,
+          "ml_probability": 0.2724,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-18",
+          "forecast_through": "2021-11-01",
+          "past_10_day_rainfall_mm": 0.99,
+          "past_10_day_mean_temperature_c": 22.83,
+          "ml_probability": 0.2787,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-19",
+          "forecast_through": "2021-11-02",
+          "past_10_day_rainfall_mm": 0.87,
+          "past_10_day_mean_temperature_c": 23.18,
+          "ml_probability": 0.281,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-20",
+          "forecast_through": "2021-11-03",
+          "past_10_day_rainfall_mm": 0.86,
+          "past_10_day_mean_temperature_c": 23.19,
+          "ml_probability": 0.2842,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-21",
+          "forecast_through": "2021-11-04",
+          "past_10_day_rainfall_mm": 1.6,
+          "past_10_day_mean_temperature_c": 22.75,
+          "ml_probability": 0.2767,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-22",
+          "forecast_through": "2021-11-05",
+          "past_10_day_rainfall_mm": 2.37,
+          "past_10_day_mean_temperature_c": 22.46,
+          "ml_probability": 0.2712,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-23",
+          "forecast_through": "2021-11-06",
+          "past_10_day_rainfall_mm": 2.1,
+          "past_10_day_mean_temperature_c": 22.22,
+          "ml_probability": 0.2802,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-24",
+          "forecast_through": "2021-11-07",
+          "past_10_day_rainfall_mm": 1.98,
+          "past_10_day_mean_temperature_c": 21.91,
+          "ml_probability": 0.2882,
+          "historical_probability": 0.3077,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-25",
+          "forecast_through": "2021-11-08",
+          "past_10_day_rainfall_mm": 1.91,
+          "past_10_day_mean_temperature_c": 21.55,
+          "ml_probability": 0.2961,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-26",
+          "forecast_through": "2021-11-09",
+          "past_10_day_rainfall_mm": 1.96,
+          "past_10_day_mean_temperature_c": 21.17,
+          "ml_probability": 0.3025,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-27",
+          "forecast_through": "2021-11-10",
+          "past_10_day_rainfall_mm": 2.04,
+          "past_10_day_mean_temperature_c": 20.85,
+          "ml_probability": 0.3078,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-28",
+          "forecast_through": "2021-11-11",
+          "past_10_day_rainfall_mm": 2.09,
+          "past_10_day_mean_temperature_c": 20.38,
+          "ml_probability": 0.3152,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-29",
+          "forecast_through": "2021-11-12",
+          "past_10_day_rainfall_mm": 2.12,
+          "past_10_day_mean_temperature_c": 19.75,
+          "ml_probability": 0.3249,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-30",
+          "forecast_through": "2021-11-13",
+          "past_10_day_rainfall_mm": 2.01,
+          "past_10_day_mean_temperature_c": 19.37,
+          "ml_probability": 0.3342,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-10-31",
+          "forecast_through": "2021-11-14",
+          "past_10_day_rainfall_mm": 1.31,
+          "past_10_day_mean_temperature_c": 19.26,
+          "ml_probability": 0.352,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-01",
+          "forecast_through": "2021-11-15",
+          "past_10_day_rainfall_mm": 0.47,
+          "past_10_day_mean_temperature_c": 19.43,
+          "ml_probability": 0.3767,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-02",
+          "forecast_through": "2021-11-16",
+          "past_10_day_rainfall_mm": 1.23,
+          "past_10_day_mean_temperature_c": 19.57,
+          "ml_probability": 0.3571,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-03",
+          "forecast_through": "2021-11-17",
+          "past_10_day_rainfall_mm": 5.42,
+          "past_10_day_mean_temperature_c": 19.44,
+          "ml_probability": 0.3101,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-04",
+          "forecast_through": "2021-11-18",
+          "past_10_day_rainfall_mm": 8.01,
+          "past_10_day_mean_temperature_c": 18.95,
+          "ml_probability": 0.3025,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-05",
+          "forecast_through": "2021-11-19",
+          "past_10_day_rainfall_mm": 7.96,
+          "past_10_day_mean_temperature_c": 18.39,
+          "ml_probability": 0.3119,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-06",
+          "forecast_through": "2021-11-20",
+          "past_10_day_rainfall_mm": 7.87,
+          "past_10_day_mean_temperature_c": 17.78,
+          "ml_probability": 0.3222,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-07",
+          "forecast_through": "2021-11-21",
+          "past_10_day_rainfall_mm": 7.82,
+          "past_10_day_mean_temperature_c": 17.05,
+          "ml_probability": 0.3339,
+          "historical_probability": 0.2,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-08",
+          "forecast_through": "2021-11-22",
+          "past_10_day_rainfall_mm": 7.78,
+          "past_10_day_mean_temperature_c": 16.35,
+          "ml_probability": 0.3452,
+          "historical_probability": 0.3,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-09",
+          "forecast_through": "2021-11-23",
+          "past_10_day_rainfall_mm": 7.78,
+          "past_10_day_mean_temperature_c": 15.74,
+          "ml_probability": 0.3557,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-10",
+          "forecast_through": "2021-11-24",
+          "past_10_day_rainfall_mm": 7.73,
+          "past_10_day_mean_temperature_c": 15.24,
+          "ml_probability": 0.3651,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-11",
+          "forecast_through": "2021-11-25",
+          "past_10_day_rainfall_mm": 7.63,
+          "past_10_day_mean_temperature_c": 14.74,
+          "ml_probability": 0.375,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2021-11-12",
+          "forecast_through": "2021-11-26",
+          "past_10_day_rainfall_mm": 6.97,
+          "past_10_day_mean_temperature_c": 14.22,
+          "ml_probability": 0.3889,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-13",
+          "forecast_through": "2021-11-27",
+          "past_10_day_rainfall_mm": 2.84,
+          "past_10_day_mean_temperature_c": 13.93,
+          "ml_probability": 0.435,
+          "historical_probability": 0.6,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-14",
+          "forecast_through": "2021-11-28",
+          "past_10_day_rainfall_mm": 0.29,
+          "past_10_day_mean_temperature_c": 14.01,
+          "ml_probability": 0.4976,
+          "historical_probability": 0.6,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-15",
+          "forecast_through": "2021-11-29",
+          "past_10_day_rainfall_mm": 0.29,
+          "past_10_day_mean_temperature_c": 14.17,
+          "ml_probability": 0.4995,
+          "historical_probability": 0.6,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-16",
+          "forecast_through": "2021-11-30",
+          "past_10_day_rainfall_mm": 0.34,
+          "past_10_day_mean_temperature_c": 14.35,
+          "ml_probability": 0.4989,
+          "historical_probability": 0.7,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-17",
+          "forecast_through": "2021-12-01",
+          "past_10_day_rainfall_mm": 0.37,
+          "past_10_day_mean_temperature_c": 14.55,
+          "ml_probability": 0.4989,
+          "historical_probability": 0.7,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-18",
+          "forecast_through": "2021-12-02",
+          "past_10_day_rainfall_mm": 0.38,
+          "past_10_day_mean_temperature_c": 14.96,
+          "ml_probability": 0.4972,
+          "historical_probability": 0.7,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-19",
+          "forecast_through": "2021-12-03",
+          "past_10_day_rainfall_mm": 2.22,
+          "past_10_day_mean_temperature_c": 15.3,
+          "ml_probability": 0.45,
+          "historical_probability": 0.7,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-20",
+          "forecast_through": "2021-12-04",
+          "past_10_day_rainfall_mm": 2.36,
+          "past_10_day_mean_temperature_c": 15.28,
+          "ml_probability": 0.4517,
+          "historical_probability": 0.7,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-21",
+          "forecast_through": "2021-12-05",
+          "past_10_day_rainfall_mm": 2.38,
+          "past_10_day_mean_temperature_c": 15.18,
+          "ml_probability": 0.4564,
+          "historical_probability": 0.6667,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-22",
+          "forecast_through": "2021-12-06",
+          "past_10_day_rainfall_mm": 2.58,
+          "past_10_day_mean_temperature_c": 15.19,
+          "ml_probability": 0.4568,
+          "historical_probability": 0.625,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-23",
+          "forecast_through": "2021-12-07",
+          "past_10_day_rainfall_mm": 22.58,
+          "past_10_day_mean_temperature_c": 14.91,
+          "ml_probability": 0.3635,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-24",
+          "forecast_through": "2021-12-08",
+          "past_10_day_rainfall_mm": 23.24,
+          "past_10_day_mean_temperature_c": 14.55,
+          "ml_probability": 0.3697,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2021-11-25",
+          "forecast_through": "2021-12-09",
+          "past_10_day_rainfall_mm": 24.47,
+          "past_10_day_mean_temperature_c": 14.28,
+          "ml_probability": 0.3737,
+          "historical_probability": 0.5,
+          "observed_event": true
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "observed_first_rain_date": "2022-12-06",
+      "forecasts": [
+        {
+          "as_of": "2022-10-10",
+          "forecast_through": "2022-10-24",
+          "past_10_day_rainfall_mm": 1.26,
+          "past_10_day_mean_temperature_c": 23.98,
+          "ml_probability": 0.2393,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-11",
+          "forecast_through": "2022-10-25",
+          "past_10_day_rainfall_mm": 2.11,
+          "past_10_day_mean_temperature_c": 23.77,
+          "ml_probability": 0.2311,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-12",
+          "forecast_through": "2022-10-26",
+          "past_10_day_rainfall_mm": 9.89,
+          "past_10_day_mean_temperature_c": 23.16,
+          "ml_probability": 0.1926,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-13",
+          "forecast_through": "2022-10-27",
+          "past_10_day_rainfall_mm": 10.46,
+          "past_10_day_mean_temperature_c": 22.67,
+          "ml_probability": 0.197,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-14",
+          "forecast_through": "2022-10-28",
+          "past_10_day_rainfall_mm": 10.5,
+          "past_10_day_mean_temperature_c": 22.49,
+          "ml_probability": 0.2007,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-15",
+          "forecast_through": "2022-10-29",
+          "past_10_day_rainfall_mm": 10.61,
+          "past_10_day_mean_temperature_c": 22.63,
+          "ml_probability": 0.2017,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-16",
+          "forecast_through": "2022-10-30",
+          "past_10_day_rainfall_mm": 12.17,
+          "past_10_day_mean_temperature_c": 22.65,
+          "ml_probability": 0.1995,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-17",
+          "forecast_through": "2022-10-31",
+          "past_10_day_rainfall_mm": 12.0,
+          "past_10_day_mean_temperature_c": 22.64,
+          "ml_probability": 0.2024,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-18",
+          "forecast_through": "2022-11-01",
+          "past_10_day_rainfall_mm": 11.68,
+          "past_10_day_mean_temperature_c": 22.74,
+          "ml_probability": 0.205,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-19",
+          "forecast_through": "2022-11-02",
+          "past_10_day_rainfall_mm": 11.33,
+          "past_10_day_mean_temperature_c": 22.97,
+          "ml_probability": 0.2066,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-20",
+          "forecast_through": "2022-11-03",
+          "past_10_day_rainfall_mm": 11.01,
+          "past_10_day_mean_temperature_c": 23.3,
+          "ml_probability": 0.2073,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-21",
+          "forecast_through": "2022-11-04",
+          "past_10_day_rainfall_mm": 10.13,
+          "past_10_day_mean_temperature_c": 23.71,
+          "ml_probability": 0.2092,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-22",
+          "forecast_through": "2022-11-05",
+          "past_10_day_rainfall_mm": 2.34,
+          "past_10_day_mean_temperature_c": 24.16,
+          "ml_probability": 0.2552,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-23",
+          "forecast_through": "2022-11-06",
+          "past_10_day_rainfall_mm": 1.77,
+          "past_10_day_mean_temperature_c": 24.29,
+          "ml_probability": 0.2647,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-24",
+          "forecast_through": "2022-11-07",
+          "past_10_day_rainfall_mm": 1.71,
+          "past_10_day_mean_temperature_c": 24.4,
+          "ml_probability": 0.2675,
+          "historical_probability": 0.3077,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-25",
+          "forecast_through": "2022-11-08",
+          "past_10_day_rainfall_mm": 1.56,
+          "past_10_day_mean_temperature_c": 24.3,
+          "ml_probability": 0.2739,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-26",
+          "forecast_through": "2022-11-09",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.45,
+          "ml_probability": 0.3189,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-27",
+          "forecast_through": "2022-11-10",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.44,
+          "ml_probability": 0.3222,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-28",
+          "forecast_through": "2022-11-11",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.4,
+          "ml_probability": 0.3259,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-29",
+          "forecast_through": "2022-11-12",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.44,
+          "ml_probability": 0.3288,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-30",
+          "forecast_through": "2022-11-13",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.47,
+          "ml_probability": 0.3318,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-10-31",
+          "forecast_through": "2022-11-14",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.26,
+          "ml_probability": 0.3375,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-01",
+          "forecast_through": "2022-11-15",
+          "past_10_day_rainfall_mm": 0.0,
+          "past_10_day_mean_temperature_c": 24.12,
+          "ml_probability": 0.3424,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-02",
+          "forecast_through": "2022-11-16",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 23.99,
+          "ml_probability": 0.3463,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-03",
+          "forecast_through": "2022-11-17",
+          "past_10_day_rainfall_mm": 0.04,
+          "past_10_day_mean_temperature_c": 23.54,
+          "ml_probability": 0.3538,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-04",
+          "forecast_through": "2022-11-18",
+          "past_10_day_rainfall_mm": 0.05,
+          "past_10_day_mean_temperature_c": 23.13,
+          "ml_probability": 0.3615,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-05",
+          "forecast_through": "2022-11-19",
+          "past_10_day_rainfall_mm": 0.12,
+          "past_10_day_mean_temperature_c": 22.54,
+          "ml_probability": 0.3685,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-06",
+          "forecast_through": "2022-11-20",
+          "past_10_day_rainfall_mm": 0.17,
+          "past_10_day_mean_temperature_c": 22.06,
+          "ml_probability": 0.3754,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-07",
+          "forecast_through": "2022-11-21",
+          "past_10_day_rainfall_mm": 0.18,
+          "past_10_day_mean_temperature_c": 21.58,
+          "ml_probability": 0.3841,
+          "historical_probability": 0.2,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-08",
+          "forecast_through": "2022-11-22",
+          "past_10_day_rainfall_mm": 0.18,
+          "past_10_day_mean_temperature_c": 21.07,
+          "ml_probability": 0.3937,
+          "historical_probability": 0.3,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-09",
+          "forecast_through": "2022-11-23",
+          "past_10_day_rainfall_mm": 0.2,
+          "past_10_day_mean_temperature_c": 20.4,
+          "ml_probability": 0.4045,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-10",
+          "forecast_through": "2022-11-24",
+          "past_10_day_rainfall_mm": 0.22,
+          "past_10_day_mean_temperature_c": 20.1,
+          "ml_probability": 0.4108,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-11",
+          "forecast_through": "2022-11-25",
+          "past_10_day_rainfall_mm": 0.22,
+          "past_10_day_mean_temperature_c": 19.79,
+          "ml_probability": 0.4182,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-12",
+          "forecast_through": "2022-11-26",
+          "past_10_day_rainfall_mm": 0.2,
+          "past_10_day_mean_temperature_c": 19.67,
+          "ml_probability": 0.4242,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-13",
+          "forecast_through": "2022-11-27",
+          "past_10_day_rainfall_mm": 0.18,
+          "past_10_day_mean_temperature_c": 19.81,
+          "ml_probability": 0.4271,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-14",
+          "forecast_through": "2022-11-28",
+          "past_10_day_rainfall_mm": 0.18,
+          "past_10_day_mean_temperature_c": 19.97,
+          "ml_probability": 0.4288,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-15",
+          "forecast_through": "2022-11-29",
+          "past_10_day_rainfall_mm": 0.11,
+          "past_10_day_mean_temperature_c": 19.99,
+          "ml_probability": 0.4356,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-16",
+          "forecast_through": "2022-11-30",
+          "past_10_day_rainfall_mm": 0.07,
+          "past_10_day_mean_temperature_c": 19.8,
+          "ml_probability": 0.4436,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-17",
+          "forecast_through": "2022-12-01",
+          "past_10_day_rainfall_mm": 1.0,
+          "past_10_day_mean_temperature_c": 19.52,
+          "ml_probability": 0.4169,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-18",
+          "forecast_through": "2022-12-02",
+          "past_10_day_rainfall_mm": 2.91,
+          "past_10_day_mean_temperature_c": 19.16,
+          "ml_probability": 0.3892,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-19",
+          "forecast_through": "2022-12-03",
+          "past_10_day_rainfall_mm": 3.04,
+          "past_10_day_mean_temperature_c": 18.8,
+          "ml_probability": 0.3954,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-20",
+          "forecast_through": "2022-12-04",
+          "past_10_day_rainfall_mm": 3.04,
+          "past_10_day_mean_temperature_c": 18.35,
+          "ml_probability": 0.4044,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-21",
+          "forecast_through": "2022-12-05",
+          "past_10_day_rainfall_mm": 3.24,
+          "past_10_day_mean_temperature_c": 17.99,
+          "ml_probability": 0.4098,
+          "historical_probability": 0.6667,
+          "observed_event": false
+        },
+        {
+          "as_of": "2022-11-22",
+          "forecast_through": "2022-12-06",
+          "past_10_day_rainfall_mm": 4.96,
+          "past_10_day_mean_temperature_c": 17.69,
+          "ml_probability": 0.3989,
+          "historical_probability": 0.625,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-23",
+          "forecast_through": "2022-12-07",
+          "past_10_day_rainfall_mm": 5.44,
+          "past_10_day_mean_temperature_c": 17.31,
+          "ml_probability": 0.403,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-24",
+          "forecast_through": "2022-12-08",
+          "past_10_day_rainfall_mm": 6.69,
+          "past_10_day_mean_temperature_c": 16.96,
+          "ml_probability": 0.4012,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-25",
+          "forecast_through": "2022-12-09",
+          "past_10_day_rainfall_mm": 8.74,
+          "past_10_day_mean_temperature_c": 16.72,
+          "ml_probability": 0.3953,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-26",
+          "forecast_through": "2022-12-10",
+          "past_10_day_rainfall_mm": 8.86,
+          "past_10_day_mean_temperature_c": 16.76,
+          "ml_probability": 0.3978,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-27",
+          "forecast_through": "2022-12-11",
+          "past_10_day_rainfall_mm": 8.57,
+          "past_10_day_mean_temperature_c": 16.81,
+          "ml_probability": 0.4023,
+          "historical_probability": 0.4,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-28",
+          "forecast_through": "2022-12-12",
+          "past_10_day_rainfall_mm": 7.3,
+          "past_10_day_mean_temperature_c": 16.81,
+          "ml_probability": 0.4135,
+          "historical_probability": 0.4,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-29",
+          "forecast_through": "2022-12-13",
+          "past_10_day_rainfall_mm": 7.15,
+          "past_10_day_mean_temperature_c": 16.78,
+          "ml_probability": 0.4186,
+          "historical_probability": 0.4,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-11-30",
+          "forecast_through": "2022-12-14",
+          "past_10_day_rainfall_mm": 7.14,
+          "past_10_day_mean_temperature_c": 16.67,
+          "ml_probability": 0.4237,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-12-01",
+          "forecast_through": "2022-12-15",
+          "past_10_day_rainfall_mm": 22.74,
+          "past_10_day_mean_temperature_c": 16.43,
+          "ml_probability": 0.3735,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-12-02",
+          "forecast_through": "2022-12-16",
+          "past_10_day_rainfall_mm": 23.7,
+          "past_10_day_mean_temperature_c": 16.14,
+          "ml_probability": 0.3783,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-12-03",
+          "forecast_through": "2022-12-17",
+          "past_10_day_rainfall_mm": 23.95,
+          "past_10_day_mean_temperature_c": 15.8,
+          "ml_probability": 0.3854,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-12-04",
+          "forecast_through": "2022-12-18",
+          "past_10_day_rainfall_mm": 23.11,
+          "past_10_day_mean_temperature_c": 15.55,
+          "ml_probability": 0.3937,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2022-12-05",
+          "forecast_through": "2022-12-19",
+          "past_10_day_rainfall_mm": 24.62,
+          "past_10_day_mean_temperature_c": 15.34,
+          "ml_probability": 0.3966,
+          "historical_probability": 0.5,
+          "observed_event": true
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "observed_first_rain_date": "2023-10-22",
+      "forecasts": [
+        {
+          "as_of": "2023-10-10",
+          "forecast_through": "2023-10-24",
+          "past_10_day_rainfall_mm": 0.01,
+          "past_10_day_mean_temperature_c": 27.83,
+          "ml_probability": 0.2367,
+          "historical_probability": 0.25,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-11",
+          "forecast_through": "2023-10-25",
+          "past_10_day_rainfall_mm": 0.05,
+          "past_10_day_mean_temperature_c": 27.36,
+          "ml_probability": 0.2422,
+          "historical_probability": 0.3125,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-12",
+          "forecast_through": "2023-10-26",
+          "past_10_day_rainfall_mm": 0.05,
+          "past_10_day_mean_temperature_c": 27.08,
+          "ml_probability": 0.2476,
+          "historical_probability": 0.3125,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-13",
+          "forecast_through": "2023-10-27",
+          "past_10_day_rainfall_mm": 0.07,
+          "past_10_day_mean_temperature_c": 26.74,
+          "ml_probability": 0.2528,
+          "historical_probability": 0.3125,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-14",
+          "forecast_through": "2023-10-28",
+          "past_10_day_rainfall_mm": 0.09,
+          "past_10_day_mean_temperature_c": 26.28,
+          "ml_probability": 0.2592,
+          "historical_probability": 0.3125,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-15",
+          "forecast_through": "2023-10-29",
+          "past_10_day_rainfall_mm": 0.11,
+          "past_10_day_mean_temperature_c": 25.99,
+          "ml_probability": 0.2641,
+          "historical_probability": 0.3125,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-16",
+          "forecast_through": "2023-10-30",
+          "past_10_day_rainfall_mm": 0.27,
+          "past_10_day_mean_temperature_c": 25.69,
+          "ml_probability": 0.2642,
+          "historical_probability": 0.375,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-17",
+          "forecast_through": "2023-10-31",
+          "past_10_day_rainfall_mm": 0.33,
+          "past_10_day_mean_temperature_c": 25.3,
+          "ml_probability": 0.2689,
+          "historical_probability": 0.375,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-18",
+          "forecast_through": "2023-11-01",
+          "past_10_day_rainfall_mm": 0.82,
+          "past_10_day_mean_temperature_c": 24.7,
+          "ml_probability": 0.2642,
+          "historical_probability": 0.3333,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-19",
+          "forecast_through": "2023-11-02",
+          "past_10_day_rainfall_mm": 14.5,
+          "past_10_day_mean_temperature_c": 23.93,
+          "ml_probability": 0.1909,
+          "historical_probability": 0.3333,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-20",
+          "forecast_through": "2023-11-03",
+          "past_10_day_rainfall_mm": 23.58,
+          "past_10_day_mean_temperature_c": 23.31,
+          "ml_probability": 0.1824,
+          "historical_probability": 0.2857,
+          "observed_event": true
+        },
+        {
+          "as_of": "2023-10-21",
+          "forecast_through": "2023-11-04",
+          "past_10_day_rainfall_mm": 23.56,
+          "past_10_day_mean_temperature_c": 22.72,
+          "ml_probability": 0.1891,
+          "historical_probability": 0.2857,
+          "observed_event": true
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "observed_first_rain_date": null,
+      "forecasts": [
+        {
+          "as_of": "2024-10-10",
+          "forecast_through": "2024-10-24",
+          "past_10_day_rainfall_mm": 4.49,
+          "past_10_day_mean_temperature_c": 23.55,
+          "ml_probability": 0.2089,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-11",
+          "forecast_through": "2024-10-25",
+          "past_10_day_rainfall_mm": 4.53,
+          "past_10_day_mean_temperature_c": 23.06,
+          "ml_probability": 0.2152,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-12",
+          "forecast_through": "2024-10-26",
+          "past_10_day_rainfall_mm": 12.35,
+          "past_10_day_mean_temperature_c": 22.71,
+          "ml_probability": 0.1891,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-13",
+          "forecast_through": "2024-10-27",
+          "past_10_day_rainfall_mm": 14.21,
+          "past_10_day_mean_temperature_c": 22.44,
+          "ml_probability": 0.1891,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-14",
+          "forecast_through": "2024-10-28",
+          "past_10_day_rainfall_mm": 18.21,
+          "past_10_day_mean_temperature_c": 22.15,
+          "ml_probability": 0.1857,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-15",
+          "forecast_through": "2024-10-29",
+          "past_10_day_rainfall_mm": 21.46,
+          "past_10_day_mean_temperature_c": 21.81,
+          "ml_probability": 0.1853,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-16",
+          "forecast_through": "2024-10-30",
+          "past_10_day_rainfall_mm": 23.76,
+          "past_10_day_mean_temperature_c": 21.36,
+          "ml_probability": 0.1877,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-17",
+          "forecast_through": "2024-10-31",
+          "past_10_day_rainfall_mm": 24.18,
+          "past_10_day_mean_temperature_c": 21.01,
+          "ml_probability": 0.1922,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-18",
+          "forecast_through": "2024-11-01",
+          "past_10_day_rainfall_mm": 22.44,
+          "past_10_day_mean_temperature_c": 20.73,
+          "ml_probability": 0.1993,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-19",
+          "forecast_through": "2024-11-02",
+          "past_10_day_rainfall_mm": 22.02,
+          "past_10_day_mean_temperature_c": 20.42,
+          "ml_probability": 0.2048,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-20",
+          "forecast_through": "2024-11-03",
+          "past_10_day_rainfall_mm": 20.21,
+          "past_10_day_mean_temperature_c": 20.21,
+          "ml_probability": 0.212,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-21",
+          "forecast_through": "2024-11-04",
+          "past_10_day_rainfall_mm": 20.14,
+          "past_10_day_mean_temperature_c": 19.91,
+          "ml_probability": 0.2172,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-22",
+          "forecast_through": "2024-11-05",
+          "past_10_day_rainfall_mm": 12.14,
+          "past_10_day_mean_temperature_c": 19.86,
+          "ml_probability": 0.2387,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-23",
+          "forecast_through": "2024-11-06",
+          "past_10_day_rainfall_mm": 12.18,
+          "past_10_day_mean_temperature_c": 20.04,
+          "ml_probability": 0.2397,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-24",
+          "forecast_through": "2024-11-07",
+          "past_10_day_rainfall_mm": 8.32,
+          "past_10_day_mean_temperature_c": 20.29,
+          "ml_probability": 0.2544,
+          "historical_probability": 0.3077,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-25",
+          "forecast_through": "2024-11-08",
+          "past_10_day_rainfall_mm": 6.62,
+          "past_10_day_mean_temperature_c": 20.29,
+          "ml_probability": 0.2659,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-26",
+          "forecast_through": "2024-11-09",
+          "past_10_day_rainfall_mm": 4.47,
+          "past_10_day_mean_temperature_c": 19.9,
+          "ml_probability": 0.2874,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-27",
+          "forecast_through": "2024-11-10",
+          "past_10_day_rainfall_mm": 6.83,
+          "past_10_day_mean_temperature_c": 19.51,
+          "ml_probability": 0.2784,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-28",
+          "forecast_through": "2024-11-11",
+          "past_10_day_rainfall_mm": 10.98,
+          "past_10_day_mean_temperature_c": 19.0,
+          "ml_probability": 0.2677,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-29",
+          "forecast_through": "2024-11-12",
+          "past_10_day_rainfall_mm": 15.49,
+          "past_10_day_mean_temperature_c": 18.56,
+          "ml_probability": 0.2612,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-30",
+          "forecast_through": "2024-11-13",
+          "past_10_day_rainfall_mm": 20.82,
+          "past_10_day_mean_temperature_c": 18.21,
+          "ml_probability": 0.2555,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-10-31",
+          "forecast_through": "2024-11-14",
+          "past_10_day_rainfall_mm": 21.71,
+          "past_10_day_mean_temperature_c": 17.92,
+          "ml_probability": 0.2596,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-01",
+          "forecast_through": "2024-11-15",
+          "past_10_day_rainfall_mm": 22.1,
+          "past_10_day_mean_temperature_c": 17.57,
+          "ml_probability": 0.2651,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-02",
+          "forecast_through": "2024-11-16",
+          "past_10_day_rainfall_mm": 20.18,
+          "past_10_day_mean_temperature_c": 17.09,
+          "ml_probability": 0.2765,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-03",
+          "forecast_through": "2024-11-17",
+          "past_10_day_rainfall_mm": 20.01,
+          "past_10_day_mean_temperature_c": 16.7,
+          "ml_probability": 0.2839,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-04",
+          "forecast_through": "2024-11-18",
+          "past_10_day_rainfall_mm": 18.4,
+          "past_10_day_mean_temperature_c": 16.72,
+          "ml_probability": 0.2904,
+          "historical_probability": 0.1818,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-05",
+          "forecast_through": "2024-11-19",
+          "past_10_day_rainfall_mm": 18.21,
+          "past_10_day_mean_temperature_c": 17.15,
+          "ml_probability": 0.2895,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-06",
+          "forecast_through": "2024-11-20",
+          "past_10_day_rainfall_mm": 15.32,
+          "past_10_day_mean_temperature_c": 17.85,
+          "ml_probability": 0.2928,
+          "historical_probability": 0.1,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-07",
+          "forecast_through": "2024-11-21",
+          "past_10_day_rainfall_mm": 11.17,
+          "past_10_day_mean_temperature_c": 18.88,
+          "ml_probability": 0.2988,
+          "historical_probability": 0.2,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-08",
+          "forecast_through": "2024-11-22",
+          "past_10_day_rainfall_mm": 6.66,
+          "past_10_day_mean_temperature_c": 19.79,
+          "ml_probability": 0.3141,
+          "historical_probability": 0.3,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-09",
+          "forecast_through": "2024-11-23",
+          "past_10_day_rainfall_mm": 1.33,
+          "past_10_day_mean_temperature_c": 20.25,
+          "ml_probability": 0.3715,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-10",
+          "forecast_through": "2024-11-24",
+          "past_10_day_rainfall_mm": 0.45,
+          "past_10_day_mean_temperature_c": 20.38,
+          "ml_probability": 0.3983,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-11",
+          "forecast_through": "2024-11-25",
+          "past_10_day_rainfall_mm": 0.08,
+          "past_10_day_mean_temperature_c": 20.35,
+          "ml_probability": 0.418,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-12",
+          "forecast_through": "2024-11-26",
+          "past_10_day_rainfall_mm": 0.13,
+          "past_10_day_mean_temperature_c": 20.29,
+          "ml_probability": 0.4199,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-13",
+          "forecast_through": "2024-11-27",
+          "past_10_day_rainfall_mm": 0.5,
+          "past_10_day_mean_temperature_c": 20.02,
+          "ml_probability": 0.4116,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-14",
+          "forecast_through": "2024-11-28",
+          "past_10_day_rainfall_mm": 1.35,
+          "past_10_day_mean_temperature_c": 19.63,
+          "ml_probability": 0.3961,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-15",
+          "forecast_through": "2024-11-29",
+          "past_10_day_rainfall_mm": 1.44,
+          "past_10_day_mean_temperature_c": 19.26,
+          "ml_probability": 0.4021,
+          "historical_probability": 0.6,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-16",
+          "forecast_through": "2024-11-30",
+          "past_10_day_rainfall_mm": 1.49,
+          "past_10_day_mean_temperature_c": 19.0,
+          "ml_probability": 0.4078,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-17",
+          "forecast_through": "2024-12-01",
+          "past_10_day_rainfall_mm": 1.81,
+          "past_10_day_mean_temperature_c": 18.53,
+          "ml_probability": 0.4107,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-18",
+          "forecast_through": "2024-12-02",
+          "past_10_day_rainfall_mm": 2.52,
+          "past_10_day_mean_temperature_c": 18.12,
+          "ml_probability": 0.4072,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-19",
+          "forecast_through": "2024-12-03",
+          "past_10_day_rainfall_mm": 7.58,
+          "past_10_day_mean_temperature_c": 17.82,
+          "ml_probability": 0.3677,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-20",
+          "forecast_through": "2024-12-04",
+          "past_10_day_rainfall_mm": 7.56,
+          "past_10_day_mean_temperature_c": 17.73,
+          "ml_probability": 0.3723,
+          "historical_probability": 0.7,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-21",
+          "forecast_through": "2024-12-05",
+          "past_10_day_rainfall_mm": 7.55,
+          "past_10_day_mean_temperature_c": 17.84,
+          "ml_probability": 0.3746,
+          "historical_probability": 0.6667,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-22",
+          "forecast_through": "2024-12-06",
+          "past_10_day_rainfall_mm": 7.48,
+          "past_10_day_mean_temperature_c": 17.95,
+          "ml_probability": 0.3773,
+          "historical_probability": 0.625,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-23",
+          "forecast_through": "2024-12-07",
+          "past_10_day_rainfall_mm": 7.11,
+          "past_10_day_mean_temperature_c": 18.41,
+          "ml_probability": 0.3778,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-24",
+          "forecast_through": "2024-12-08",
+          "past_10_day_rainfall_mm": 6.26,
+          "past_10_day_mean_temperature_c": 19.02,
+          "ml_probability": 0.3799,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-25",
+          "forecast_through": "2024-12-09",
+          "past_10_day_rainfall_mm": 6.18,
+          "past_10_day_mean_temperature_c": 19.21,
+          "ml_probability": 0.3817,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-26",
+          "forecast_through": "2024-12-10",
+          "past_10_day_rainfall_mm": 6.13,
+          "past_10_day_mean_temperature_c": 19.14,
+          "ml_probability": 0.3866,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-27",
+          "forecast_through": "2024-12-11",
+          "past_10_day_rainfall_mm": 5.81,
+          "past_10_day_mean_temperature_c": 19.26,
+          "ml_probability": 0.3911,
+          "historical_probability": 0.4,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-28",
+          "forecast_through": "2024-12-12",
+          "past_10_day_rainfall_mm": 5.1,
+          "past_10_day_mean_temperature_c": 19.4,
+          "ml_probability": 0.3988,
+          "historical_probability": 0.4,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-29",
+          "forecast_through": "2024-12-13",
+          "past_10_day_rainfall_mm": 0.03,
+          "past_10_day_mean_temperature_c": 19.62,
+          "ml_probability": 0.4967,
+          "historical_probability": 0.4,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-11-30",
+          "forecast_through": "2024-12-14",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 19.88,
+          "ml_probability": 0.4978,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-01",
+          "forecast_through": "2024-12-15",
+          "past_10_day_rainfall_mm": 0.01,
+          "past_10_day_mean_temperature_c": 19.9,
+          "ml_probability": 0.5018,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-02",
+          "forecast_through": "2024-12-16",
+          "past_10_day_rainfall_mm": 0.01,
+          "past_10_day_mean_temperature_c": 19.9,
+          "ml_probability": 0.5056,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-03",
+          "forecast_through": "2024-12-17",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 19.55,
+          "ml_probability": 0.5131,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-04",
+          "forecast_through": "2024-12-18",
+          "past_10_day_rainfall_mm": 0.03,
+          "past_10_day_mean_temperature_c": 18.9,
+          "ml_probability": 0.5244,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-05",
+          "forecast_through": "2024-12-19",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 18.48,
+          "ml_probability": 0.5339,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-06",
+          "forecast_through": "2024-12-20",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 18.12,
+          "ml_probability": 0.5421,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-07",
+          "forecast_through": "2024-12-21",
+          "past_10_day_rainfall_mm": 0.18,
+          "past_10_day_mean_temperature_c": 17.73,
+          "ml_probability": 0.5427,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-08",
+          "forecast_through": "2024-12-22",
+          "past_10_day_rainfall_mm": 0.3,
+          "past_10_day_mean_temperature_c": 17.11,
+          "ml_probability": 0.5488,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-09",
+          "forecast_through": "2024-12-23",
+          "past_10_day_rainfall_mm": 0.32,
+          "past_10_day_mean_temperature_c": 16.3,
+          "ml_probability": 0.5617,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-10",
+          "forecast_through": "2024-12-24",
+          "past_10_day_rainfall_mm": 0.32,
+          "past_10_day_mean_temperature_c": 15.2,
+          "ml_probability": 0.5788,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-11",
+          "forecast_through": "2024-12-25",
+          "past_10_day_rainfall_mm": 1.01,
+          "past_10_day_mean_temperature_c": 14.32,
+          "ml_probability": 0.5705,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-12",
+          "forecast_through": "2024-12-26",
+          "past_10_day_rainfall_mm": 1.21,
+          "past_10_day_mean_temperature_c": 13.67,
+          "ml_probability": 0.577,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-13",
+          "forecast_through": "2024-12-27",
+          "past_10_day_rainfall_mm": 1.2,
+          "past_10_day_mean_temperature_c": 13.06,
+          "ml_probability": 0.5882,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-14",
+          "forecast_through": "2024-12-28",
+          "past_10_day_rainfall_mm": 1.19,
+          "past_10_day_mean_temperature_c": 12.87,
+          "ml_probability": 0.5944,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-15",
+          "forecast_through": "2024-12-29",
+          "past_10_day_rainfall_mm": 1.19,
+          "past_10_day_mean_temperature_c": 13.01,
+          "ml_probability": 0.5963,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-16",
+          "forecast_through": "2024-12-30",
+          "past_10_day_rainfall_mm": 1.19,
+          "past_10_day_mean_temperature_c": 13.11,
+          "ml_probability": 0.5987,
+          "historical_probability": 0.5,
+          "observed_event": false
+        },
+        {
+          "as_of": "2024-12-17",
+          "forecast_through": "2024-12-31",
+          "past_10_day_rainfall_mm": 1.03,
+          "past_10_day_mean_temperature_c": 13.26,
+          "ml_probability": 0.6046,
+          "historical_probability": 0.5,
+          "observed_event": false
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "observed_first_rain_date": "2025-11-13",
+      "forecasts": [
+        {
+          "as_of": "2025-10-10",
+          "forecast_through": "2025-10-24",
+          "past_10_day_rainfall_mm": 0.1,
+          "past_10_day_mean_temperature_c": 22.61,
+          "ml_probability": 0.2831,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-11",
+          "forecast_through": "2025-10-25",
+          "past_10_day_rainfall_mm": 0.08,
+          "past_10_day_mean_temperature_c": 22.52,
+          "ml_probability": 0.2879,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-12",
+          "forecast_through": "2025-10-26",
+          "past_10_day_rainfall_mm": 0.08,
+          "past_10_day_mean_temperature_c": 22.34,
+          "ml_probability": 0.2928,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-13",
+          "forecast_through": "2025-10-27",
+          "past_10_day_rainfall_mm": 0.08,
+          "past_10_day_mean_temperature_c": 22.11,
+          "ml_probability": 0.2983,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-14",
+          "forecast_through": "2025-10-28",
+          "past_10_day_rainfall_mm": 0.07,
+          "past_10_day_mean_temperature_c": 22.3,
+          "ml_probability": 0.2999,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-15",
+          "forecast_through": "2025-10-29",
+          "past_10_day_rainfall_mm": 0.05,
+          "past_10_day_mean_temperature_c": 22.4,
+          "ml_probability": 0.303,
+          "historical_probability": 0.3125,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-16",
+          "forecast_through": "2025-10-30",
+          "past_10_day_rainfall_mm": 0.04,
+          "past_10_day_mean_temperature_c": 22.28,
+          "ml_probability": 0.3079,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-17",
+          "forecast_through": "2025-10-31",
+          "past_10_day_rainfall_mm": 0.04,
+          "past_10_day_mean_temperature_c": 22.02,
+          "ml_probability": 0.3138,
+          "historical_probability": 0.375,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-18",
+          "forecast_through": "2025-11-01",
+          "past_10_day_rainfall_mm": 0.03,
+          "past_10_day_mean_temperature_c": 22.22,
+          "ml_probability": 0.3153,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-19",
+          "forecast_through": "2025-11-02",
+          "past_10_day_rainfall_mm": 0.03,
+          "past_10_day_mean_temperature_c": 22.72,
+          "ml_probability": 0.3133,
+          "historical_probability": 0.3333,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-20",
+          "forecast_through": "2025-11-03",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 22.99,
+          "ml_probability": 0.3141,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-21",
+          "forecast_through": "2025-11-04",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 23.03,
+          "ml_probability": 0.3169,
+          "historical_probability": 0.2857,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-22",
+          "forecast_through": "2025-11-05",
+          "past_10_day_rainfall_mm": 0.01,
+          "past_10_day_mean_temperature_c": 23.06,
+          "ml_probability": 0.3203,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-23",
+          "forecast_through": "2025-11-06",
+          "past_10_day_rainfall_mm": 0.02,
+          "past_10_day_mean_temperature_c": 23.17,
+          "ml_probability": 0.3219,
+          "historical_probability": 0.3571,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-24",
+          "forecast_through": "2025-11-07",
+          "past_10_day_rainfall_mm": 0.03,
+          "past_10_day_mean_temperature_c": 23.09,
+          "ml_probability": 0.3256,
+          "historical_probability": 0.3077,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-25",
+          "forecast_through": "2025-11-08",
+          "past_10_day_rainfall_mm": 0.04,
+          "past_10_day_mean_temperature_c": 22.96,
+          "ml_probability": 0.3299,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-26",
+          "forecast_through": "2025-11-09",
+          "past_10_day_rainfall_mm": 0.05,
+          "past_10_day_mean_temperature_c": 22.58,
+          "ml_probability": 0.3369,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-27",
+          "forecast_through": "2025-11-10",
+          "past_10_day_rainfall_mm": 0.04,
+          "past_10_day_mean_temperature_c": 22.59,
+          "ml_probability": 0.3407,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-28",
+          "forecast_through": "2025-11-11",
+          "past_10_day_rainfall_mm": 0.45,
+          "past_10_day_mean_temperature_c": 22.47,
+          "ml_probability": 0.329,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-29",
+          "forecast_through": "2025-11-12",
+          "past_10_day_rainfall_mm": 1.35,
+          "past_10_day_mean_temperature_c": 21.99,
+          "ml_probability": 0.3143,
+          "historical_probability": 0.25,
+          "observed_event": false
+        },
+        {
+          "as_of": "2025-10-30",
+          "forecast_through": "2025-11-13",
+          "past_10_day_rainfall_mm": 1.98,
+          "past_10_day_mean_temperature_c": 21.72,
+          "ml_probability": 0.3092,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-10-31",
+          "forecast_through": "2025-11-14",
+          "past_10_day_rainfall_mm": 2.07,
+          "past_10_day_mean_temperature_c": 21.58,
+          "ml_probability": 0.3124,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-01",
+          "forecast_through": "2025-11-15",
+          "past_10_day_rainfall_mm": 2.12,
+          "past_10_day_mean_temperature_c": 21.37,
+          "ml_probability": 0.3171,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-02",
+          "forecast_through": "2025-11-16",
+          "past_10_day_rainfall_mm": 2.16,
+          "past_10_day_mean_temperature_c": 20.95,
+          "ml_probability": 0.3244,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-03",
+          "forecast_through": "2025-11-17",
+          "past_10_day_rainfall_mm": 2.22,
+          "past_10_day_mean_temperature_c": 20.58,
+          "ml_probability": 0.3309,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-04",
+          "forecast_through": "2025-11-18",
+          "past_10_day_rainfall_mm": 2.21,
+          "past_10_day_mean_temperature_c": 20.7,
+          "ml_probability": 0.3331,
+          "historical_probability": 0.1818,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-05",
+          "forecast_through": "2025-11-19",
+          "past_10_day_rainfall_mm": 2.29,
+          "past_10_day_mean_temperature_c": 21.0,
+          "ml_probability": 0.3319,
+          "historical_probability": 0.1,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-06",
+          "forecast_through": "2025-11-20",
+          "past_10_day_rainfall_mm": 2.47,
+          "past_10_day_mean_temperature_c": 20.58,
+          "ml_probability": 0.3373,
+          "historical_probability": 0.1,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-07",
+          "forecast_through": "2025-11-21",
+          "past_10_day_rainfall_mm": 2.06,
+          "past_10_day_mean_temperature_c": 19.92,
+          "ml_probability": 0.3544,
+          "historical_probability": 0.2,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-08",
+          "forecast_through": "2025-11-22",
+          "past_10_day_rainfall_mm": 1.16,
+          "past_10_day_mean_temperature_c": 19.62,
+          "ml_probability": 0.3792,
+          "historical_probability": 0.3,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-09",
+          "forecast_through": "2025-11-23",
+          "past_10_day_rainfall_mm": 0.53,
+          "past_10_day_mean_temperature_c": 19.19,
+          "ml_probability": 0.406,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-10",
+          "forecast_through": "2025-11-24",
+          "past_10_day_rainfall_mm": 0.46,
+          "past_10_day_mean_temperature_c": 18.9,
+          "ml_probability": 0.4157,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-11",
+          "forecast_through": "2025-11-25",
+          "past_10_day_rainfall_mm": 0.41,
+          "past_10_day_mean_temperature_c": 18.97,
+          "ml_probability": 0.4204,
+          "historical_probability": 0.5,
+          "observed_event": true
+        },
+        {
+          "as_of": "2025-11-12",
+          "forecast_through": "2025-11-26",
+          "past_10_day_rainfall_mm": 0.98,
+          "past_10_day_mean_temperature_c": 19.1,
+          "ml_probability": 0.4043,
+          "historical_probability": 0.5,
+          "observed_event": true
+        }
+      ]
+    }
+  ]
+}
