@@ -1,0 +1,8 @@
+﻿"crop","system","growing_months","heat_sensitive_months","water_need_mm","heat_limit_c (mean daily max in sensitive months)","yield_bad_year_t_ha","yield_good_year_t_ha","price_mad_per_kg","cost_mad_per_ha","source (to fill)","comment (to fill)"
+"Wheat","rainfed","Nov Dec Jan Feb Mar Apr May","Apr May","450","26","0.4","3","3","4500","",""
+"Barley","rainfed","Nov Dec Jan Feb Mar Apr May","Mar Apr","350","27","0.3","2.2","2.8","3800","",""
+"Chickpea","rainfed","Jan Feb Mar Apr May Jun","Apr May","300","28","0.2","1.3","12","7000","",""
+"Lentil","rainfed","Dec Jan Feb Mar Apr May","Mar Apr","300","25","0.2","1.1","12","7000","",""
+"Faba bean","rainfed","Nov Dec Jan Feb Mar Apr","Feb Mar","400","23","0.4","1.6","8","6500","",""
+"Olive","perennial","Oct Nov Dec Jan Feb Mar Apr May Jun Jul Aug Sep","May Jun","600","34","1","5","5","12000","",""
+"Tomato (open field)","irrigated","Mar Apr May Jun Jul","Jun Jul","600","33","25","60","2","70000","",""

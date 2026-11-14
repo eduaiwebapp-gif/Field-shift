@@ -1,0 +1,5 @@
+﻿"rotation","sequence","nitrogen (0-3)","soil_cover (0-3)","organic_matter (0-3)","pest_break (0-3)","forage (0-3)","source (to fill)","comment (to fill)"
+"Wheat after wheat","wheat","0","1","1","0","1","",""
+"Wheat -> Chickpea","wheat -> chickpea","2","1","1","2","0","",""
+"Barley -> Faba bean","barley -> faba","3","2","2","2","3","",""
+"Wheat -> Lentil -> Barley","wheat -> lentil -> barley","2","1","2","3","2","",""
