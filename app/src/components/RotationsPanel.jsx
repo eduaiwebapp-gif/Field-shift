@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import SeasonCalendar from './SeasonCalendar';
+import { rotationMetrics } from '../lib/model';
 import { fmt } from '../lib/data';
 
 const PRIORITIES = [
@@ -32,7 +33,7 @@ function Dots({ n }) {
   );
 }
 
-function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onToggle }) {
+function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onToggle, whatIfLabel }) {
   const m = r.metrics;
   const profitDiff = m.avg_profit_mad_ha - base.metrics.avg_profit_mad_ha;
   return (
@@ -64,7 +65,7 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
           <span className={`v ${m.avg_profit_mad_ha < 0 ? 'bad' : ''}`}>{fmt(m.avg_profit_mad_ha)} MAD</span>
           {!r.current && <span className={`d ${profitDiff >= 0 ? 'good' : 'bad'}`}>{profitDiff >= 0 ? '+' : ''}{fmt(profitDiff)} vs current</span>}
         </div>
-        <div><span className="k">Seasons at a loss, 2011-2025</span><span className="v">{fmt(m.failed_seasons, m.failed_seasons % 1 ? 1 : 0)} of {m.seasons}</span></div>
+        <div><span className="k">Seasons at a loss{whatIfLabel ? ' (what-if)' : ', 2011-2025'}</span><span className="v">{fmt(m.failed_seasons, m.failed_seasons % 1 ? 1 : 0)} of {m.seasons}</span></div>
         <div><span className="k">Fit in the driest year</span><span className="v">{m.dry_year_score}/100</span></div>
         <div><span className="k">Extra water for full yield</span><span className="v">{fmt(m.extra_water_mm)} mm</span></div>
       </div>
@@ -97,7 +98,16 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
 }
 
 export default function RotationsPanel({ recommendations, climate }) {
-  const rotations = recommendations.rotations;
+  const [rainPct, setRainPct] = useState(0);
+  const [heat, setHeat] = useState(0);
+  const whatIf = rainPct !== 0 || heat !== 0;
+  const rotations = useMemo(
+    () =>
+      recommendations.rotations.map((r) =>
+        whatIf ? { ...r, metrics: rotationMetrics(recommendations.model, r, 1 + rainPct / 100, heat) } : r,
+      ),
+    [recommendations, rainPct, heat, whatIf],
+  );
   const soilLabels = recommendations.soil_labels;
   const cropNames = Object.fromEntries(recommendations.crops.map((c) => [c.id, c.name]));
   const base = rotations.find((r) => r.current);
@@ -152,12 +162,31 @@ export default function RotationsPanel({ recommendations, climate }) {
         ))}
       </div>
 
+      <div className={`whatif ${whatIf ? 'active' : ''}`}>
+        <div className="whatif-head">
+          <b>What if the climate gets worse?</b>
+          {whatIf ? (
+            <button className="btn-link" onClick={() => { setRainPct(0); setHeat(0); }}>Back to real data</button>
+          ) : (
+            <span className="muted small">Replays the same 15 seasons with less rain or more heat</span>
+          )}
+        </div>
+        <label className="prio">
+          <span className="prio-top"><span>Rainfall</span><b>{rainPct === 0 ? 'as measured' : `${rainPct} %`}</b></span>
+          <input type="range" min="-40" max="10" step="5" value={rainPct} onChange={(e) => setRainPct(Number(e.target.value))} />
+        </label>
+        <label className="prio">
+          <span className="prio-top"><span>Spring heat</span><b>{heat === 0 ? 'as measured' : `+${heat} °C`}</b></span>
+          <input type="range" min="0" max="3" step="0.5" value={heat} onChange={(e) => setHeat(Number(e.target.value))} />
+        </label>
+      </div>
+
       <div className="rots">
         {ranked.map(({ r, match }, i) => (
           <RotationCard
             key={r.id} r={r} match={match} best={i === 0} base={base}
             cropNames={cropNames} soilLabels={soilLabels}
-            open={open === r.id} onToggle={() => setOpen(open === r.id ? null : r.id)}
+            open={open === r.id} onToggle={() => setOpen(open === r.id ? null : r.id)} whatIfLabel={whatIf}
           />
         ))}
       </div>

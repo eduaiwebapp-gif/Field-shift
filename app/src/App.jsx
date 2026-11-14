@@ -6,6 +6,7 @@ import IncomeSimulator from './components/IncomeSimulator';
 import SensorPanel from './components/SensorPanel';
 import RotationsPanel from './components/RotationsPanel';
 import LearnPanel from './components/LearnPanel';
+import LayerControl from './components/LayerControl';
 import { loadRegions, loadRegionData, scoreLabel } from './lib/data';
 
 const TABS = [
@@ -25,6 +26,7 @@ export default function App() {
   const [tab, setTab] = useState('rotations');
   const [scenario, setScenario] = useState('recent');
   const [cropId, setCropId] = useState(null);
+  const [nasa, setNasa] = useState(null);
 
   useEffect(() => {
     loadRegions().then(setRegions).catch((e) => setError(e.message));
@@ -51,7 +53,7 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <span className="logo" aria-hidden>◐</span>
+          <img className="logo" src="/favicon.svg" alt="" width="40" height="40" />
           <div>
             <div className="brand-name">Field Shift</div>
             <div className="brand-sub">Farm decisions from NASA satellite data</div>
@@ -69,9 +71,30 @@ export default function App() {
 
       {error && <p className="error page-error">{error}</p>}
 
+      {data && region && current && safest && (
+        <section className="hero" aria-label="Key finding">
+          <div className="hero-text">
+            <p className="hero-eyebrow">What NASA data says about {region.name.split(' (')[0]}</p>
+            <h1 className="hero-title">
+              Dry seasons went from {summary.baseline.dry_seasons} to {summary.recent.dry_seasons} per 15 years.
+              Wheat after wheat lost money in {current.metrics.failed_seasons} of the last {current.metrics.seasons} seasons.{' '}
+              <span className="hero-accent">{safest.name}: {safest.metrics.failed_seasons}.</span>
+            </h1>
+          </div>
+          <ol className="hero-steps">
+            <li><b>Set your priorities</b><span>income, dry years, water, soil</span></li>
+            <li><b>Compare rotations</b><span>replayed on real NASA seasons</span></li>
+            <li><b>Check the evidence</b><span>why, risks, what to verify locally</span></li>
+          </ol>
+        </section>
+      )}
+
       <main className="layout">
         <aside className="side">
-          <MapView regions={regions} regionId={regionId} onSelect={selectRegion} />
+          <div className="map-card">
+            <MapView regions={regions} regionId={regionId} onSelect={selectRegion} nasa={nasa} />
+            <LayerControl nasa={nasa} setNasa={setNasa} />
+          </div>
           {data && region && (
             <div className="summary">
               <h1>{region.name}</h1>
@@ -141,7 +164,9 @@ export default function App() {
       </main>
 
       <footer className="foot muted small">
-        Data: NASA POWER (power.larc.nasa.gov), daily, 1990-2025. Map: Esri ArcGIS. Built for NASA Space Apps Casablanca 2026.
+        Data: NASA POWER daily 1990-2025, NASA MODIS NDVI and SMAP soil moisture via NASA GIBS. Map: Esri ArcGIS.
+        Built for NASA Space Apps Casablanca 2026 ·{' '}
+        <a href="https://github.com/eduaiwebapp-gif/Field-shift">Source code</a>
       </footer>
     </div>
   );

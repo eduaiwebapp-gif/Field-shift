@@ -2,13 +2,15 @@
 
 **NASA Space Apps Challenge 2026, Casablanca: "Field Shift: Adapting Farms with NASA Data"**
 
-Morocco's climate has shifted, but most farmers still plant what worked 20 years ago.
-Field Shift uses NASA satellite data to show a farmer, for their region:
+Morocco's climate has shifted, but most farmers still grow wheat after wheat.
+Field Shift is a decision-support tool that uses NASA data to help farmers explore crop rotations that protect soil and hold up in dry years:
 
-- **what changed**: rainfall, dry seasons and spring heat over the last 35 years
-- **what to plant** next season: crops ranked by how well they fit the new climate, with expected yield, planting window and extra water needed
-- **what it could earn**: an income simulator for bad, typical and good years
-- **what is happening in their own field**: a low cost soil sensor that checks the satellite estimate at plot level
+- **compare rotations**: 4 strategies including the current one, replayed on the real 2011-2025 seasons, ranked by the farmer's priorities (income, dry years, water, soil), with why, evidence, benefits, risks and information gaps
+- **what if**: replay the same seasons with less rain or more spring heat
+- **see it from space**: NASA MODIS vegetation and SMAP soil moisture layers on the map, wet spring 2018 vs dry spring 2023
+- **what changed**: rainfall, dry seasons and spring heat over 35 years
+- **crops and income**: single-crop scores, yield ranges and an income simulator
+- **field check**: a low cost soil sensor that compares the satellite estimate with the farmer's plot
 
 What the data shows for Chaouia (Settat), 1991-2005 compared with 2011-2025:
 hot spring days (≥ 30 °C) went from 13.5 to 18.4 per year, dry seasons (< 250 mm) went from 1 to 3, and 3 of the last 4 seasons were dry.

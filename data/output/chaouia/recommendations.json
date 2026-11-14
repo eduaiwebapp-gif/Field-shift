@@ -1,6 +1,6 @@
 {
   "region_id": "chaouia",
-  "generated_at": "2026-11-14T14:32:54.731Z",
+  "generated_at": "2026-11-14T14:55:49.528Z",
   "method": "rule-based v1 (water balance + heat stress + root zone soil wetness)",
   "crops": [
     {
@@ -584,5 +584,746 @@
     "organic_matter": "Builds organic matter",
     "pest_break": "Breaks pest and disease cycles",
     "forage": "Feeds livestock"
+  },
+  "model": {
+    "effective_rain": 0.75,
+    "n_credit_mad": 500,
+    "legumes": [
+      "chickpea",
+      "lentil",
+      "faba"
+    ],
+    "cereals": [
+      "wheat",
+      "barley"
+    ],
+    "period": [
+      2011,
+      2025
+    ],
+    "dry_year": 2023,
+    "crops": {
+      "wheat": {
+        "system": "rainfed",
+        "water_need_mm": 450,
+        "heat_limit_c": 26,
+        "yield_t_ha": [
+          0.4,
+          3
+        ],
+        "price_mad_per_kg": 3,
+        "cost_mad_per_ha": 4500,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 582.58,
+            "tmax": 26.808,
+            "wet": 0.6908
+          },
+          {
+            "year": 2012,
+            "rain": 247.18,
+            "tmax": 25.812,
+            "wet": 0.5797
+          },
+          {
+            "year": 2013,
+            "rain": 357.84,
+            "tmax": 25.255,
+            "wet": 0.6472
+          },
+          {
+            "year": 2014,
+            "rain": 267.29,
+            "tmax": 28.723,
+            "wet": 0.5617
+          },
+          {
+            "year": 2015,
+            "rain": 465.83,
+            "tmax": 27.669,
+            "wet": 0.6976
+          },
+          {
+            "year": 2016,
+            "rain": 258.82,
+            "tmax": 25.248,
+            "wet": 0.5224
+          },
+          {
+            "year": 2017,
+            "rain": 337.73,
+            "tmax": 29.359,
+            "wet": 0.6201
+          },
+          {
+            "year": 2018,
+            "rain": 544.38,
+            "tmax": 22.426,
+            "wet": 0.6779
+          },
+          {
+            "year": 2019,
+            "rain": 231.4,
+            "tmax": 27.364,
+            "wet": 0.6279
+          },
+          {
+            "year": 2020,
+            "rain": 293.3,
+            "tmax": 27.163,
+            "wet": 0.5597
+          },
+          {
+            "year": 2021,
+            "rain": 840.13,
+            "tmax": 24.718,
+            "wet": 0.7392
+          },
+          {
+            "year": 2022,
+            "rain": 222.79,
+            "tmax": 27.614,
+            "wet": 0.526
+          },
+          {
+            "year": 2023,
+            "rain": 209.09,
+            "tmax": 29.003,
+            "wet": 0.5375
+          },
+          {
+            "year": 2024,
+            "rain": 199.27,
+            "tmax": 28.169,
+            "wet": 0.5139
+          },
+          {
+            "year": 2025,
+            "rain": 218.26,
+            "tmax": 27.638,
+            "wet": 0.5214
+          }
+        ]
+      },
+      "barley": {
+        "system": "rainfed",
+        "water_need_mm": 350,
+        "heat_limit_c": 27,
+        "yield_t_ha": [
+          0.3,
+          2.2
+        ],
+        "price_mad_per_kg": 2.8,
+        "cost_mad_per_ha": 3800,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 582.58,
+            "tmax": 23.115,
+            "wet": 0.6908
+          },
+          {
+            "year": 2012,
+            "rain": 247.18,
+            "tmax": 23.019,
+            "wet": 0.5797
+          },
+          {
+            "year": 2013,
+            "rain": 357.84,
+            "tmax": 22.842,
+            "wet": 0.6472
+          },
+          {
+            "year": 2014,
+            "rain": 267.29,
+            "tmax": 24.456,
+            "wet": 0.5617
+          },
+          {
+            "year": 2015,
+            "rain": 465.83,
+            "tmax": 23.34,
+            "wet": 0.6976
+          },
+          {
+            "year": 2016,
+            "rain": 258.82,
+            "tmax": 22.141,
+            "wet": 0.5224
+          },
+          {
+            "year": 2017,
+            "rain": 337.73,
+            "tmax": 25.441,
+            "wet": 0.6201
+          },
+          {
+            "year": 2018,
+            "rain": 544.38,
+            "tmax": 20.385,
+            "wet": 0.6779
+          },
+          {
+            "year": 2019,
+            "rain": 231.4,
+            "tmax": 23.902,
+            "wet": 0.6279
+          },
+          {
+            "year": 2020,
+            "rain": 293.3,
+            "tmax": 23.285,
+            "wet": 0.5597
+          },
+          {
+            "year": 2021,
+            "rain": 840.13,
+            "tmax": 22.072,
+            "wet": 0.7392
+          },
+          {
+            "year": 2022,
+            "rain": 222.79,
+            "tmax": 22.008,
+            "wet": 0.526
+          },
+          {
+            "year": 2023,
+            "rain": 209.09,
+            "tmax": 28.033,
+            "wet": 0.5375
+          },
+          {
+            "year": 2024,
+            "rain": 199.27,
+            "tmax": 25.063,
+            "wet": 0.5139
+          },
+          {
+            "year": 2025,
+            "rain": 218.26,
+            "tmax": 23.24,
+            "wet": 0.5214
+          }
+        ]
+      },
+      "chickpea": {
+        "system": "rainfed",
+        "water_need_mm": 300,
+        "heat_limit_c": 28,
+        "yield_t_ha": [
+          0.2,
+          1.3
+        ],
+        "price_mad_per_kg": 12,
+        "cost_mad_per_ha": 7000,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 333.6,
+            "tmax": 26.808,
+            "wet": 0.6807
+          },
+          {
+            "year": 2012,
+            "rain": 123.26,
+            "tmax": 25.812,
+            "wet": 0.5473
+          },
+          {
+            "year": 2013,
+            "rain": 233,
+            "tmax": 25.255,
+            "wet": 0.6157
+          },
+          {
+            "year": 2014,
+            "rain": 198.16,
+            "tmax": 28.723,
+            "wet": 0.5636
+          },
+          {
+            "year": 2015,
+            "rain": 180.44,
+            "tmax": 27.669,
+            "wet": 0.6703
+          },
+          {
+            "year": 2016,
+            "rain": 232.39,
+            "tmax": 25.248,
+            "wet": 0.5306
+          },
+          {
+            "year": 2017,
+            "rain": 132.13,
+            "tmax": 29.359,
+            "wet": 0.6003
+          },
+          {
+            "year": 2018,
+            "rain": 428.65,
+            "tmax": 22.426,
+            "wet": 0.7096
+          },
+          {
+            "year": 2019,
+            "rain": 106.11,
+            "tmax": 27.364,
+            "wet": 0.575
+          },
+          {
+            "year": 2020,
+            "rain": 178.37,
+            "tmax": 27.163,
+            "wet": 0.5535
+          },
+          {
+            "year": 2021,
+            "rain": 736.92,
+            "tmax": 24.718,
+            "wet": 0.7577
+          },
+          {
+            "year": 2022,
+            "rain": 146.25,
+            "tmax": 27.614,
+            "wet": 0.5208
+          },
+          {
+            "year": 2023,
+            "rain": 102.59,
+            "tmax": 29.003,
+            "wet": 0.532
+          },
+          {
+            "year": 2024,
+            "rain": 170.57,
+            "tmax": 28.169,
+            "wet": 0.5108
+          },
+          {
+            "year": 2025,
+            "rain": 205.2,
+            "tmax": 27.638,
+            "wet": 0.5248
+          }
+        ]
+      },
+      "lentil": {
+        "system": "rainfed",
+        "water_need_mm": 300,
+        "heat_limit_c": 25,
+        "yield_t_ha": [
+          0.2,
+          1.1
+        ],
+        "price_mad_per_kg": 12,
+        "cost_mad_per_ha": 7000,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 395.06,
+            "tmax": 23.115,
+            "wet": 0.7111
+          },
+          {
+            "year": 2012,
+            "rain": 125.36,
+            "tmax": 23.019,
+            "wet": 0.5752
+          },
+          {
+            "year": 2013,
+            "rain": 254.72,
+            "tmax": 22.842,
+            "wet": 0.6475
+          },
+          {
+            "year": 2014,
+            "rain": 218.07,
+            "tmax": 24.456,
+            "wet": 0.574
+          },
+          {
+            "year": 2015,
+            "rain": 251.78,
+            "tmax": 23.34,
+            "wet": 0.7196
+          },
+          {
+            "year": 2016,
+            "rain": 230.36,
+            "tmax": 22.141,
+            "wet": 0.5271
+          },
+          {
+            "year": 2017,
+            "rain": 218.69,
+            "tmax": 25.441,
+            "wet": 0.6381
+          },
+          {
+            "year": 2018,
+            "rain": 487.73,
+            "tmax": 20.385,
+            "wet": 0.7133
+          },
+          {
+            "year": 2019,
+            "rain": 109.9,
+            "tmax": 23.902,
+            "wet": 0.6178
+          },
+          {
+            "year": 2020,
+            "rain": 251.59,
+            "tmax": 23.285,
+            "wet": 0.5695
+          },
+          {
+            "year": 2021,
+            "rain": 788.08,
+            "tmax": 22.072,
+            "wet": 0.7573
+          },
+          {
+            "year": 2022,
+            "rain": 175.64,
+            "tmax": 22.008,
+            "wet": 0.5332
+          },
+          {
+            "year": 2023,
+            "rain": 198.69,
+            "tmax": 28.033,
+            "wet": 0.5496
+          },
+          {
+            "year": 2024,
+            "rain": 192.09,
+            "tmax": 25.063,
+            "wet": 0.5168
+          },
+          {
+            "year": 2025,
+            "rain": 210.23,
+            "tmax": 23.24,
+            "wet": 0.5262
+          }
+        ]
+      },
+      "faba": {
+        "system": "rainfed",
+        "water_need_mm": 400,
+        "heat_limit_c": 23,
+        "yield_t_ha": [
+          0.4,
+          1.6
+        ],
+        "price_mad_per_kg": 8,
+        "cost_mad_per_ha": 6500,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 464.28,
+            "tmax": 19.639,
+            "wet": 0.6947
+          },
+          {
+            "year": 2012,
+            "rain": 245.83,
+            "tmax": 21.087,
+            "wet": 0.5892
+          },
+          {
+            "year": 2013,
+            "rain": 335.91,
+            "tmax": 19.749,
+            "wet": 0.6607
+          },
+          {
+            "year": 2014,
+            "rain": 261.33,
+            "tmax": 20.087,
+            "wet": 0.571
+          },
+          {
+            "year": 2015,
+            "rain": 448.93,
+            "tmax": 18.787,
+            "wet": 0.7208
+          },
+          {
+            "year": 2016,
+            "rain": 187.39,
+            "tmax": 20.033,
+            "wet": 0.5149
+          },
+          {
+            "year": 2017,
+            "rain": 332.11,
+            "tmax": 20.702,
+            "wet": 0.6398
+          },
+          {
+            "year": 2018,
+            "rain": 514.75,
+            "tmax": 18.036,
+            "wet": 0.6761
+          },
+          {
+            "year": 2019,
+            "rain": 228.31,
+            "tmax": 23.069,
+            "wet": 0.6481
+          },
+          {
+            "year": 2020,
+            "rain": 247.66,
+            "tmax": 23.517,
+            "wet": 0.5621
+          },
+          {
+            "year": 2021,
+            "rain": 622.01,
+            "tmax": 20.622,
+            "wet": 0.7452
+          },
+          {
+            "year": 2022,
+            "rain": 213.68,
+            "tmax": 21.987,
+            "wet": 0.5289
+          },
+          {
+            "year": 2023,
+            "rain": 194.18,
+            "tmax": 22.967,
+            "wet": 0.5483
+          },
+          {
+            "year": 2024,
+            "rain": 197.3,
+            "tmax": 22.85,
+            "wet": 0.5175
+          },
+          {
+            "year": 2025,
+            "rain": 215.47,
+            "tmax": 21.053,
+            "wet": 0.5228
+          }
+        ]
+      },
+      "olive": {
+        "system": "perennial",
+        "water_need_mm": 600,
+        "heat_limit_c": 34,
+        "yield_t_ha": [
+          1,
+          5
+        ],
+        "price_mad_per_kg": 5,
+        "cost_mad_per_ha": 12000,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 676.68,
+            "tmax": 30.588,
+            "wet": 0.6101
+          },
+          {
+            "year": 2012,
+            "rain": 324.42,
+            "tmax": 31.85,
+            "wet": 0.5323
+          },
+          {
+            "year": 2013,
+            "rain": 472.98,
+            "tmax": 28.696,
+            "wet": 0.5757
+          },
+          {
+            "year": 2014,
+            "rain": 293.23,
+            "tmax": 30.942,
+            "wet": 0.5206
+          },
+          {
+            "year": 2015,
+            "rain": 514.65,
+            "tmax": 31.478,
+            "wet": 0.6026
+          },
+          {
+            "year": 2016,
+            "rain": 306.07,
+            "tmax": 29.344,
+            "wet": 0.5014
+          },
+          {
+            "year": 2017,
+            "rain": 362.56,
+            "tmax": 33.136,
+            "wet": 0.5546
+          },
+          {
+            "year": 2018,
+            "rain": 630.71,
+            "tmax": 25.461,
+            "wet": 0.6013
+          },
+          {
+            "year": 2019,
+            "rain": 365.84,
+            "tmax": 30.894,
+            "wet": 0.5638
+          },
+          {
+            "year": 2020,
+            "rain": 706.95,
+            "tmax": 30.189,
+            "wet": 0.5381
+          },
+          {
+            "year": 2021,
+            "rain": 863.41,
+            "tmax": 26.921,
+            "wet": 0.6665
+          },
+          {
+            "year": 2022,
+            "rain": 238.15,
+            "tmax": 31.882,
+            "wet": 0.4991
+          },
+          {
+            "year": 2023,
+            "rain": 237.56,
+            "tmax": 31.082,
+            "wet": 0.5064
+          },
+          {
+            "year": 2024,
+            "rain": 249.12,
+            "tmax": 29.86,
+            "wet": 0.4933
+          },
+          {
+            "year": 2025,
+            "rain": 393.83,
+            "tmax": 32.72,
+            "wet": 0.5069
+          }
+        ]
+      },
+      "tomato": {
+        "system": "irrigated",
+        "water_need_mm": 600,
+        "heat_limit_c": 33,
+        "yield_t_ha": [
+          25,
+          60
+        ],
+        "price_mad_per_kg": 2,
+        "cost_mad_per_ha": 70000,
+        "seasons": [
+          {
+            "year": 2011,
+            "rain": 250.05,
+            "tmax": 33.885,
+            "wet": 0.6176
+          },
+          {
+            "year": 2012,
+            "rain": 88.57,
+            "tmax": 35.018,
+            "wet": 0.5095
+          },
+          {
+            "year": 2013,
+            "rain": 174.07,
+            "tmax": 34.165,
+            "wet": 0.5718
+          },
+          {
+            "year": 2014,
+            "rain": 79.79,
+            "tmax": 32.383,
+            "wet": 0.526
+          },
+          {
+            "year": 2015,
+            "rain": 118.75,
+            "tmax": 35.331,
+            "wet": 0.585
+          },
+          {
+            "year": 2016,
+            "rain": 144.33,
+            "tmax": 34.983,
+            "wet": 0.5325
+          },
+          {
+            "year": 2017,
+            "rain": 27.65,
+            "tmax": 36.361,
+            "wet": 0.5361
+          },
+          {
+            "year": 2018,
+            "rain": 246.17,
+            "tmax": 29.644,
+            "wet": 0.6622
+          },
+          {
+            "year": 2019,
+            "rain": 65.76,
+            "tmax": 31.389,
+            "wet": 0.5195
+          },
+          {
+            "year": 2020,
+            "rain": 160.25,
+            "tmax": 34.367,
+            "wet": 0.5254
+          },
+          {
+            "year": 2021,
+            "rain": 546.17,
+            "tmax": 30.976,
+            "wet": 0.7134
+          },
+          {
+            "year": 2022,
+            "rain": 130.03,
+            "tmax": 35.822,
+            "wet": 0.5098
+          },
+          {
+            "year": 2023,
+            "rain": 39.02,
+            "tmax": 35.061,
+            "wet": 0.4988
+          },
+          {
+            "year": 2024,
+            "rain": 98.85,
+            "tmax": 33.826,
+            "wet": 0.5035
+          },
+          {
+            "year": 2025,
+            "rain": 264.32,
+            "tmax": 36.02,
+            "wet": 0.5333
+          }
+        ]
+      }
+    }
   }
 }

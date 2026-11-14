@@ -326,6 +326,34 @@ async function buildRegion(region) {
     crops,
     rotations: buildRotations(raw, driest.year),
     soil_labels: SOIL_LABELS,
+    // Inputs so the app can re-run the same model in the browser (what-if sliders).
+    model: {
+      effective_rain: EFFECTIVE_RAIN,
+      n_credit_mad: N_CREDIT_MAD,
+      legumes: [...LEGUMES],
+      cereals: [...CEREALS],
+      period: RECENT_PERIOD,
+      dry_year: driest.year,
+      crops: Object.fromEntries(
+        CROPS.map((c) => [
+          c.id,
+          {
+            system: c.system,
+            water_need_mm: c.water_need_mm,
+            heat_limit_c: c.heat_limit_c,
+            yield_t_ha: c.yield_t_ha,
+            price_mad_per_kg: c.price_mad_per_kg,
+            cost_mad_per_ha: c.cost_mad_per_ha,
+            seasons: range(RECENT_PERIOD[0], RECENT_PERIOD[1])
+              .map((y) => {
+                const inp = cropInputs(raw, c, y);
+                return inp && { year: y, rain: round(inp.rain, 2), tmax: round(inp.tmax, 3), wet: round(inp.wet, 4) };
+              })
+              .filter(Boolean),
+          },
+        ]),
+      ),
+    },
   };
 
   const dir = join(OUT_DIR, region.id);
