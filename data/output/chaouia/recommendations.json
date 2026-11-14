@@ -1,0 +1,301 @@
+{
+  "region_id": "chaouia",
+  "generated_at": "2026-11-14T12:37:14.334Z",
+  "method": "rule-based v1 (water balance + heat stress + root zone soil wetness)",
+  "crops": [
+    {
+      "id": "olive",
+      "name": "Olive",
+      "system": "perennial",
+      "planting_window": "Perennial (plant Nov - Mar)",
+      "harvest_window": "Oct - Dec",
+      "water_need_mm": 600,
+      "price_mad_per_kg": 5,
+      "cost_mad_per_ha": 12000,
+      "scenarios": {
+        "baseline": {
+          "score": 70,
+          "yield_t_ha": {
+            "low": 3.22,
+            "mid": 3.31,
+            "high": 4.03
+          },
+          "irrigation_mm": 363
+        },
+        "recent": {
+          "score": 75,
+          "yield_t_ha": {
+            "low": 3.2,
+            "mid": 3.48,
+            "high": 4.44
+          },
+          "irrigation_mm": 326
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 66,
+          "yield_t_ha": {
+            "low": 2.43,
+            "mid": 3.03,
+            "high": 3.49
+          },
+          "irrigation_mm": 422
+        }
+      },
+      "score_change": 5,
+      "notes": "Very drought tolerant once established, long-term investment (3-5 years before full yield)."
+    },
+    {
+      "id": "barley",
+      "name": "Barley",
+      "system": "rainfed",
+      "planting_window": "Nov - Dec",
+      "harvest_window": "May",
+      "water_need_mm": 350,
+      "price_mad_per_kg": 2.8,
+      "cost_mad_per_ha": 3800,
+      "scenarios": {
+        "baseline": {
+          "score": 74,
+          "yield_t_ha": {
+            "low": 1.14,
+            "mid": 1.42,
+            "high": 2.07
+          },
+          "irrigation_mm": 144
+        },
+        "recent": {
+          "score": 72,
+          "yield_t_ha": {
+            "low": 1.2,
+            "mid": 1.39,
+            "high": 2.2
+          },
+          "irrigation_mm": 150
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 61,
+          "yield_t_ha": {
+            "low": 0.83,
+            "mid": 1.04,
+            "high": 1.2
+          },
+          "irrigation_mm": 193
+        }
+      },
+      "score_change": -2,
+      "notes": "More drought tolerant than wheat and harvested earlier, so it escapes some of the late heat."
+    },
+    {
+      "id": "lentil",
+      "name": "Lentil",
+      "system": "rainfed",
+      "planting_window": "Dec - Jan",
+      "harvest_window": "May",
+      "water_need_mm": 300,
+      "price_mad_per_kg": 12,
+      "cost_mad_per_ha": 7000,
+      "scenarios": {
+        "baseline": {
+          "score": 76,
+          "yield_t_ha": {
+            "low": 0.62,
+            "mid": 0.74,
+            "high": 0.87
+          },
+          "irrigation_mm": 121
+        },
+        "recent": {
+          "score": 71,
+          "yield_t_ha": {
+            "low": 0.57,
+            "mid": 0.69,
+            "high": 0.84
+          },
+          "irrigation_mm": 136
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 58,
+          "yield_t_ha": {
+            "low": 0.38,
+            "mid": 0.48,
+            "high": 0.55
+          },
+          "irrigation_mm": 151
+        }
+      },
+      "score_change": -5,
+      "notes": "Short cycle legume, sensitive to heat at flowering."
+    },
+    {
+      "id": "faba",
+      "name": "Faba bean",
+      "system": "rainfed",
+      "planting_window": "Nov",
+      "harvest_window": "Apr - May",
+      "water_need_mm": 400,
+      "price_mad_per_kg": 8,
+      "cost_mad_per_ha": 6500,
+      "scenarios": {
+        "baseline": {
+          "score": 67,
+          "yield_t_ha": {
+            "low": 0.83,
+            "mid": 0.97,
+            "high": 1.36
+          },
+          "irrigation_mm": 204
+        },
+        "recent": {
+          "score": 67,
+          "yield_t_ha": {
+            "low": 0.87,
+            "mid": 0.95,
+            "high": 1.42
+          },
+          "irrigation_mm": 214
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 59,
+          "yield_t_ha": {
+            "low": 0.67,
+            "mid": 0.84,
+            "high": 0.96
+          },
+          "irrigation_mm": 254
+        }
+      },
+      "score_change": 0,
+      "notes": "Needs more water than other legumes, sensitive to heat at flowering."
+    },
+    {
+      "id": "chickpea",
+      "name": "Chickpea",
+      "system": "rainfed",
+      "planting_window": "Jan - Feb",
+      "harvest_window": "Jun",
+      "water_need_mm": 300,
+      "price_mad_per_kg": 12,
+      "cost_mad_per_ha": 7000,
+      "scenarios": {
+        "baseline": {
+          "score": 67,
+          "yield_t_ha": {
+            "low": 0.53,
+            "mid": 0.76,
+            "high": 0.86
+          },
+          "irrigation_mm": 147
+        },
+        "recent": {
+          "score": 66,
+          "yield_t_ha": {
+            "low": 0.53,
+            "mid": 0.7,
+            "high": 0.9
+          },
+          "irrigation_mm": 165
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 49,
+          "yield_t_ha": {
+            "low": 0.36,
+            "mid": 0.45,
+            "high": 0.51
+          },
+          "irrigation_mm": 223
+        }
+      },
+      "score_change": -1,
+      "notes": "Fixes nitrogen, good in rotation after cereals. High value per kg."
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "system": "rainfed",
+      "planting_window": "Nov - Dec",
+      "harvest_window": "May - Jun",
+      "water_need_mm": 450,
+      "price_mad_per_kg": 3,
+      "cost_mad_per_ha": 4500,
+      "scenarios": {
+        "baseline": {
+          "score": 66,
+          "yield_t_ha": {
+            "low": 1.24,
+            "mid": 1.57,
+            "high": 2.17
+          },
+          "irrigation_mm": 244
+        },
+        "recent": {
+          "score": 63,
+          "yield_t_ha": {
+            "low": 1.16,
+            "mid": 1.47,
+            "high": 2.13
+          },
+          "irrigation_mm": 250
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 48,
+          "yield_t_ha": {
+            "low": 0.77,
+            "mid": 0.97,
+            "high": 1.11
+          },
+          "irrigation_mm": 293
+        }
+      },
+      "score_change": -3,
+      "notes": "Main cereal of the region. Hurt by dry springs and heat during grain filling (Apr - May)."
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato (open field)",
+      "system": "irrigated",
+      "planting_window": "Mar - Apr",
+      "harvest_window": "Jun - Aug",
+      "water_need_mm": 600,
+      "price_mad_per_kg": 2,
+      "cost_mad_per_ha": 70000,
+      "scenarios": {
+        "baseline": {
+          "score": 60,
+          "yield_t_ha": {
+            "low": 50.49,
+            "mid": 55.09,
+            "high": 58.92
+          },
+          "irrigation_mm": 498
+        },
+        "recent": {
+          "score": 63,
+          "yield_t_ha": {
+            "low": 49.37,
+            "mid": 54.02,
+            "high": 60
+          },
+          "irrigation_mm": 502
+        },
+        "dry_year": {
+          "season": 2023,
+          "score": 54,
+          "yield_t_ha": {
+            "low": 40.79,
+            "mid": 50.98,
+            "high": 58.63
+          },
+          "irrigation_mm": 571
+        }
+      },
+      "score_change": 3,
+      "notes": "High income but needs full irrigation, so it depends on water access."
+    }
+  ]
+}

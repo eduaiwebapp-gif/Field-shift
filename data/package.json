@@ -1,0 +1,14 @@
+{
+  "name": "field-shift-data",
+  "private": true,
+  "type": "module",
+  "description": "Downloads NASA POWER data and builds the JSON files the app reads",
+  "scripts": {
+    "fetch": "node pipeline/fetch_power.mjs",
+    "build": "node pipeline/build.mjs",
+    "all": "node pipeline/fetch_power.mjs && node pipeline/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

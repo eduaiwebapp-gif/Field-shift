@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# build output
+app/dist/
+
+# raw downloaded data (can be huge, re-download with the pipeline)
+data/raw/
+*.nc
+*.nc4
+*.h5
+*.hdf
+*.tif
+
+# python
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

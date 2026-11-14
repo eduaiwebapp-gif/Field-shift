@@ -1,0 +1,16 @@
+[
+  {
+    "id": "chaouia",
+    "name": "Chaouia (Settat)",
+    "lat": 33,
+    "lon": -7.62,
+    "radius_km": 40
+  },
+  {
+    "id": "doukkala",
+    "name": "Doukkala (Sidi Bennour)",
+    "lat": 32.65,
+    "lon": -8.43,
+    "radius_km": 40
+  }
+]

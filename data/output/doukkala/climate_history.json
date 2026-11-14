@@ -1,0 +1,312 @@
+{
+  "region_id": "doukkala",
+  "source": "NASA POWER daily (MERRA-2 / GEOS), community AG, aggregated by month",
+  "baseline_period": [
+    1991,
+    2005
+  ],
+  "recent_period": [
+    2011,
+    2025
+  ],
+  "seasons": [
+    {
+      "year": 1991,
+      "rain_season_mm": 399.5,
+      "t_mean_c": 18.48,
+      "t_max_spring_c": 23.32,
+      "hot_days_spring": 11,
+      "soil_wetness": 0.483
+    },
+    {
+      "year": 1992,
+      "rain_season_mm": 222.1,
+      "t_mean_c": 18.42,
+      "t_max_spring_c": 26.01,
+      "hot_days_spring": 20,
+      "soil_wetness": 0.42
+    },
+    {
+      "year": 1993,
+      "rain_season_mm": 170.9,
+      "t_mean_c": 18.05,
+      "t_max_spring_c": 24.69,
+      "hot_days_spring": 7,
+      "soil_wetness": 0.388
+    },
+    {
+      "year": 1994,
+      "rain_season_mm": 386.3,
+      "t_mean_c": 18.1,
+      "t_max_spring_c": 25.15,
+      "hot_days_spring": 12,
+      "soil_wetness": 0.513
+    },
+    {
+      "year": 1995,
+      "rain_season_mm": 276.8,
+      "t_mean_c": 18.97,
+      "t_max_spring_c": 26.47,
+      "hot_days_spring": 26,
+      "soil_wetness": 0.422
+    },
+    {
+      "year": 1996,
+      "rain_season_mm": 565.7,
+      "t_mean_c": 18.73,
+      "t_max_spring_c": 23.26,
+      "hot_days_spring": 9,
+      "soil_wetness": 0.558
+    },
+    {
+      "year": 1997,
+      "rain_season_mm": 564,
+      "t_mean_c": 18.56,
+      "t_max_spring_c": 25.07,
+      "hot_days_spring": 4,
+      "soil_wetness": 0.565
+    },
+    {
+      "year": 1998,
+      "rain_season_mm": 271.2,
+      "t_mean_c": 19.65,
+      "t_max_spring_c": 25.77,
+      "hot_days_spring": 8,
+      "soil_wetness": 0.454
+    },
+    {
+      "year": 1999,
+      "rain_season_mm": 271.8,
+      "t_mean_c": 18.7,
+      "t_max_spring_c": 26.4,
+      "hot_days_spring": 21,
+      "soil_wetness": 0.437
+    },
+    {
+      "year": 2000,
+      "rain_season_mm": 271.8,
+      "t_mean_c": 19.21,
+      "t_max_spring_c": 26.12,
+      "hot_days_spring": 19,
+      "soil_wetness": 0.451
+    },
+    {
+      "year": 2001,
+      "rain_season_mm": 221.5,
+      "t_mean_c": 19.01,
+      "t_max_spring_c": 27.56,
+      "hot_days_spring": 24,
+      "soil_wetness": 0.423
+    },
+    {
+      "year": 2002,
+      "rain_season_mm": 259,
+      "t_mean_c": 19.04,
+      "t_max_spring_c": 25.41,
+      "hot_days_spring": 27,
+      "soil_wetness": 0.43
+    },
+    {
+      "year": 2003,
+      "rain_season_mm": 443.4,
+      "t_mean_c": 19.13,
+      "t_max_spring_c": 26.12,
+      "hot_days_spring": 19,
+      "soil_wetness": 0.51
+    },
+    {
+      "year": 2004,
+      "rain_season_mm": 349.5,
+      "t_mean_c": 19.01,
+      "t_max_spring_c": 24.35,
+      "hot_days_spring": 12,
+      "soil_wetness": 0.478
+    },
+    {
+      "year": 2005,
+      "rain_season_mm": 235.3,
+      "t_mean_c": 18.97,
+      "t_max_spring_c": 27.36,
+      "hot_days_spring": 26,
+      "soil_wetness": 0.448
+    },
+    {
+      "year": 2006,
+      "rain_season_mm": 399.5,
+      "t_mean_c": 18.75,
+      "t_max_spring_c": 26.07,
+      "hot_days_spring": 22,
+      "soil_wetness": 0.513
+    },
+    {
+      "year": 2007,
+      "rain_season_mm": 190.7,
+      "t_mean_c": 18.64,
+      "t_max_spring_c": 25.24,
+      "hot_days_spring": 12,
+      "soil_wetness": 0.398
+    },
+    {
+      "year": 2008,
+      "rain_season_mm": 242.7,
+      "t_mean_c": 19.06,
+      "t_max_spring_c": 25.86,
+      "hot_days_spring": 17,
+      "soil_wetness": 0.433
+    },
+    {
+      "year": 2009,
+      "rain_season_mm": 509.9,
+      "t_mean_c": 17.95,
+      "t_max_spring_c": 24.63,
+      "hot_days_spring": 12,
+      "soil_wetness": 0.581
+    },
+    {
+      "year": 2010,
+      "rain_season_mm": 425.9,
+      "t_mean_c": 19.77,
+      "t_max_spring_c": 24.98,
+      "hot_days_spring": 12,
+      "soil_wetness": 0.511
+    },
+    {
+      "year": 2011,
+      "rain_season_mm": 546.1,
+      "t_mean_c": 18.94,
+      "t_max_spring_c": 25.39,
+      "hot_days_spring": 22,
+      "soil_wetness": 0.517
+    },
+    {
+      "year": 2012,
+      "rain_season_mm": 248.3,
+      "t_mean_c": 18.91,
+      "t_max_spring_c": 26.29,
+      "hot_days_spring": 20,
+      "soil_wetness": 0.442
+    },
+    {
+      "year": 2013,
+      "rain_season_mm": 346.8,
+      "t_mean_c": 18.73,
+      "t_max_spring_c": 24.8,
+      "hot_days_spring": 14,
+      "soil_wetness": 0.48
+    },
+    {
+      "year": 2014,
+      "rain_season_mm": 261.1,
+      "t_mean_c": 18.75,
+      "t_max_spring_c": 27.25,
+      "hot_days_spring": 31,
+      "soil_wetness": 0.43
+    },
+    {
+      "year": 2015,
+      "rain_season_mm": 472.9,
+      "t_mean_c": 18.72,
+      "t_max_spring_c": 25.89,
+      "hot_days_spring": 18,
+      "soil_wetness": 0.571
+    },
+    {
+      "year": 2016,
+      "rain_season_mm": 229.5,
+      "t_mean_c": 19.46,
+      "t_max_spring_c": 24.54,
+      "hot_days_spring": 9,
+      "soil_wetness": 0.389
+    },
+    {
+      "year": 2017,
+      "rain_season_mm": 316,
+      "t_mean_c": 19.55,
+      "t_max_spring_c": 27.46,
+      "hot_days_spring": 26,
+      "soil_wetness": 0.475
+    },
+    {
+      "year": 2018,
+      "rain_season_mm": 435.9,
+      "t_mean_c": 17.99,
+      "t_max_spring_c": 22.27,
+      "hot_days_spring": 2,
+      "soil_wetness": 0.501
+    },
+    {
+      "year": 2019,
+      "rain_season_mm": 304.5,
+      "t_mean_c": 18.6,
+      "t_max_spring_c": 27.21,
+      "hot_days_spring": 29,
+      "soil_wetness": 0.482
+    },
+    {
+      "year": 2020,
+      "rain_season_mm": 235.2,
+      "t_mean_c": 19.46,
+      "t_max_spring_c": 26.3,
+      "hot_days_spring": 23,
+      "soil_wetness": 0.411
+    },
+    {
+      "year": 2021,
+      "rain_season_mm": 580.7,
+      "t_mean_c": 18.21,
+      "t_max_spring_c": 24.24,
+      "hot_days_spring": 10,
+      "soil_wetness": 0.539
+    },
+    {
+      "year": 2022,
+      "rain_season_mm": 203.1,
+      "t_mean_c": 19.73,
+      "t_max_spring_c": 25.72,
+      "hot_days_spring": 25,
+      "soil_wetness": 0.4
+    },
+    {
+      "year": 2023,
+      "rain_season_mm": 230.4,
+      "t_mean_c": 20.59,
+      "t_max_spring_c": 28.6,
+      "hot_days_spring": 32,
+      "soil_wetness": 0.427
+    },
+    {
+      "year": 2024,
+      "rain_season_mm": 192.7,
+      "t_mean_c": 20.17,
+      "t_max_spring_c": 26.86,
+      "hot_days_spring": 26,
+      "soil_wetness": 0.393
+    },
+    {
+      "year": 2025,
+      "rain_season_mm": 224.6,
+      "t_mean_c": 20.25,
+      "t_max_spring_c": 25.94,
+      "hot_days_spring": 18,
+      "soil_wetness": 0.396
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "rain_season_mm": 327.3,
+      "t_mean_c": 18.8,
+      "t_max_spring_c": 25.54,
+      "hot_days_spring": 16.3,
+      "soil_wetness": 0.465,
+      "dry_seasons": 4
+    },
+    "recent": {
+      "rain_season_mm": 321.9,
+      "t_mean_c": 19.2,
+      "t_max_spring_c": 25.92,
+      "hot_days_spring": 20.3,
+      "soil_wetness": 0.457,
+      "dry_seasons": 7
+    }
+  }
+}
