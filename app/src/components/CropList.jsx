@@ -1,4 +1,5 @@
 import { SCENARIOS, fmt, scoreLabel } from '../lib/data';
+import CropIcon from './CropIcon';
 
 const SYSTEM_LABEL = { rainfed: 'Rainfed', irrigated: 'Needs irrigation', perennial: 'Tree crop' };
 
@@ -9,9 +10,12 @@ function CropCard({ crop, scenario, rank, onSimulate }) {
   return (
     <article className={`crop ${rank === 0 ? 'top' : ''}`}>
       <div className="crop-head">
-        <div>
-          <h3>{crop.name}</h3>
-          <span className="tag">{SYSTEM_LABEL[crop.system]}</span>
+        <div className="crop-title">
+          <span className="crop-badge"><CropIcon id={crop.id} size={30} /></span>
+          <div>
+            <h3>{crop.name}</h3>
+            <span className="tag">{SYSTEM_LABEL[crop.system]}</span>
+          </div>
         </div>
         <div className={`score ${label.tone}`}>
           <span className="score-num">{s.score}</span>

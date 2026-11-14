@@ -3,6 +3,7 @@ import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine,
 } from 'recharts';
 import { loadPlantingData, fmt } from '../lib/data';
+import CropIcon from './CropIcon';
 
 const CROP_NAMES = { wheat: 'Wheat', barley: 'Barley' };
 const MONTHS = ['October', 'November', 'December', 'No qualifying window'];
@@ -77,7 +78,7 @@ export default function PlantingPanel({ regionId }) {
           return (
             <article key={c.crop_id} className="screen-card">
               <div className="screen-head">
-                <h3>{CROP_NAMES[c.crop_id] || c.crop_id}</h3>
+                <h3 className="crop-title"><span className="crop-badge"><CropIcon id={c.crop_id} size={26} /></span>{CROP_NAMES[c.crop_id] || c.crop_id}</h3>
                 <span className="screen-score">{fmt(c.suitability_score)}<small>/100</small></span>
               </div>
               <dl className="facts">

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="Field Shift banner">
+  <style>@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;display=swap");</style>
+  <defs>
+    <linearGradient id="bn-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f2f1d"/><stop offset="0.6" stop-color="#1b4d30"/><stop offset="1" stop-color="#2a6a42"/></linearGradient>
+    <radialGradient id="bn-glow" cx="0.85" cy="0.1" r="0.6"><stop offset="0" stop-color="#e8b931" stop-opacity="0.45"/><stop offset="1" stop-color="#e8b931" stop-opacity="0"/></radialGradient>
+    <pattern id="bn-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#ffffff" opacity="0.12"/></pattern>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bn-bg)"/>
+  <rect width="1280" height="640" fill="url(#bn-glow)"/>
+  <rect width="1280" height="640" fill="url(#bn-dots)"/>
+  <path d="M0 560 Q 320 500 640 530 T 1280 500 L1280 640 L0 640 Z" fill="#174b2e" opacity="0.8"/>
+  <path d="M0 560 Q 320 500 640 530 T 1280 500" fill="none" stroke="#8fd3a0" stroke-width="5" opacity="0.6"/>
+  <path d="M0 600 Q 320 540 640 572 T 1280 540" fill="none" stroke="#66b97d" stroke-width="5" opacity="0.5"/>
+  <svg x="96" y="150" width="240" height="240" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="fs-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f7a4b"/>
+      <stop offset="1" stop-color="#0f2f1d"/>
+    </linearGradient>
+    <linearGradient id="fs-sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe7a0"/>
+      <stop offset="1" stop-color="#e8b931"/>
+    </linearGradient>
+    <clipPath id="fs-tile"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <g clip-path="url(#fs-tile)">
+    <rect width="512" height="512" fill="url(#fs-bg)"/>
+    <circle cx="256" cy="300" r="128" fill="#e8b931" opacity="0.18"/>
+    <circle cx="256" cy="300" r="96" fill="url(#fs-sun)"/>
+    <path d="M70 196 A 200 200 0 0 1 442 196" fill="none" stroke="#f5dd8c" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 22" opacity="0.85"/>
+    <g transform="translate(404 132) rotate(32)">
+      <rect x="-13" y="-10" width="26" height="20" rx="4" fill="#ffffff"/>
+      <rect x="-46" y="-6" width="28" height="12" rx="2" fill="#9cc1e6"/>
+      <rect x="18" y="-6" width="28" height="12" rx="2" fill="#9cc1e6"/>
+    </g>
+    <path d="M-20 352 Q 140 300 256 326 T 532 296 L 532 532 L -20 532 Z" fill="#174b2e"/>
+    <path d="M-20 352 Q 140 300 256 326 T 532 296" fill="none" stroke="#8fd3a0" stroke-width="13" stroke-linecap="round"/>
+    <path d="M-20 404 Q 140 350 256 378 T 532 346" fill="none" stroke="#66b97d" stroke-width="13" stroke-linecap="round"/>
+    <path d="M-20 456 Q 140 402 256 430 T 532 398" fill="none" stroke="#45a062" stroke-width="13" stroke-linecap="round"/>
+    <path d="M-20 508 Q 140 454 256 482 T 532 450" fill="none" stroke="#2f7a4b" stroke-width="13" stroke-linecap="round"/>
+  </g>
+</svg>
+  <text x="380" y="262" font-family="Space Grotesk, 'Segoe UI', Arial, sans-serif" font-size="112" font-weight="700" fill="#ffffff" letter-spacing="-3">Field Shift</text>
+  <text x="384" y="330" font-family="Space Grotesk, 'Segoe UI', Arial, sans-serif" font-size="38" font-weight="500" fill="#f5dd8c">Adapting Moroccan farms with NASA data</text>
+  <text x="384" y="392" font-family="Space Grotesk, 'Segoe UI', Arial, sans-serif" font-size="25" font-weight="500" fill="#c6d8cb">NASA POWER · MODIS · SMAP · ArcGIS · FAO-56 · Python · Simulink</text>
+  <text x="96" y="470" font-family="Space Grotesk, 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="500" fill="#9fb7a7">NASA Space Apps Challenge 2026 · Casablanca</text>
+</svg>

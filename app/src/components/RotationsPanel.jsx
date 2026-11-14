@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import SeasonCalendar from './SeasonCalendar';
 import { rotationMetrics } from '../lib/model';
+import CropIcon from './CropIcon';
 import { fmt } from '../lib/data';
 
 const PRIORITIES = [
@@ -47,7 +48,7 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
           <h3>{r.name}</h3>
           <div className="chips">
             {r.sequence.map((id, i) => (
-              <span key={i} className="chip">Year {i + 1}: {cropNames[id]}</span>
+              <span key={i} className="chip"><CropIcon id={id} size={16} /> Year {i + 1}: {cropNames[id]}</span>
             ))}
             <span className="chip ghost">then repeat</span>
           </div>

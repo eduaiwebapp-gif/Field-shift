@@ -11,6 +11,7 @@ import LayerControl from './components/LayerControl';
 import PlantingPanel from './components/PlantingPanel';
 import SimulationCard from './components/SimulationCard';
 import CountUp from './components/CountUp';
+import HeroBackdrop from './components/HeroBackdrop';
 import Icon from './components/Icon';
 import { loadRegions, loadRegionData, loadClimatePoint, scoreLabel, fmt } from './lib/data';
 
@@ -40,31 +41,6 @@ function HeroStat({ icon, label, before, after, decimals = 0, unit, tone, i }) {
         {unit && <span className="hstat-unit">{unit}</span>}
       </div>
     </motion.div>
-  );
-}
-
-function Orbit() {
-  return (
-    <svg className="orbit" viewBox="0 0 400 400" aria-hidden="true">
-      <defs>
-        <radialGradient id="earth" cx="40%" cy="35%" r="70%">
-          <stop offset="0%" stopColor="#4f9b67" />
-          <stop offset="60%" stopColor="#1d5a37" />
-          <stop offset="100%" stopColor="#0c2a19" />
-        </radialGradient>
-      </defs>
-      <circle cx="200" cy="200" r="92" fill="url(#earth)" opacity="0.9" />
-      <circle cx="200" cy="200" r="92" fill="none" stroke="rgba(245,215,110,.35)" strokeWidth="1.5" />
-      <ellipse cx="200" cy="200" rx="170" ry="62" fill="none" stroke="rgba(255,255,255,.18)" strokeDasharray="3 7" transform="rotate(-18 200 200)" />
-      <g className="sat" transform="rotate(-18 200 200)">
-        <g>
-          <rect x="-7" y="-5" width="14" height="10" rx="2" fill="#f5d76e" />
-          <rect x="-24" y="-3" width="14" height="6" fill="#9cc1e6" />
-          <rect x="10" y="-3" width="14" height="6" fill="#9cc1e6" />
-          <animateMotion dur="14s" repeatCount="indefinite" path="M370,200 A170,62 0 1,1 30,200 A170,62 0 1,1 370,200" rotate="auto" />
-        </g>
-      </g>
-    </svg>
   );
 }
 
@@ -142,8 +118,8 @@ export default function App() {
 
           {data && region && current && safest ? (
             <section className="hero" aria-label="Key finding" key={regionId}>
+              <HeroBackdrop regions={regions} regionId={regionId} />
               <div className="hero-glow" aria-hidden />
-              <Orbit />
               <div className="hero-main">
                 <motion.p className="hero-eyebrow" variants={rise} custom={0} initial="hidden" animate="show">
                   <span className="live-dot" aria-hidden /> 35 years of NASA data · {region.name}

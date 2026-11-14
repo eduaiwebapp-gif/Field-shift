@@ -35,6 +35,54 @@
 .countup { font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) { .orbit { right: -120px; top: -160px; width: 360px; height: 360px; opacity: 0.35; } }
 
+/* satellite backdrop */
+.hero { background: #0b2416; }
+.hero::after { z-index: 0; opacity: 0.12; }
+.hero > * { position: relative; z-index: 1; }
+.hero > .backdrop, .hero > .hero-glow { position: absolute; }
+.backdrop { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: inherit; }
+.backdrop-pan { position: absolute; width: 1280px; height: 1024px; transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1), top 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.backdrop-tiles { display: grid; grid-template-columns: repeat(5, 256px); animation: kenburns 40s ease-in-out infinite alternate; transform-origin: 74% 56%; }
+.backdrop-tiles img { display: block; width: 256px; height: 256px; }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+.backdrop-shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 34, 21, 0.97) 0%, rgba(13, 42, 26, 0.9) 38%, rgba(15, 47, 29, 0.45) 68%, rgba(15, 47, 29, 0.2) 100%),
+    linear-gradient(0deg, rgba(10, 34, 21, 0.55), transparent 40%);
+}
+.hero .hero-period { text-align: left; }
+.backdrop-credit { position: absolute; right: 14px; bottom: 10px; font-size: 11px; color: rgba(255, 255, 255, 0.55); }
+.bd-marker { position: absolute; width: 0; height: 0; }
+.bd-dot { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; background: #f5dd8c; box-shadow: 0 0 0 3px rgba(15, 47, 29, 0.7); }
+.bd-ring { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #f5dd8c; animation: radar 2.4s ease-out infinite; }
+.bd-marker:not(.on) .bd-dot { background: #ffffff; opacity: 0.8; }
+.bd-marker:not(.on) .bd-ring { display: none; }
+.bd-label { position: absolute; left: 12px; top: -10px; font-size: 12px; font-weight: 700; color: #fff; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); white-space: nowrap; }
+@keyframes radar { from { transform: scale(1); opacity: 0.9; } to { transform: scale(5); opacity: 0; } }
+@media (max-width: 900px) {
+  .backdrop-shade { background: linear-gradient(180deg, rgba(10, 34, 21, 0.75), rgba(10, 34, 21, 0.95)); }
+}
+
+/* crop illustrations */
+.chip { display: inline-flex; align-items: center; gap: 5px; }
+.crop-title { display: flex; align-items: center; gap: 10px; }
+.crop-badge {
+  width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; border-radius: 14px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #eef3e9); border: 1px solid var(--line);
+  box-shadow: 0 4px 10px -6px rgba(21, 35, 27, 0.35);
+}
+.screen-head .crop-badge { width: 38px; height: 38px; border-radius: 12px; }
+.crop:hover .crop-badge, .screen-card:hover .crop-badge { transform: rotate(-6deg) scale(1.06); }
+.crop-badge { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* panel headers: colored accent line */
+.panel > .panel-head { position: relative; padding-left: 16px; }
+.panel > .panel-head::before {
+  content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 5px; border-radius: 99px;
+  background: linear-gradient(180deg, var(--gold), var(--brand-2));
+}
+
 /* climate trend card */
 .trend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 8px; }
 .trend-grid > div { background: #f7f5ef; border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; }
