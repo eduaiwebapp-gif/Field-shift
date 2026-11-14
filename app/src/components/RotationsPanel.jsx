@@ -52,7 +52,15 @@ function RotationCard({ r, match, best, cropNames, soilLabels, base, open, onTog
             <span className="chip ghost">then repeat</span>
           </div>
         </div>
-        <div className="match">
+        <div className="match" aria-label={`${match}% match with your priorities`}>
+          <svg className="match-ring" viewBox="0 0 66 66" aria-hidden="true">
+            <circle cx="33" cy="33" r="28" fill="none" stroke="#e7efe9" strokeWidth="6" />
+            <circle
+              cx="33" cy="33" r="28" fill="none" stroke={best ? '#2f7a4b' : '#7aa98a'} strokeWidth="6" strokeLinecap="round"
+              strokeDasharray={`${(match / 100) * 175.9} 175.9`} transform="rotate(-90 33 33)"
+              style={{ transition: 'stroke-dasharray .5s ease' }}
+            />
+          </svg>
           <span className="match-num">{match}%</span>
           <span className="match-label">match</span>
         </div>
