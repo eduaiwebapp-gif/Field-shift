@@ -141,8 +141,8 @@ export default function PlantingPanel({ regionId }) {
       </div>
       <p className="muted small">
         Built by our data scientist in Python from NASA POWER daily data. Rain threshold from{' '}
-        <a href={replay.threshold_source} target="_blank" rel="noreferrer">INRA Morocco</a>. Code in the{' '}
-        <a href="https://github.com/eduaiwebapp-gif/Field-shift/tree/main/data-science" target="_blank" rel="noreferrer">data-science</a> folder.
+        <a href={replay.threshold_source} target="_blank" rel="noreferrer">INRA Morocco</a>. Result files in the{' '}
+        <a href="https://github.com/eduaiwebapp-gif/Field-shift/tree/main/data-science/handoff" target="_blank" rel="noreferrer">data-science/handoff</a> folder.
       </p>
     </section>
   );
