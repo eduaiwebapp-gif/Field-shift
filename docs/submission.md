@@ -55,12 +55,14 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
    | Wheat → Chickpea | 5.5 of 15 | 8 of 15 |
    | Wheat → Lentil → Barley | 4.7 of 15 | 7.7 of 15 |
    | Barley → Faba bean | 1 of 15 | 5 of 15 |
-2. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
-3. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
-4. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
-5. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
-6. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
-7. **Map**: an Esri ArcGIS satellite map of the regions.
+   **What if**: two sliders replay the same seasons with less rain (down to -40 %) or more spring heat (up to +3 °C), and all rotation numbers update live. With 20 % less rain and +1 °C, wheat after wheat in Chaouia would lose money in 11 of 15 seasons, barley → faba bean in 7.5.
+2. **See it from space**: NASA MODIS vegetation (NDVI) and SMAP root zone soil moisture layers on the ArcGIS map, comparing the wet spring of 2018 with the dry spring of 2023, with a plain-language explanation of each layer.
+3. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
+4. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
+5. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
+6. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
+7. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
+8. **Map**: an Esri ArcGIS map of the regions.
 
 The tool is designed to support farmers and agronomists, not to replace their judgment: every rotation lists what must be checked locally (soil type, seed and market access, pest pressure).
 
@@ -92,7 +94,7 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 
 ### Tools and technologies
 
-- Data: NASA POWER API, Node.js data pipeline
+- Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), Node.js data pipeline
 - App: React, Vite, Recharts, Esri ArcGIS Maps SDK for JavaScript, hosted on Vercel
 - Hardware: ESP32, capacitive soil moisture sensor, DS18B20 temperature probe, Arduino
 - Design and simulation: _add if used: SOLIDWORKS (sensor enclosure), MATLAB / Simulink (irrigation model)_
@@ -109,6 +111,8 @@ _Edit this section so it describes exactly how your team used AI. Space Apps ask
 - NASA POWER (Prediction Of Worldwide Energy Resources), daily point data, community AG: https://power.larc.nasa.gov
   - T2M (temperature at 2 m), T2M_MAX (daily maximum temperature), PRECTOTCORR (bias-corrected precipitation), GWETROOT (root zone soil wetness)
   - POWER is based on NASA's MERRA-2 reanalysis and GEOS models.
+- NASA MODIS Terra monthly NDVI (MODIS_Terra_L3_NDVI_Monthly), April 2018 and April 2023, via NASA GIBS: https://gibs.earthdata.nasa.gov
+- NASA SMAP Level 4 root zone soil moisture (SMAP_L4_Analyzed_Root_Zone_Soil_Moisture), early April 2018 and 2023, via NASA GIBS
 
 ## References and other resources
 
