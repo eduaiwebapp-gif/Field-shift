@@ -10,7 +10,7 @@ Field Shift
 
 ## High-level summary (short version)
 
-Morocco's climate has shifted, but most farmers still grow wheat after wheat as they did 30 years ago. Field Shift is a decision-support tool that uses 35 years of NASA POWER data to help farmers in the Casablanca-Settat region explore crop rotations that protect their soil and hold up in dry years. It compares four rotations, including the current one, by replaying each of them on the real seasons measured by NASA, and explains for each one why it is suggested, the evidence, its benefits for soil (nitrogen, erosion, pests), its risks and what still needs local checking. Farmers set their own priorities (income, dry-year safety, water, soil health) and the ranking adapts. In Chaouia, wheat after wheat would have lost money in 9 of the last 15 seasons, while a barley and faba bean rotation would have lost money only once. A low cost soil sensor (about 150 MAD) checks the satellite estimate in the farmer's own field.
+Morocco's climate has shifted, but most farmers still grow wheat after wheat as they did 30 years ago. Field Shift is a decision-support tool that uses 35 years of NASA POWER data to help farmers in the Casablanca-Settat region explore crop rotations that protect their soil and hold up in dry years. It compares four rotations, including the current one, by replaying each of them on the real seasons measured by NASA, and explains for each one why it is suggested, the evidence, its benefits for soil (nitrogen, erosion, pests), its risks and what still needs local checking. Farmers set their own priorities (income, dry-year safety, water, soil health) and the ranking adapts. In our simulation for Chaouia, wheat after wheat would have lost money in 9 of the last 15 seasons, while a barley and faba bean rotation would have lost money only once. A Python machine learning pipeline shows when the autumn sowing rains usually arrive, and a MATLAB/Simulink model with a low cost soil sensor (about 150 MAD) turns field moisture into irrigation advice. Crop inputs are sourced from FAO, INRA Morocco and Moroccan crop guides and are clearly labelled as provisional.
 
 ## Links
 
@@ -49,20 +49,22 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
 
    Each rotation is replayed on the real 2011-2025 seasons (for every starting crop) to count the seasons at a loss, the average profit per hectare, the fit in the driest year and the extra water needed. Each one also shows its soil benefits (nitrogen fixation, soil cover, organic matter, pest break, forage), why it is suggested, the evidence from NASA data, benefits, risks and information gaps. The farmer sets four priorities (income, safety in dry years, saving water, soil health) and the ranking adapts. A season calendar shows when the field is growing, when crops are sensitive to heat and when the soil is bare, next to monthly rain and hot days.
 
-   | Rotation | Seasons at a loss 2011-2025, Chaouia | Doukkala |
+   | Rotation | Simulated seasons at a loss 2011-2025, Chaouia | Doukkala |
    |---|---|---|
    | Wheat after wheat (current) | 9 of 15 | 10 of 15 |
    | Wheat → Chickpea | 5.5 of 15 | 8 of 15 |
    | Wheat → Lentil → Barley | 4.7 of 15 | 7.7 of 15 |
    | Barley → Faba bean | 1 of 15 | 5 of 15 |
    **What if**: two sliders replay the same seasons with less rain (down to -40 %) or more spring heat (up to +3 °C), and all rotation numbers update live. With 20 % less rain and +1 °C, wheat after wheat in Chaouia would lose money in 11 of 15 seasons, barley → faba bean in 7.5.
-2. **See it from space**: NASA MODIS vegetation (NDVI) and SMAP root zone soil moisture layers on the ArcGIS map, comparing the wet spring of 2018 with the dry spring of 2023, with a plain-language explanation of each layer.
-3. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
-4. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
-5. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
-6. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
-7. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
-8. **Map**: an Esri ArcGIS map of the regions.
+   These are simulation outputs on NASA climate data with provisional, sourced crop inputs, not observed farm results. The model assumptions (75 % effective rainfall, heat penalty, 500 MAD/ha nitrogen credit after a legume) are listed in the app.
+2. **Planting time** (data science, Python): when do the autumn sowing rains arrive? Using the INRA Morocco threshold (25 mm in 10 days) on NASA POWER daily data 2006-2025, the app shows the month of the first real rain (Settat: October 7, November 9, December 2, never 2 of 20 seasons), a rainfed wheat and barley screening (sowing window Nov 1 - Dec 15 from the Moroccan cereal guide, seasonal crop water demand with Hargreaves ET0 × FAO-56 Kc versus seasonal rain), and a historical replay of a logistic regression that estimates the chance of the first real rain in the next 14 days. Tested on 5 unseen seasons (2021-2025), the model did not beat the simple historical rate (Brier 0.259 vs 0.253 at Settat), so we show the historical rate as the main indicator and the model as an experiment.
+3. **See it from space**: NASA MODIS vegetation (NDVI) and SMAP root zone soil moisture layers on the ArcGIS map, comparing the wet spring of 2018 with the dry spring of 2023, with a plain-language explanation of each layer.
+4. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
+5. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
+6. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
+7. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
+8. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
+9. **Map**: an Esri ArcGIS map of the regions.
 
 The tool is designed to support farmers and agronomists, not to replace their judgment: every rotation lists what must be checked locally (soil type, seed and market access, pest pressure).
 
@@ -94,10 +96,10 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 
 ### Tools and technologies
 
-- Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), Node.js data pipeline
+- Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), Node.js data pipeline, Python data science pipeline (NumPy, logistic regression)
 - App: React, Vite, Recharts, Esri ArcGIS Maps SDK for JavaScript, hosted on Vercel
 - Hardware: ESP32, capacitive soil moisture sensor, DS18B20 temperature probe, Arduino
-- Design and simulation: _add if used: SOLIDWORKS (sensor enclosure), MATLAB / Simulink (irrigation model)_
+- Design and simulation: MATLAB / Simulink (root zone water balance and irrigation controller), Onshape (sensor enclosure, if used)
 - Collaboration: GitHub
 
 ## Use of artificial intelligence
