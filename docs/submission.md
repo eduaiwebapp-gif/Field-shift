@@ -10,7 +10,7 @@ Field Shift
 
 ## High-level summary (short version)
 
-Morocco's climate has shifted, but most farmers still plant what worked 30 years ago. Field Shift turns 35 years of NASA satellite-based climate data into simple decisions for one farmer in one region: what to plant next season, when to plant it, how much extra water it will need, and what it could earn in a bad, typical or good year. A low cost soil sensor (about 150 MAD) checks the satellite estimate at the scale of a single field. In the Doukkala region, NASA data shows that the last four seasons were all dry and that wheat, the most planted crop, has become the riskiest choice, while barley and olive hold up better.
+Morocco's climate has shifted, but most farmers still grow wheat after wheat as they did 30 years ago. Field Shift is a decision-support tool that uses 35 years of NASA POWER data to help farmers in the Casablanca-Settat region explore crop rotations that protect their soil and hold up in dry years. It compares four rotations, including the current one, by replaying each of them on the real seasons measured by NASA, and explains for each one why it is suggested, the evidence, its benefits for soil (nitrogen, erosion, pests), its risks and what still needs local checking. Farmers set their own priorities (income, dry-year safety, water, soil health) and the ranking adapts. In Chaouia, wheat after wheat would have lost money in 9 of the last 15 seasons, while a barley and faba bean rotation would have lost money only once. A low cost soil sensor (about 150 MAD) checks the satellite estimate in the farmer's own field.
 
 ## Links
 
@@ -41,11 +41,28 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
 
 ### What Field Shift does
 
-1. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
-2. **What to plant**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
-3. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
-4. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
-5. **Map**: an Esri ArcGIS satellite map of the regions.
+1. **Compare rotations** (main feature): four strategies for the region, including the current one:
+   - Wheat after wheat (current practice)
+   - Wheat → Chickpea
+   - Barley → Faba bean
+   - Wheat → Lentil → Barley
+
+   Each rotation is replayed on the real 2011-2025 seasons (for every starting crop) to count the seasons at a loss, the average profit per hectare, the fit in the driest year and the extra water needed. Each one also shows its soil benefits (nitrogen fixation, soil cover, organic matter, pest break, forage), why it is suggested, the evidence from NASA data, benefits, risks and information gaps. The farmer sets four priorities (income, safety in dry years, saving water, soil health) and the ranking adapts. A season calendar shows when the field is growing, when crops are sensitive to heat and when the soil is bare, next to monthly rain and hot days.
+
+   | Rotation | Seasons at a loss 2011-2025, Chaouia | Doukkala |
+   |---|---|---|
+   | Wheat after wheat (current) | 9 of 15 | 10 of 15 |
+   | Wheat → Chickpea | 5.5 of 15 | 8 of 15 |
+   | Wheat → Lentil → Barley | 4.7 of 15 | 7.7 of 15 |
+   | Barley → Faba bean | 1 of 15 | 5 of 15 |
+2. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
+3. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.
+4. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
+5. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
+6. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
+7. **Map**: an Esri ArcGIS satellite map of the regions.
+
+The tool is designed to support farmers and agronomists, not to replace their judgment: every rotation lists what must be checked locally (soil type, seed and market access, pest pressure).
 
 ### How it works
 
@@ -54,6 +71,7 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
   - water balance: effective rainfall over the crop's growing months compared with its water needs (60 % of the score)
   - heat stress: mean daily maximum temperature during flowering compared with the crop's limit (25 %)
   - root zone soil wetness (15 %)
+- Rotations are replayed season by season on the real data, starting from each crop of the sequence, and averaged. A cereal grown after a legume gets a fertiliser saving of about 500 MAD/ha (first estimate). Soil benefits are rated from agronomy knowledge and clearly separated from what the satellite data measures.
 - Yield ranges come from the spread between bad and good years in each period. The model is deliberately simple and transparent, so a farmer or an extension agent can understand why a crop is recommended.
 - Satellite soil moisture is estimated over pixels of tens of kilometres. The field sensor brings the measurement down to the scale of a single plot.
 

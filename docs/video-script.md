@@ -12,8 +12,8 @@ How to film: record the screen with the live app (https://field-shift-self.verce
 |---|---|---|
 | 0-5 s | Rainfall chart of Doukkala, the 4 red bars at the end | "In Doukkala, Morocco, the last four seasons were all dry. NASA data shows it." |
 | 5-11 s | "What changed" tab: hot days and dry seasons cards | "Since the 1990s, spring heat waves and dry years have become much more frequent. But farmers still plant the same crops." |
-| 11-19 s | "What to plant" tab, switch to "Dry year": wheat drops to the bottom | "Field Shift ranks crops for next season. Wheat, the most planted crop, is now the riskiest. Barley and olive hold up better." |
-| 19-24 s | "Income" tab, change the area | "The farmer sees what each crop could earn in a bad, typical or good year." |
+| 11-19 s | "Rotations" tab (Chaouia): move a priority slider, the ranking changes | "Field Shift replays crop rotations on real NASA seasons. Wheat after wheat lost money 9 times in 15 years. Barley and faba bean: once." |
+| 19-24 s | Open "Why, evidence, risks", then the season calendar | "Each option explains why, the evidence, the soil benefits and the risks to check locally." |
 | 24-30 s | Sensor clip (soil in a pot, values changing), then the "Field sensor" tab | "And a 150 dirham sensor checks the satellite data in their own field. Field Shift: NASA data, farm decisions." |
 
 ---
@@ -24,8 +24,8 @@ How to film: record the screen with the live app (https://field-shift-self.verce
 |---|---|---|
 | 0-8 s | Map zooming on Chaouia and Doukkala | "This is the Casablanca-Settat region, one of Morocco's main grain regions. Most farms here depend only on rain." |
 | 8-18 s | "What changed" tab, then the rainfall and hot days charts | "We analysed 35 years of NASA POWER data. Dry seasons went from 4 to 7 per 15 years in Doukkala, and the last four seasons were all dry. Hot days in spring, when wheat is filling its grain, went up by a third." |
-| 18-30 s | "What to plant" tab, switch between Next season / Dry year / 1990s | "Field Shift turns this into a simple choice. Each crop gets a score for next season, with expected yield, when to plant, and how much extra water it needs. Wheat has dropped the most. Barley, lentils and olive trees are now safer bets." |
-| 30-40 s | "Income" tab: area, price, bad/typical/good year, comparison bars | "Before buying seeds, the farmer can compare what each crop could earn, even in a bad year." |
+| 18-30 s | "Rotations" tab: priority sliders, cards re-ranking | "Field Shift compares four crop rotations, including today's wheat after wheat, by replaying them on the real seasons. The farmer says what matters most: income, safety in dry years, water or soil health, and the ranking adapts." |
+| 30-40 s | Open "Why, evidence, risks" on Barley → Faba bean, then the season calendar | "Rotating with legumes like faba bean adds nitrogen, breaks pest cycles and, in Chaouia, would have cut losing seasons from 9 to 1. Each option also lists the risks and what an agronomist should check." |
 | 40-52 s | Sensor clip, then the "Field sensor" tab with the advice message | "Satellites see soil moisture over tens of kilometres. Our sensor, built with an ESP32 for about 150 dirhams, measures the real field and tells the farmer when to irrigate, so no water is wasted." |
 | 52-60 s | Home screen with the map and the best crop | "Field Shift: adapting farms with NASA data. Built in Casablanca for NASA Space Apps 2026." |
 
