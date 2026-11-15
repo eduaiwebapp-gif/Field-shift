@@ -20,16 +20,16 @@ export async function loadRegionData(regionId) {
 export const loadSensorSample = () => getJson('sensor_sample.json');
 
 export async function loadClimatePoint(regionId) {
-  const g = await getJson(`field-shift/${regionId}/climate_point.geojson`);
+  const g = await getJson(`seasonreplay/${regionId}/climate_point.geojson`);
   return g.features[0]?.properties || null;
 }
 
-// Data science outputs (Python pipeline in data-science/), served from /data/field-shift/<region>/
+// Data science outputs (Python pipeline in data-science/), served from /data/seasonreplay/<region>/
 export async function loadPlantingData(regionId) {
   const [screening, replay, outlook] = await Promise.all([
-    getJson(`field-shift/${regionId}/recommendations.json`),
-    getJson(`field-shift/${regionId}/planting_ml.json`),
-    getJson(`field-shift/${regionId}/planting_outlook.json`),
+    getJson(`seasonreplay/${regionId}/recommendations.json`),
+    getJson(`seasonreplay/${regionId}/planting_ml.json`),
+    getJson(`seasonreplay/${regionId}/planting_outlook.json`),
   ]);
   return { screening, replay, outlook };
 }

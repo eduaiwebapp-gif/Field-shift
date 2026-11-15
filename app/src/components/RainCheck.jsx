@@ -9,7 +9,7 @@ export default function RainCheck({ regionId }) {
   const [d, setD] = useState(null);
   useEffect(() => {
     setD(null);
-    getJson(`field-shift/${regionId}/rainfall_check.json`).then(setD).catch(() => {});
+    getJson(`seasonreplay/${regionId}/rainfall_check.json`).then(setD).catch(() => {});
   }, [regionId]);
   if (!d) return null;
   const rows = d.seasons.map((s) => ({ season: s.season, nasa: Math.round(s.nasa_mm), chirps: Math.round(s.chirps_mm) }));

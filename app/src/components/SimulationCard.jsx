@@ -21,7 +21,7 @@ export default function SimulationCard() {
 
   useEffect(() => {
     fetch(`${BASE}/simulation/irrigation_240h.json`).then((r) => r.json()).then(setSim).catch(() => {});
-    fetch(`${BASE}/field-shift/doukkala/irrigation_demo.json`).then((r) => r.json()).then(setDemo).catch(() => {});
+    fetch(`${BASE}/seasonreplay/doukkala/irrigation_demo.json`).then((r) => r.json()).then(setDemo).catch(() => {});
   }, []);
 
   const crop = IRR_CROPS.find((c) => c.id === cropId);
