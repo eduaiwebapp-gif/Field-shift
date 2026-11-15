@@ -120,9 +120,7 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 
 ## Use of artificial intelligence
 
-We used Claude (Anthropic), an AI assistant, to help write parts of the code (data pipeline, web app, sensor sketch) and to draft texts (this description, the slides and the video script). The team chose the problem, the region and the approach, reviewed the outputs, and is responsible for the results. The crop recommendations are computed by a transparent rule-based model, not by a generative AI model.
-
-_Edit this section so it describes exactly how your team used AI. Space Apps asks teams to be transparent about it._
+We used Claude (Anthropic), an AI assistant, as a coding and writing tool throughout the hackathon. Under our direction it wrote most of the web app and data pipeline code, the French translation, the slide layout, and first drafts of our texts, including this description. The team chose the challenge, the region, the crops and rotations to compare, and the approach. We set the requirements, reviewed and tested every output, and corrected it when it was wrong. Our data scientist's planting-time analysis and CHIRPS cross-check and our engineer's Simulink model and 3D concept render are their own work; the AI helped integrate them into the app. No number in the app comes from a generative model: every result is computed by a transparent rule-based model from NASA data and sourced crop parameters. We used no AI-generated images. The team is responsible for all results.
 
 ## Space agency data
 

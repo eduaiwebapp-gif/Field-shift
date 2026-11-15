@@ -71,6 +71,10 @@ npm run dev        # http://localhost:5173
 - Scenarios: `baseline` (1991-2005), `recent` (2011-2025, used as the expectation for next season), `dry_year` (driest recent season).
 - Crop water needs, heat limits, yields, prices and costs are first estimates in `data/pipeline/crops.mjs` and should be checked with an agronomist.
 
+## Use of AI
+
+This project was built with the help of Claude (Anthropic), an AI assistant. Under the team's direction it wrote most of the web app and data pipeline code, the French translation, the slide layout and first drafts of the texts. The team chose the problem, the region, the rotations and the approach, and reviewed and tested every output. The data science analysis (`data-science/`) and the Simulink model and 3D concept render (`sensor/`) are the team members' own work. The app contains no generative AI: all results come from a transparent rule-based model on NASA data. No AI-generated images are used. Details: [docs/submission.md](docs/submission.md#use-of-artificial-intelligence).
+
 ## Team
 
 - **Mohamed Amjad Eddaniaoui**: software, web app, team lead
