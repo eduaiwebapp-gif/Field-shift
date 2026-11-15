@@ -157,3 +157,9 @@
 .tabs { flex-wrap: wrap; overflow: visible; }
 .tabs button { flex: 0 0 auto; white-space: nowrap; }
 @media (max-width: 640px) { .tabs button { padding: 8px 11px; font-size: 14px; } }
+
+/* crop picker in the irrigation simulation */
+.crop-picker { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.crop-picker button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.crop-picker button:hover { border-color: var(--brand-2); color: var(--ink); }
+.crop-picker button.on { background: var(--brand); border-color: var(--brand); color: #fff; }

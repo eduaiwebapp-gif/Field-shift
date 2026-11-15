@@ -1,36 +1,49 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
-  ResponsiveContainer, ComposedChart, Area, Line, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine,
+  ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine,
 } from 'recharts';
 import { fmt } from '../lib/data';
+import { IRR_CROPS, MODEL, FAO56, simulate } from '../lib/irrigation';
 import CountUp from './CountUp';
+import CropIcon from './CropIcon';
 import Icon from './Icon';
 
 const BASE = `${import.meta.env.BASE_URL}data`;
 
-// Smart irrigation simulation built by our mechatronics engineer in MATLAB/Simulink.
+// Smart irrigation: the engineer's MATLAB/Simulink model, plus the same model run per crop with FAO-56 values.
 export default function SimulationCard() {
   const [sim, setSim] = useState(null);
   const [demo, setDemo] = useState(null);
   const [scenario, setScenario] = useState(0);
+  const [cropId, setCropId] = useState('tomato_sim');
 
   useEffect(() => {
     fetch(`${BASE}/simulation/irrigation_240h.json`).then((r) => r.json()).then(setSim).catch(() => {});
     fetch(`${BASE}/field-shift/doukkala/irrigation_demo.json`).then((r) => r.json()).then(setDemo).catch(() => {});
   }, []);
 
-  const series = useMemo(() => {
-    if (!sim) return [];
-    const out = [];
-    for (let i = 0; i < sim.time_h.length; i += 3) {
-      out.push({ t: sim.time_h[i], m: sim.sensor_soil_moisture_pct[i], irr: sim.irrigation_cmd_mm_h[i] });
+  const crop = IRR_CROPS.find((c) => c.id === cropId);
+  const v = useMemo(() => {
+    if (crop.simulink) {
+      if (!sim) return null;
+      const s = sim.summary;
+      const series = [];
+      for (let i = 0; i < sim.time_h.length; i += 3) {
+        series.push({ t: sim.time_h[i], m: sim.sensor_soil_moisture_pct[i], irr: sim.irrigation_cmd_mm_h[i] });
+      }
+      const r = simulate(crop, 10);
+      return {
+        series, days: sim.metadata.stop_time_h / 24, applied: s.irrigation_total_mm, onTime: s.irrigation_on_time_h,
+        openings: 2, cropUse: s.crop_water_use_mm, etcDay: r.etcDay, reserveDays: r.reserveDays, storeMm: r.storeMm, first: 0,
+      };
     }
-    return out;
-  }, [sim]);
+    return simulate(crop, 30);
+  }, [crop, sim]);
 
-  if (!sim) return null;
-  const s = sim.summary;
-  const days = sim.metadata.stop_time_h / 24;
+  if (!v) return null;
+  const { days, series } = v;
+  const hours = days * 24;
+  const step = days <= 10 ? 24 : 120;
   const sc = demo?.scenarios[scenario];
 
   return (
@@ -39,10 +52,20 @@ export default function SimulationCard() {
       <header className="panel-head">
         <h2>Smart irrigation, simulated</h2>
         <p className="muted">
-          Our mechatronics engineer modelled a tomato field in Doukkala with the FAO-56 root zone water balance. The
-          ESP32 sensor reading (with real measurement noise) drives an on/off irrigation controller.
+          Our mechatronics engineer modelled a field in Doukkala with the FAO-56 root zone water balance. The ESP32
+          sensor reading (with real measurement noise) drives an on/off irrigation controller. Pick a crop: each one has
+          its own water use (K<sub>c</sub>) and root depth (Z<sub>r</sub>) from FAO-56.
         </p>
       </header>
+
+      <div className="crop-picker" role="tablist" aria-label="Crop">
+        {IRR_CROPS.map((c) => (
+          <button key={c.id} role="tab" aria-selected={c.id === cropId} className={c.id === cropId ? 'on' : ''} onClick={() => setCropId(c.id)}>
+            <CropIcon id={c.crop} size={20} />
+            <span>{c.simulink ? 'Tomato · Simulink run' : c.name}</span>
+          </button>
+        ))}
+      </div>
 
       <div className="formula" aria-label="Water balance equation">
         <span className="f-lhs">dθ/dt</span>
@@ -54,17 +77,17 @@ export default function SimulationCard() {
       <div className="formula-legend">
         <span><b>θ</b> soil moisture (%)</span>
         <span><b>I</b> irrigation</span>
-        <span><b>P</b> rain</span>
-        <span><b>K<sub>c</sub></b> 1.15 tomato</span>
-        <span><b>ET<sub>0</sub></b> 0.22 mm/h (NASA)</span>
-        <span><b>Z<sub>r</sub></b> 300 mm roots</span>
+        <span><b>P</b> rain (none here)</span>
+        <span><b>K<sub>c</sub></b> {fmt(crop.kc, 2)} {crop.name.toLowerCase()}</span>
+        <span><b>ET<sub>0</sub></b> {MODEL.et0} mm/h (NASA)</span>
+        <span><b>Z<sub>r</sub></b> {crop.zr} mm {crop.simulink ? 'sensor layer' : `roots (FAO-56: ${crop.range})`}</span>
       </div>
 
       <div className="tiles">
-        <div className="tile"><span className="tile-k">Water applied</span><span className="tile-v"><CountUp value={s.irrigation_total_mm} decimals={1} /> mm</span><span className="tile-s">over {days} days</span></div>
-        <div className="tile"><span className="tile-k">Per day</span><span className="tile-v"><CountUp value={s.irrigation_total_mm / days} decimals={1} /> mm</span><span className="tile-s">tomato needs ≈ 6.0 mm/day</span></div>
-        <div className="tile"><span className="tile-k">Valve open</span><span className="tile-v"><CountUp value={s.irrigation_on_time_h} decimals={1} /> h</span><span className="tile-s">out of {sim.metadata.stop_time_h} h</span></div>
-        <div className="tile"><span className="tile-k">Moisture kept between</span><span className="tile-v">{fmt(s.moisture_min_pct, 0)}–{fmt(s.moisture_max_pct, 0)} %</span><span className="tile-s">target band 22–35 %</span></div>
+        <div className="tile"><span className="tile-k">Water applied</span><span className="tile-v"><CountUp key={`a${cropId}`} value={v.applied} decimals={0} /> mm</span><span className="tile-s">over {days} days · crop uses {fmt(v.cropUse, 0)} mm</span></div>
+        <div className="tile"><span className="tile-k">Valve openings</span><span className="tile-v"><CountUp key={`o${cropId}`} value={v.openings} decimals={0} /></span><span className="tile-s">{fmt(v.onTime, 1)} h open in total</span></div>
+        <div className="tile"><span className="tile-k">First irrigation</span><span className="tile-v">day <CountUp key={`r${cropId}`} value={v.first === null ? days : v.first / 24} decimals={1} /></span><span className="tile-s">{crop.simulink ? 'valve open at the start of the run' : `soil reserve alone: ${fmt(v.reserveDays, 1)} days`}</span></div>
+        <div className="tile"><span className="tile-k">Crop water use</span><span className="tile-v"><CountUp key={`e${cropId}`} value={v.etcDay} decimals={1} /> mm/day</span><span className="tile-s">K<sub>c</sub> × ET<sub>0</sub>, peak season</span></div>
       </div>
 
       <div className="legend-row">
@@ -82,27 +105,40 @@ export default function SimulationCard() {
               </linearGradient>
             </defs>
             <CartesianGrid stroke="var(--grid)" vertical={false} />
-            <XAxis dataKey="t" type="number" domain={[0, sim.metadata.stop_time_h]} ticks={Array.from({ length: days + 1 }, (_, i) => i * 24).filter((v, i) => days <= 4 || i % 2 === 0)} tickFormatter={(v) => `${v} h`} tick={{ fontSize: 11 }} />
-            <YAxis yAxisId="m" domain={[20, 40]} ticks={[20, 25, 30, 35, 40]} tick={{ fontSize: 11 }} unit="%" width={48} />
+            <XAxis dataKey="t" type="number" domain={[0, hours]} ticks={Array.from({ length: hours / step + 1 }, (_, i) => i * step)} tickFormatter={(x) => `day ${x / 24}`} tick={{ fontSize: 11 }} />
+            <YAxis yAxisId="m" domain={[20, 40]} ticks={[20, 25, 30, 35, 40]} tick={{ fontSize: 11 }} unit="%" width={48} allowDataOverflow />
             <YAxis yAxisId="i" orientation="right" domain={[0, 20]} hide />
             <Tooltip
-              labelFormatter={(v) => `${Number(v).toFixed(1)} h`}
-              formatter={(v, n) => (n === 'm' ? [`${Number(v).toFixed(1)} %`, 'Soil moisture'] : [`${v} mm/h`, 'Irrigation'])}
+              labelFormatter={(x) => `day ${(Number(x) / 24).toFixed(1)}`}
+              formatter={(val, n) => (n === 'm' ? [`${Number(val).toFixed(1)} %`, 'Soil moisture'] : [`${val} mm/h`, 'Irrigation'])}
             />
             <ReferenceLine yAxisId="m" y={22} stroke="#b8432c" strokeDasharray="5 4" />
             <ReferenceLine yAxisId="m" y={35} stroke="#215a39" strokeDasharray="5 4" />
-            <Area yAxisId="i" dataKey="irr" type="stepAfter" stroke="#1baf7a" fill="#1baf7a" fillOpacity={0.25} strokeWidth={2} isAnimationActive />
-            <Area yAxisId="m" dataKey="m" type="monotone" stroke="#2f6dae" fill="url(#gMoist)" strokeWidth={2} dot={false} isAnimationActive />
+            <Area key={`i${cropId}`} yAxisId="i" dataKey="irr" type="stepAfter" stroke="#1baf7a" fill="#1baf7a" fillOpacity={0.25} strokeWidth={2} isAnimationActive />
+            <Area key={`m${cropId}`} yAxisId="m" dataKey="m" type="monotone" stroke="#2f6dae" fill="url(#gMoist)" strokeWidth={2} dot={false} isAnimationActive />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <p className="muted small">
-        Over {days} days without rain the tomato uses about {fmt(s.crop_water_use_mm, 0)} mm of water. The valve opened only twice,{' '}
-        {fmt(s.irrigation_on_time_h, 1)} h in total, and applied {fmt(s.irrigation_total_mm, 0)} mm: the rest came from water already
-        stored in the soil. Moisture never came close to saturation (45 %), so no water drained away below the roots.
-        Figures from the engineer's MATLAB/Simulink run; the curve is regenerated from the same model for display.
-      </p>
-
+      {crop.simulink ? (
+        <p className="muted small">
+          Over {days} days without rain the tomato uses about {fmt(v.cropUse, 0)} mm of water. The valve opened only twice,{' '}
+          {fmt(v.onTime, 1)} h in total, and applied {fmt(v.applied, 0)} mm: the rest came from water already stored in the
+          soil. Moisture never came close to saturation (45 %), so no water drained away below the roots. Figures from the
+          engineer&apos;s MATLAB/Simulink run; the curve is regenerated from the same model for display.
+        </p>
+      ) : (
+        <p className="muted small">
+          {crop.name} roots reach about {fmt(crop.zr / 1000, 2)} m, so the 22-35 % band holds {fmt(v.storeMm, 0)} mm of water.
+          Starting at 28 %, the soil alone would last {fmt(v.reserveDays, 1)} days before reaching 22 %. The valve opens
+          earlier{v.first !== null ? `, on day ${fmt(v.first / 24, 1)},` : ''} because the noisy ESP32 reading touches 22 % first:
+          averaging readings would save that water. Over {days} days the controller applied{' '}
+          {fmt(v.applied, 0)} mm in {v.openings} opening{v.openings === 1 ? '' : 's'} for {fmt(v.cropUse, 0)} mm of crop use; the
+          gap is water stored in, or taken from, the soil. Deeper roots mean fewer, longer irrigations. Same model as the
+          engineer&apos;s Simulink file, run in the browser with{' '}
+          <a href={FAO56} target="_blank" rel="noreferrer">FAO-56</a> mid-season K<sub>c</sub> (Table 12) and root depth
+          (Table 22, midpoint). Peak-season water use and no rain: a stress test, not a forecast.
+        </p>
+      )}
       {demo && (
         <div className="scenario">
           <div className="scenario-head">
