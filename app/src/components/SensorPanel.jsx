@@ -118,6 +118,25 @@ export default function SensorPanel({ climate }) {
         {live ? L('Live data, refreshed every 10 seconds.', 'Données en direct, actualisées toutes les 10 secondes.') : L('Showing simulated readings until a sensor is connected.', 'Mesures simulées affichées tant qu’aucun capteur n’est connecté.')}
       </p>
       {error && <p className="error">{error}</p>}
+
+      <h3 className="enc-title">{L('The field unit', 'Le boîtier au champ')}</h3>
+      <p className="muted">
+        {L('3D model of the sensor box by our mechatronics engineer: solar powered, sealed against rain and dust, with the probe in the root zone.',
+          'Modèle 3D du boîtier par notre ingénieur en mécatronique : alimenté par le soleil, étanche à la pluie et à la poussière, avec la sonde dans la zone des racines.')}
+      </p>
+      <img className="enclosure" src={`/images/enclosure_${lang === 'fr' ? 'fr' : 'en'}.jpg`} width="1600" height="893" loading="lazy"
+        alt={L('Exploded 3D view of the sensor box: solar panel, translucent lid, sealing gasket, ESP32 board and battery, IP65 enclosure with a cable gland, and the soil moisture probe',
+          'Vue 3D éclatée du boîtier : panneau solaire, capot translucide, joint d’étanchéité, carte ESP32 et batterie, boîtier IP65 avec presse-étoupe, et sonde d’humidité du sol')} />
+      <div className="callout mid">
+        <b>{L('What we will change in the next version', 'Ce que nous changerons dans la prochaine version')}</b>
+        <ul className="enc-notes">
+          <li>{L('A second cable gland for the solar panel lead, so the box stays IP65.', 'Un deuxième presse-étoupe pour le câble du panneau solaire, pour que le boîtier reste IP65.')}</li>
+          <li>{L('Heat: under a translucent lid in the Moroccan sun the inside can pass 60 °C, too hot for a LiPo battery. We will use an opaque UV-resistant lid or a LiFePO4 cell.',
+            'Chaleur : sous un capot translucide, au soleil marocain, l’intérieur peut dépasser 60 °C, trop chaud pour une batterie LiPo. Nous prendrons un capot opaque résistant aux UV ou une cellule LiFePO4.')}</li>
+          <li>{L('Battery life: deep sleep between readings, one reading every 30 minutes.', 'Autonomie : veille profonde entre deux mesures, une mesure toutes les 30 minutes.')}</li>
+          <li>{L('Range: Wi-Fi rarely reaches the middle of a field, so a LoRa radio would send the readings to the farm.', 'Portée : le Wi-Fi atteint rarement le milieu d’un champ, une radio LoRa enverrait les mesures jusqu’à la ferme.')}</li>
+        </ul>
+      </div>
     </section>
   );
 }

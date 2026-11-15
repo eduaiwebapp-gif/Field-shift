@@ -169,3 +169,8 @@
 .lang-switch button { border: 0; background: transparent; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; }
 .lang-switch button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
 .topbar-inner { gap: 10px; }
+
+/* sensor enclosure render */
+.enc-title { margin-top: 28px; }
+.enclosure { display: block; width: 100%; height: auto; border-radius: 14px; margin: 12px 0 14px; background: #e9eaee; }
+.enc-notes { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; }

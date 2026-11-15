@@ -53,3 +53,9 @@ The laptop and the ESP32 must be on the same WiFi. The output format is in `docs
 ![Simulink scope, 240 h](simulink/scope_240h.png)
 
 `regenerate_series.js` rebuilds the displayed time series from the same equations with seeded noise (the app shows the MATLAB summary values).
+
+## Enclosure (3D model)
+
+Exploded view, parts and known limits: [enclosure/README.md](enclosure/README.md).
+
+![Enclosure](enclosure/enclosure_en.png)

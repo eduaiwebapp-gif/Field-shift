@@ -23,7 +23,7 @@ hot spring days (≥ 30 °C) went from 13.5 to 18.4 per year, dry seasons (< 250
 app/           web app (React + Vite + ArcGIS Maps SDK)            -> software
 data/          NASA POWER download + rotation and crop model (Node.js)
 data-science/  Python pipeline: sowing rain, cereal screening, ML (handoff/ = outputs used by the app)
-sensor/        ESP32 soil sensor code, wiring, parts list          -> engineer
+sensor/        ESP32 soil sensor code, Simulink model, 3D enclosure -> engineer
 docs/          data-format.md: the JSON contract between all three
 ```
 
@@ -75,7 +75,7 @@ npm run dev        # http://localhost:5173
 
 - **Mohamed Amjad Eddaniaoui**: software, web app, team lead
 - **Abdelbari Benouarrak**: data science (Python pipeline, sowing rain model, crop data review)
-- **Amine Morine**: mechatronics (Simulink irrigation simulation, ESP32 soil sensor)
+- **Amine Morine**: mechatronics (Simulink irrigation simulation, ESP32 soil sensor, 3D enclosure)
 
 ## Tools
 
