@@ -44,13 +44,16 @@ function HeroStat({ icon, label, before, after, decimals = 0, unit, tone, i }) {
   );
 }
 
+const QS = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
+const initialTab = () => (TABS.some((t) => t.id === QS.get('tab')) ? QS.get('tab') : 'rotations');
+
 export default function App() {
   const [regions, setRegions] = useState(null);
-  const [regionId, setRegionId] = useState('chaouia');
+  const [regionId, setRegionId] = useState(QS.get('region') === 'doukkala' ? 'doukkala' : 'chaouia');
   const [data, setData] = useState(null);
   const [point, setPoint] = useState(null);
   const [error, setError] = useState('');
-  const [tab, setTab] = useState('rotations');
+  const [tab, setTab] = useState(initialTab);
   const [scenario, setScenario] = useState('recent');
   const [cropId, setCropId] = useState(null);
   const [nasa, setNasa] = useState(null);
@@ -65,6 +68,11 @@ export default function App() {
     loadRegionData(regionId).then(setData).catch((e) => setError(e.message));
     loadClimatePoint(regionId).then(setPoint).catch(() => {});
   }, [regionId]);
+
+  // deep link: ?tab=planting&region=doukkala opens that tab and scrolls to it
+  useEffect(() => {
+    if (data && QS.get('tab')) setTimeout(() => document.getElementById('tabs')?.scrollIntoView({ block: 'start' }), 300);
+  }, [data]);
 
   const selectRegion = useCallback((id) => setRegionId(id), []);
   const simulate = (id) => { setCropId(id); setTab('income'); };

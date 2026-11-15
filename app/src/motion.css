@@ -149,3 +149,4 @@
 .map-card:hover { box-shadow: var(--shadow-lift); }
 .chip-src { transition: transform 0.18s, border-color 0.18s; }
 .chip-src:hover { transform: translateY(-2px); border-color: var(--brand-2); color: var(--brand); }
+#tabs { scroll-margin-top: 84px; }
