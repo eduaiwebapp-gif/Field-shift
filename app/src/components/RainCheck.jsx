@@ -28,7 +28,7 @@ export default function RainCheck({ regionId }) {
           <BarChart data={rows} margin={{ top: 8, right: 12, bottom: 0, left: -12 }}>
             <CartesianGrid stroke="var(--grid)" vertical={false} />
             <XAxis dataKey="season" tick={{ fontSize: 11 }} />
-            <YAxis tick={{ fontSize: 11 }} unit=" mm" width={64} />
+            <YAxis tick={{ fontSize: 11 }} width={48} label={{ value: "mm", angle: -90, position: "insideLeft", offset: 18, fontSize: 11 }} />
             <Tooltip formatter={(v, n) => [`${v} mm`, n === 'nasa' ? 'NASA POWER' : 'CHIRPS v2']} />
             <Legend formatter={(n) => (n === 'nasa' ? 'NASA POWER' : 'CHIRPS v2')} wrapperStyle={{ fontSize: 12 }} />
             <Bar dataKey="nasa" fill="#126764" radius={[4, 4, 0, 0]} />
