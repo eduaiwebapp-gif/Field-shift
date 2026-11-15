@@ -57,7 +57,19 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
    | Barley → Faba bean | 1 of 15 | 5 of 15 |
    **What if**: two sliders replay the same seasons with less rain (down to -40 %) or more spring heat (up to +3 °C), and all rotation numbers update live. With 20 % less rain and +1 °C, wheat after wheat in Chaouia would lose money in 11 of 15 seasons, barley → faba bean in 7.5.
    These are simulation outputs on NASA climate data with provisional, sourced crop inputs, not observed farm results. The model assumptions (75 % effective rainfall, heat penalty, 500 MAD/ha nitrogen credit after a legume) are listed in the app.
-2. **Planting time** (data science, Python): when do the autumn sowing rains arrive? Using the INRA Morocco threshold (25 mm in 10 days) on NASA POWER daily data 2006-2025, the app shows the month of the first real rain (Settat: October 7, November 9, December 2, never 2 of 20 seasons), a rainfed wheat and barley screening (sowing window Nov 1 - Dec 15 from the Moroccan cereal guide, seasonal crop water demand with Hargreaves ET0 × FAO-56 Kc versus seasonal rain), and a historical replay of a logistic regression that estimates the chance of the first real rain in the next 14 days. Tested on 5 unseen seasons (2021-2025), the model did not beat the simple historical rate (Brier 0.259 vs 0.253 at Settat), so we show the historical rate as the main indicator and the model as an experiment.
+2. **Planting time** (data science, Python): when do the autumn sowing rains arrive, and which rainfed cereal fits best?
+   - *Data*: 20 years of NASA POWER daily rainfall and temperature (2006-2025) for Settat (Chaouia) and Sidi Bennour (Doukkala), 7,305 daily records per site.
+   - *Sowing signal*: at least 25 mm of rain over 10 consecutive days (INRA Morocco threshold). Both sites had a qualifying window during the recommended sowing period (Nov 1 - Dec 15) in 15 of 19 complete seasons.
+   - *Crop screening*: combines the sowing signal with seasonal rain relative to estimated crop water demand (Hargreaves ET0 × FAO-56 Kc). Barley ranked above wheat at both sites.
+   - *Machine learning*: one logistic regression per site, trained on 2006-2020, uses the day of autumn and the last 10 days of rainfall and temperature to estimate the chance of the first qualifying rain spell in the next 14 days.
+   - *Evaluation*: both the model and a historical baseline (past event frequencies for the same site and time of year) were scored on the same daily forecast dates over five held-out autumns (2021-2025), with the Brier score (each autumn weighted equally, lower is better).
+
+   | Site | Daily test forecasts | Logistic regression | Historical baseline |
+   |---|---:|---:|---:|
+   | Settat | 219 | 0.259 | **0.253** |
+   | Sidi Bennour | 211 | 0.253 | **0.235** |
+
+   The model did not beat the baseline at either site, so the app shows the historical rate as the main indicator and the model as an experiment.
 3. **See it from space**: NASA MODIS vegetation (NDVI) and SMAP root zone soil moisture layers on the ArcGIS map, comparing the wet spring of 2018 with the dry spring of 2023, with a plain-language explanation of each layer.
 4. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
 5. **Crops**: ranks 7 local crops (wheat, barley, lentil, chickpea, faba bean, olive, open-field tomato) with a score from 0 to 100, expected yield range, planting and harvest windows, and the extra water needed for full yield. It can show three scenarios: next season (based on recent climate), a dry year, and the 1990s climate for comparison.

@@ -20,11 +20,26 @@ hot spring days (≥ 30 °C) went from 13.5 to 18.4 per year, dry seasons (< 250
 ## Repository
 
 ```
-app/      web app (React + Vite + ArcGIS Maps SDK)            -> software
-data/     NASA POWER download + crop recommendation model     -> data scientist
-sensor/   ESP32 soil sensor code, wiring, parts list          -> engineer
-docs/     data-format.md: the JSON contract between all three
+app/           web app (React + Vite + ArcGIS Maps SDK)            -> software
+data/          NASA POWER download + rotation and crop model (Node.js)
+data-science/  Python pipeline: sowing rain, cereal screening, ML (handoff/ = outputs used by the app)
+sensor/        ESP32 soil sensor code, wiring, parts list          -> engineer
+docs/          data-format.md: the JSON contract between all three
 ```
+
+## Data science method (Planting time)
+
+- **Data**: 20 years of NASA POWER daily rainfall and temperature (2006-2025) for Settat (Chaouia) and Sidi Bennour (Doukkala), 7,305 daily records per site.
+- **Sowing signal**: at least 25 mm of rain over 10 consecutive days (INRA Morocco). Both sites had a qualifying window during Nov 1 - Dec 15 in 15 of 19 complete seasons. In the rainfed screening (sowing signal + seasonal rain vs. crop water demand), barley ranked above wheat at both sites.
+- **Machine learning**: one logistic regression per site, trained on 2006-2020, estimating the chance of the first qualifying rain spell in the next 14 days from the day of autumn and the last 10 days of rain and temperature.
+- **Evaluation**: model and historical baseline scored on the same daily forecast dates over five held-out autumns (2021-2025), Brier score, each autumn weighted equally (lower is better).
+
+| Site | Daily test forecasts | Logistic regression | Historical baseline |
+|---|---:|---:|---:|
+| Settat | 219 | 0.259 | **0.253** |
+| Sidi Bennour | 211 | 0.253 | **0.235** |
+
+The baseline stays the main indicator in the app; the model is shown as an experiment.
 
 ## Run it
 

@@ -135,7 +135,8 @@ export default function PlantingPanel({ regionId }) {
         </ResponsiveContainer>
       </div>
       <div className="callout mid">
-        Honest result: on the {ev.holdout_seasons_scored} test seasons ({ev.holdout_years[0]}-{ev.holdout_years[1]}), the ML model
+        Honest result: on the {ev.holdout_seasons_scored} test seasons ({ev.holdout_years[0]}-{ev.holdout_years[1]}, {ev.holdout_rows} daily
+        forecasts, model trained on {ev.training_years[0]}-{ev.training_years[1]}), the ML model
         (Brier score {ev.ml_brier_score.toFixed(3)}) did not beat the simple historical rate ({ev.historical_brier_score.toFixed(3)});
         lower is better. With only {ev.holdout_seasons_scored} test seasons, we keep the historical rate as the main indicator and the
         model as an experiment. Sowing decisions should also use field moisture and the current weather forecast.
