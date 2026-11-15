@@ -1,7 +1,7 @@
 // Loads the JSON files described in docs/data-format.md from /public/data.
 const BASE = `${import.meta.env.BASE_URL}data`;
 
-async function getJson(path) {
+export async function getJson(path) {
   const res = await fetch(`${BASE}/${path}`);
   if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
   return res.json();

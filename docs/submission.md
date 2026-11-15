@@ -69,6 +69,8 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
    | Settat | 219 | 0.259 | **0.253** |
    | Sidi Bennour | 211 | 0.253 | **0.235** |
 
+   - *Rainfall cross-check*: NASA POWER rainfall was compared with an independent product, UCSB CHIRPS v2 (satellite + rain gauges, via ClimateSERV), for the five seasons 2020/21-2024/25 at both sites. In 4 of 5 seasons the October-May totals are within 50 mm (NASA POWER slightly wetter); 2020/21 is the outlier (848 vs 337 mm at Settat). The 25 mm sowing-rain answer matched in 4 of 5 seasons at Settat and 3 of 5 at Sidi Bennour. If real rain is closer to CHIRPS, dry years were drier than simulated, so the losses shown for wheat after wheat are more likely underestimated. Files: data-science/validation.
+
    The model did not beat the baseline at either site, so the app shows the historical rate as the main indicator and the model as an experiment.
 3. **See it from space**: NASA MODIS vegetation (NDVI) and SMAP root zone soil moisture layers on the ArcGIS map, comparing the wet spring of 2018 with the dry spring of 2023, with a plain-language explanation of each layer.
 4. **What changed**: shows the farmer how the climate of their region evolved over 35 seasons (rainfall per season, hot days in spring, dry seasons).
@@ -108,7 +110,7 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 
 ### Tools and technologies
 
-- Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), Node.js data pipeline, Python data science pipeline (NumPy, logistic regression)
+- Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), UCSB CHIRPS v2 via ClimateSERV (rainfall cross-check), Node.js data pipeline, Python data science pipeline (NumPy, logistic regression)
 - App: React, Vite, Recharts, Esri ArcGIS Maps SDK for JavaScript, hosted on Vercel
 - Hardware: ESP32, capacitive soil moisture sensor, DS18B20 temperature probe, Arduino
 - Design and simulation: MATLAB / Simulink (root zone water balance and irrigation controller), Onshape (sensor enclosure, if used)

@@ -1,0 +1,55 @@
+{
+ "source": "UCSB CHIRPS v2 via ClimateSERV vs NASA POWER PRECTOTCORR, daily, Oct 1 - May 31",
+ "site_name": "Sidi Bennour",
+ "seasons": [
+  {
+   "season": "2020/21",
+   "nasa_mm": 580.81,
+   "chirps_mm": 263.95,
+   "gap_mm": 316.86,
+   "nasa_sowing": true,
+   "chirps_sowing": true,
+   "agree": true
+  },
+  {
+   "season": "2021/22",
+   "nasa_mm": 203.05,
+   "chirps_mm": 173.51,
+   "gap_mm": 29.54,
+   "nasa_sowing": true,
+   "chirps_sowing": false,
+   "agree": false
+  },
+  {
+   "season": "2022/23",
+   "nasa_mm": 230.47,
+   "chirps_mm": 188.19,
+   "gap_mm": 42.28,
+   "nasa_sowing": true,
+   "chirps_sowing": true,
+   "agree": true
+  },
+  {
+   "season": "2023/24",
+   "nasa_mm": 192.65,
+   "chirps_mm": 181.46,
+   "gap_mm": 11.19,
+   "nasa_sowing": false,
+   "chirps_sowing": true,
+   "agree": false
+  },
+  {
+   "season": "2024/25",
+   "nasa_mm": 224.55,
+   "chirps_mm": 176.53,
+   "gap_mm": 48.02,
+   "nasa_sowing": false,
+   "chirps_sowing": false,
+   "agree": true
+  }
+ ],
+ "median_abs_gap_mm": 42.28,
+ "mean_abs_gap_mm": 90,
+ "within_50mm": 4,
+ "sowing_agreement": 3
+}

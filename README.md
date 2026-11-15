@@ -41,6 +41,10 @@ docs/          data-format.md: the JSON contract between all three
 
 The baseline stays the main indicator in the app; the model is shown as an experiment.
 
+**Rainfall cross-check** ([data-science/validation](data-science/validation)): NASA POWER vs UCSB CHIRPS v2 for 2020/21-2024/25. October-May totals agree within 50 mm in 4 of 5 seasons at both sites (NASA POWER slightly wetter); 2020/21 is the outlier. Sowing-rain answer agrees in 4/5 seasons (Settat) and 3/5 (Sidi Bennour).
+
+![NASA POWER vs CHIRPS](data-science/validation/rainfall_comparison.png)
+
 ## Run it
 
 Requires Node 18+.

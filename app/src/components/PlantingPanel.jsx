@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import { loadPlantingData, fmt } from '../lib/data';
 import CropIcon from './CropIcon';
+import RainCheck from './RainCheck';
 
 const CROP_NAMES = { wheat: 'Wheat', barley: 'Barley' };
 const MONTHS = ['October', 'November', 'December', 'No qualifying window'];
@@ -141,6 +142,7 @@ export default function PlantingPanel({ regionId }) {
         lower is better. With only {ev.holdout_seasons_scored} test seasons, we keep the historical rate as the main indicator and the
         model as an experiment. Sowing decisions should also use field moisture and the current weather forecast.
       </div>
+      <RainCheck regionId={regionId} />
       <p className="muted small">
         Built by our data scientist in Python from NASA POWER daily data. Rain threshold from{' '}
         <a href={replay.threshold_source} target="_blank" rel="noreferrer">INRA Morocco</a>. Result files in the{' '}

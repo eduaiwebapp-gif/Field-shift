@@ -1,0 +1,11 @@
+site_id,site_name,season,period_start,period_end,expected_days,paired_days,nasa_power_rainfall_mm,nasa_power_valid_days,nasa_power_autumn_onset,nasa_power_autumn_onset_status,nasa_power_sowing_signal,chirps_rainfall_mm,chirps_valid_days,chirps_autumn_onset,chirps_autumn_onset_status,chirps_sowing_signal,nasa_minus_chirps_mm,nasa_minus_chirps_onset_days,sowing_signal_agreement
+settat,Settat,2020/21,2020-10-01,2021-05-31,243,243,848.11,243,2020-11-27,detected,True,337.03,243,2020-11-26,detected,True,511.08,1.00,True
+settat,Settat,2021/22,2021-10-01,2022-05-31,243,243,226.57,243,2021-11-26,detected,True,201.35,243,,not_detected,False,25.22,,False
+settat,Settat,2022/23,2022-10-01,2023-05-31,243,243,221.36,243,2022-12-06,detected,True,247.64,243,2022-12-05,detected,True,-26.28,1.00,True
+settat,Settat,2023/24,2023-10-01,2024-05-31,244,244,237.89,244,2023-10-22,detected,False,212.17,244,,not_detected,False,25.72,,True
+settat,Settat,2024/25,2024-10-01,2025-05-31,243,243,264.69,243,,not_detected,False,216.90,243,2024-10-12,detected,False,47.79,,True
+doukkala,Sidi Bennour,2020/21,2020-10-01,2021-05-31,243,243,580.81,243,2020-11-26,detected,True,263.95,243,2020-11-12,detected,True,316.86,14.00,True
+doukkala,Sidi Bennour,2021/22,2021-10-01,2022-05-31,243,243,203.05,243,2021-11-28,detected,True,173.51,243,,not_detected,False,29.54,,False
+doukkala,Sidi Bennour,2022/23,2022-10-01,2023-05-31,243,243,230.47,243,2022-11-24,detected,True,188.19,243,2022-12-14,detected,True,42.28,-20.00,True
+doukkala,Sidi Bennour,2023/24,2023-10-01,2024-05-31,244,244,192.65,244,2023-10-23,detected,False,181.46,244,2023-10-29,detected,True,11.19,-6.00,False
+doukkala,Sidi Bennour,2024/25,2024-10-01,2025-05-31,243,243,224.55,243,,not_detected,False,176.53,243,2024-10-20,detected,False,48.02,,True

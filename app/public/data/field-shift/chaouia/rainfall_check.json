@@ -1,0 +1,55 @@
+{
+ "source": "UCSB CHIRPS v2 via ClimateSERV vs NASA POWER PRECTOTCORR, daily, Oct 1 - May 31",
+ "site_name": "Settat",
+ "seasons": [
+  {
+   "season": "2020/21",
+   "nasa_mm": 848.11,
+   "chirps_mm": 337.03,
+   "gap_mm": 511.08,
+   "nasa_sowing": true,
+   "chirps_sowing": true,
+   "agree": true
+  },
+  {
+   "season": "2021/22",
+   "nasa_mm": 226.57,
+   "chirps_mm": 201.35,
+   "gap_mm": 25.22,
+   "nasa_sowing": true,
+   "chirps_sowing": false,
+   "agree": false
+  },
+  {
+   "season": "2022/23",
+   "nasa_mm": 221.36,
+   "chirps_mm": 247.64,
+   "gap_mm": -26.28,
+   "nasa_sowing": true,
+   "chirps_sowing": true,
+   "agree": true
+  },
+  {
+   "season": "2023/24",
+   "nasa_mm": 237.89,
+   "chirps_mm": 212.17,
+   "gap_mm": 25.72,
+   "nasa_sowing": false,
+   "chirps_sowing": false,
+   "agree": true
+  },
+  {
+   "season": "2024/25",
+   "nasa_mm": 264.69,
+   "chirps_mm": 216.9,
+   "gap_mm": 47.79,
+   "nasa_sowing": false,
+   "chirps_sowing": false,
+   "agree": true
+  }
+ ],
+ "median_abs_gap_mm": 26.28,
+ "mean_abs_gap_mm": 127,
+ "within_50mm": 4,
+ "sowing_agreement": 4
+}
