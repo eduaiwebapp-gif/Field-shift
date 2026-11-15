@@ -107,7 +107,7 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 - Validate the crop parameters with agronomists (INRA Morocco, IAV Hassan II) and with farmers in the region.
 - Use the real region boundaries from the Africa GeoPortal and extend to more regions.
 - Add seasonal forecasts so recommendations look ahead, not only at recent climate.
-- French and Darija interface, and SMS alerts for farmers without smartphones.
+- Darija (Moroccan Arabic) interface (English and French already work), and SMS alerts for farmers without smartphones.
 - Field test of the sensor on a real plot.
 
 ### Tools and technologies
