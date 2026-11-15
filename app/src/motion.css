@@ -176,5 +176,5 @@
 .enc-notes { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; }
 .parts { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 8px 0 14px; }
 .part { display: flex; gap: 10px; align-items: flex-start; background: var(--card, #fff); border: 1px solid var(--grid, #e5e5e5); border-radius: 12px; padding: 10px 12px; }
-.part img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; flex-shrink: 0; background: #ececef; }
+.part img { width: 64px; height: 64px; object-fit: contain; border-radius: 8px; flex-shrink: 0; background: #ececef; }
 .part p { margin: 2px 0 0; }
