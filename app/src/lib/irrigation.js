@@ -3,14 +3,14 @@
 export const FAO56 = 'https://www.fao.org/4/x0490e/x0490e0b.htm';
 
 export const IRR_CROPS = [
-  { id: 'tomato_sim', crop: 'tomato', name: 'Tomato', kc: 1.15, zr: 300, simulink: true, note: 'engineer\'s Simulink run, 300 mm sensor layer' },
-  { id: 'wheat', crop: 'wheat', name: 'Wheat', kc: 1.15, zr: 1250, range: '1.0-1.5 m' },
-  { id: 'barley', crop: 'barley', name: 'Barley', kc: 1.15, zr: 1250, range: '1.0-1.5 m' },
-  { id: 'chickpea', crop: 'chickpea', name: 'Chickpea', kc: 1.0, zr: 800, range: '0.6-1.0 m' },
-  { id: 'lentil', crop: 'lentil', name: 'Lentil', kc: 1.1, zr: 700, range: '0.6-0.8 m' },
-  { id: 'faba', crop: 'faba', name: 'Faba bean', kc: 1.15, zr: 600, range: '0.5-0.7 m' },
-  { id: 'olive', crop: 'olive', name: 'Olive', kc: 0.7, zr: 1450, range: '1.2-1.7 m' },
-  { id: 'tomato', crop: 'tomato', name: 'Tomato (full roots)', kc: 1.15, zr: 1100, range: '0.7-1.5 m' },
+  { id: 'tomato_sim', crop: 'tomato', name: 'Tomato', name_fr: 'Tomate', kc: 1.15, zr: 300, simulink: true, note: 'engineer\'s Simulink run, 300 mm sensor layer' },
+  { id: 'wheat', crop: 'wheat', name: 'Wheat', name_fr: 'Blé', kc: 1.15, zr: 1250, range: '1.0-1.5 m' },
+  { id: 'barley', crop: 'barley', name: 'Barley', name_fr: 'Orge', kc: 1.15, zr: 1250, range: '1.0-1.5 m' },
+  { id: 'chickpea', crop: 'chickpea', name: 'Chickpea', name_fr: 'Pois chiche', kc: 1.0, zr: 800, range: '0.6-1.0 m' },
+  { id: 'lentil', crop: 'lentil', name: 'Lentil', name_fr: 'Lentille', kc: 1.1, zr: 700, range: '0.6-0.8 m' },
+  { id: 'faba', crop: 'faba', name: 'Faba bean', name_fr: 'Fève', kc: 1.15, zr: 600, range: '0.5-0.7 m' },
+  { id: 'olive', crop: 'olive', name: 'Olive', name_fr: 'Olivier', kc: 0.7, zr: 1450, range: '1.2-1.7 m' },
+  { id: 'tomato', crop: 'tomato', name: 'Tomato (full roots)', name_fr: 'Tomate (racines complètes)', kc: 1.15, zr: 1100, range: '0.7-1.5 m' },
 ];
 
 export const MODEL = { et0: 0.22, on: 22, off: 35, valve: 5, theta0: 28, min: 10, max: 45 };

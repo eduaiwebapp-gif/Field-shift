@@ -1,14 +1,18 @@
 {
   "region_id": "chaouia",
-  "generated_at": "2026-11-14T18:05:16.619Z",
+  "generated_at": "2026-11-15T18:18:55.963Z",
   "method": "rule-based v1 (water balance + heat stress + root zone soil wetness)",
+  "method_fr": "modèle à règles v1 (bilan hydrique + stress thermique + humidité de la zone racinaire)",
   "crops": [
     {
       "id": "olive",
       "name": "Olive",
+      "name_fr": "Olivier",
       "system": "perennial",
       "planting_window": "Perennial (plant Nov - Mar)",
+      "planting_window_fr": "Pérenne (plantation nov - mars)",
       "harvest_window": "Oct - Dec",
+      "harvest_window_fr": "Oct - déc",
       "water_need_mm": 600,
       "months": [
         10,
@@ -62,6 +66,7 @@
       },
       "score_change": 5,
       "notes": "Very drought tolerant once established, long-term investment (3-5 years before full yield).",
+      "notes_fr": "Très résistant à la sécheresse une fois installé, investissement à long terme (3 à 5 ans avant le plein rendement).",
       "sources": [
         {
           "label": "INRA, olive guide",
@@ -76,9 +81,12 @@
     {
       "id": "barley",
       "name": "Barley",
+      "name_fr": "Orge",
       "system": "rainfed",
       "planting_window": "Nov 1 - Dec 15",
+      "planting_window_fr": "1er nov - 15 déc",
       "harvest_window": "May",
+      "harvest_window_fr": "Mai",
       "water_need_mm": 350,
       "months": [
         11,
@@ -127,6 +135,7 @@
       },
       "score_change": -2,
       "notes": "More drought tolerant than wheat and harvested earlier, so it escapes some of the late heat.",
+      "notes_fr": "Plus résistante à la sécheresse que le blé et récoltée plus tôt, elle échappe à une partie de la chaleur de fin de saison.",
       "sources": [
         {
           "label": "Morocco cereal guide, Table 11",
@@ -145,9 +154,12 @@
     {
       "id": "lentil",
       "name": "Lentil",
+      "name_fr": "Lentille",
       "system": "rainfed",
       "planting_window": "Dec - Jan",
+      "planting_window_fr": "Déc - janv",
       "harvest_window": "May",
+      "harvest_window_fr": "Mai",
       "water_need_mm": 300,
       "months": [
         12,
@@ -195,6 +207,7 @@
       },
       "score_change": -5,
       "notes": "Short cycle legume, sensitive to heat at flowering.",
+      "notes_fr": "Légumineuse à cycle court, sensible à la chaleur à la floraison.",
       "sources": [
         {
           "label": "Morocco legume guide",
@@ -205,9 +218,12 @@
     {
       "id": "faba",
       "name": "Faba bean",
+      "name_fr": "Fève",
       "system": "rainfed",
       "planting_window": "Nov",
+      "planting_window_fr": "Nov",
       "harvest_window": "Apr - May",
+      "harvest_window_fr": "Avr - mai",
       "water_need_mm": 400,
       "months": [
         11,
@@ -255,6 +271,7 @@
       },
       "score_change": 0,
       "notes": "Needs more water than other legumes, sensitive to heat at flowering.",
+      "notes_fr": "A besoin de plus d’eau que les autres légumineuses, sensible à la chaleur à la floraison.",
       "sources": [
         {
           "label": "Morocco legume guide",
@@ -269,9 +286,12 @@
     {
       "id": "chickpea",
       "name": "Chickpea",
+      "name_fr": "Pois chiche",
       "system": "rainfed",
       "planting_window": "Jan - Feb",
+      "planting_window_fr": "Janv - févr",
       "harvest_window": "Jun",
+      "harvest_window_fr": "Juin",
       "water_need_mm": 300,
       "months": [
         1,
@@ -319,6 +339,7 @@
       },
       "score_change": -1,
       "notes": "Fixes nitrogen, good in rotation after cereals. High value per kg.",
+      "notes_fr": "Fixe l’azote, bonne culture après les céréales. Forte valeur au kilo.",
       "sources": [
         {
           "label": "INRA, spring chickpea",
@@ -333,9 +354,12 @@
     {
       "id": "wheat",
       "name": "Wheat",
+      "name_fr": "Blé",
       "system": "rainfed",
       "planting_window": "Nov 1 - Dec 15",
+      "planting_window_fr": "1er nov - 15 déc",
       "harvest_window": "May - Jun",
+      "harvest_window_fr": "Mai - juin",
       "water_need_mm": 450,
       "months": [
         11,
@@ -384,6 +408,7 @@
       },
       "score_change": -3,
       "notes": "Main cereal of the region. Hurt by dry springs and heat during grain filling (Apr - May).",
+      "notes_fr": "Principale céréale de la région. Souffre des printemps secs et de la chaleur pendant le remplissage du grain (avril - mai).",
       "sources": [
         {
           "label": "Morocco cereal guide, Table 11",
@@ -402,9 +427,12 @@
     {
       "id": "tomato",
       "name": "Tomato (open field)",
+      "name_fr": "Tomate (plein champ)",
       "system": "irrigated",
       "planting_window": "Mar - Apr",
+      "planting_window_fr": "Mars - avr",
       "harvest_window": "Jun - Aug",
+      "harvest_window_fr": "Juin - août",
       "water_need_mm": 600,
       "months": [
         3,
@@ -451,6 +479,7 @@
       },
       "score_change": 3,
       "notes": "High income but needs full irrigation, so it depends on water access.",
+      "notes_fr": "Revenu élevé, mais demande une irrigation complète, donc dépend de l’accès à l’eau.",
       "sources": [
         {
           "label": "FAO, crop water needs (Table 5)",
@@ -467,6 +496,7 @@
     {
       "id": "wheat_mono",
       "name": "Wheat after wheat",
+      "name_fr": "Blé sur blé",
       "current": true,
       "sequence": [
         "wheat"
@@ -489,19 +519,34 @@
         "forage": 1
       },
       "why": "Continuous cereal is the baseline the other strategies are compared with.",
+      "why_fr": "La céréale en continu est la référence à laquelle on compare les autres stratégies.",
       "benefits": [
         "Established market and simple to manage",
         "Farmers already have the seeds, equipment and experience"
+      ],
+      "benefits_fr": [
+        "Marché établi et conduite simple",
+        "Les agriculteurs ont déjà les semences, le matériel et l’expérience"
       ],
       "risks": [
         "In our simulation, wheat is the crop most hurt by spring heat and dry seasons",
         "Growing the same cereal every year can build up cereal pests and root diseases",
         "Relies on nitrogen fertiliser, since no legume adds nitrogen to the soil"
       ],
+      "risks_fr": [
+        "Dans notre simulation, le blé est la culture la plus touchée par la chaleur de printemps et les saisons sèches",
+        "Cultiver la même céréale chaque année peut favoriser les ravageurs et les maladies des racines des céréales",
+        "Dépend de l’engrais azoté, puisqu’aucune légumineuse n’apporte d’azote au sol"
+      ],
       "gaps": [
         "How common continuous wheat is locally, actual fertiliser use and yields",
         "Local pest pressure",
         "Soil cover, organic matter and forage depend on how residues are managed"
+      ],
+      "gaps_fr": [
+        "La fréquence réelle du blé sur blé dans la région, l’usage réel d’engrais et les rendements",
+        "La pression locale des ravageurs",
+        "La couverture du sol, la matière organique et le fourrage dépendent de la gestion des résidus"
       ],
       "sources": [
         {
@@ -518,11 +563,18 @@
         "Climate fit 68/100 today, 69/100 with the 1991-2005 climate.",
         "In the driest recent season (2022-2023), its crops score 48/100.",
         "Needs about 198 mm of extra water per season to reach full yield (1980 m³/ha)."
+      ],
+      "evidence_fr": [
+        "Rejouée sur les vraies saisons 2011-2025, elle aurait perdu de l’argent 9 saisons sur 15.",
+        "Adaptation au climat : 68/100 aujourd’hui, 69/100 avec le climat 1991-2005.",
+        "Lors de la saison récente la plus sèche (2022-2023), ses cultures obtiennent 48/100.",
+        "Il faut environ 198 mm d’eau en plus par saison pour un plein rendement (1 980 m³/ha)."
       ]
     },
     {
       "id": "wheat_chickpea",
       "name": "Wheat → Chickpea",
+      "name_fr": "Blé → Pois chiche",
       "current": false,
       "sequence": [
         "wheat",
@@ -546,19 +598,34 @@
         "forage": 0
       },
       "why": "Spring chickpea is a legume that diversifies a cereal sequence and can fix nitrogen from the air.",
+      "why_fr": "Le pois chiche de printemps est une légumineuse qui diversifie une suite de céréales et peut fixer l’azote de l’air.",
       "benefits": [
         "Can leave nitrogen for the next wheat crop, so potentially less fertiliser",
         "May help interrupt specific cereal disease cycles",
         "High value per kg, a second source of income"
       ],
+      "benefits_fr": [
+        "Peut laisser de l’azote pour le blé suivant, donc potentiellement moins d’engrais",
+        "Peut aider à casser certains cycles de maladies des céréales",
+        "Forte valeur au kilo, une deuxième source de revenu"
+      ],
       "risks": [
         "Chickpea is sensitive to heat in May and to ascochyta blight in wet springs",
         "Harvest is more labour intensive, prices vary more than wheat"
+      ],
+      "risks_fr": [
+        "Le pois chiche est sensible à la chaleur en mai et à l’anthracnose (ascochytose) lors des printemps humides",
+        "La récolte demande plus de main-d’œuvre, et les prix varient plus que ceux du blé"
       ],
       "gaps": [
         "Nitrogen benefit depends on nodulation and residue management",
         "Local chickpea prices and demand",
         "Disease pressure in the farmer's area"
+      ],
+      "gaps_fr": [
+        "Le gain en azote dépend de la nodulation et de la gestion des résidus",
+        "Les prix et la demande locale de pois chiche",
+        "La pression des maladies dans la zone de l’agriculteur"
       ],
       "sources": [
         {
@@ -576,11 +643,19 @@
         "In the driest recent season (2022-2023), its crops score 49/100 (wheat after wheat: 48).",
         "Needs about 171 mm of extra water per season to reach full yield (1710 m³/ha).",
         "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ],
+      "evidence_fr": [
+        "Rejouée sur les vraies saisons 2011-2025, elle aurait perdu de l’argent 5,5 saisons sur 15 (blé sur blé : 9).",
+        "Adaptation au climat : 68/100 aujourd’hui, 69/100 avec le climat 1991-2005.",
+        "Lors de la saison récente la plus sèche (2022-2023), ses cultures obtiennent 49/100 (blé sur blé : 48).",
+        "Il faut environ 171 mm d’eau en plus par saison pour un plein rendement (1 710 m³/ha).",
+        "Le revenu inclut environ 500 MAD/ha d’engrais azoté économisés pour la céréale qui suit la légumineuse (estimation)."
       ]
     },
     {
       "id": "barley_faba",
       "name": "Barley → Faba bean",
+      "name_fr": "Orge → Fève",
       "current": false,
       "sequence": [
         "barley",
@@ -604,19 +679,34 @@
         "forage": 3
       },
       "why": "Barley is the most drought tolerant cereal and is harvested before the late spring heat. Faba bean is a legume that fixes a lot of nitrogen and its residues feed livestock.",
+      "why_fr": "L’orge est la céréale la plus résistante à la sécheresse et se récolte avant la chaleur de fin de printemps. La fève est une légumineuse qui fixe beaucoup d’azote, et ses résidus nourrissent le bétail.",
       "benefits": [
         "The most resilient option in dry seasons in our simulation on NASA data",
         "Potential nitrogen benefit and organic matter from faba residues",
         "Both crops can be used as forage, useful for farms with sheep or cattle"
       ],
+      "benefits_fr": [
+        "L’option la plus résistante en saison sèche dans notre simulation sur les données NASA",
+        "Gain potentiel en azote et en matière organique grâce aux résidus de fève",
+        "Les deux cultures peuvent servir de fourrage, utile pour les fermes avec des moutons ou des vaches"
+      ],
       "risks": [
         "Barley earns less per tonne than wheat",
         "Faba bean needs more water than other legumes and is sensitive to heat at flowering"
+      ],
+      "risks_fr": [
+        "L’orge rapporte moins par tonne que le blé",
+        "La fève a besoin de plus d’eau que les autres légumineuses et elle est sensible à la chaleur à la floraison"
       ],
       "gaps": [
         "Whether the farm has livestock or a forage market nearby",
         "Forage and soil cover depend on whether residues are fed, grazed or retained",
         "Soil type: faba bean does poorly on very shallow soils"
+      ],
+      "gaps_fr": [
+        "Si la ferme a du bétail ou un marché du fourrage à proximité",
+        "Le fourrage et la couverture du sol dépendent de l’usage des résidus : donnés au bétail, pâturés ou laissés au sol",
+        "Le type de sol : la fève pousse mal sur les sols très peu profonds"
       ],
       "sources": [
         {
@@ -634,11 +724,19 @@
         "In the driest recent season (2022-2023), its crops score 60/100 (wheat after wheat: 48).",
         "Needs about 142 mm of extra water per season to reach full yield (1420 m³/ha).",
         "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ],
+      "evidence_fr": [
+        "Rejouée sur les vraies saisons 2011-2025, elle aurait perdu de l’argent 1 saison sur 15 (blé sur blé : 9).",
+        "Adaptation au climat : 76/100 aujourd’hui, 75/100 avec le climat 1991-2005.",
+        "Lors de la saison récente la plus sèche (2022-2023), ses cultures obtiennent 60/100 (blé sur blé : 48).",
+        "Il faut environ 142 mm d’eau en plus par saison pour un plein rendement (1 420 m³/ha).",
+        "Le revenu inclut environ 500 MAD/ha d’engrais azoté économisés pour la céréale qui suit la légumineuse (estimation)."
       ]
     },
     {
       "id": "wheat_lentil_barley",
       "name": "Wheat → Lentil → Barley",
+      "name_fr": "Blé → Lentille → Orge",
       "current": false,
       "sequence": [
         "wheat",
@@ -663,19 +761,34 @@
         "forage": 2
       },
       "why": "A three-year rotation spreads the risk across three crops with different calendars and keeps wheat only one year in three.",
+      "why_fr": "Une rotation sur trois ans répartit le risque sur trois cultures aux calendriers différents, et ne garde le blé qu’une année sur trois.",
       "benefits": [
         "Breaks the wheat cycle, though wheat and barley can share some pests and diseases",
         "Lentil fixes nitrogen and has a short cycle that escapes part of the spring heat",
         "Diversified income: no single crop failure ruins the farm"
       ],
+      "benefits_fr": [
+        "Casse le cycle du blé, même si le blé et l’orge peuvent partager certains ravageurs et maladies",
+        "La lentille fixe l’azote et a un cycle court qui échappe à une partie de la chaleur de printemps",
+        "Revenu diversifié : l’échec d’une seule culture ne ruine pas la ferme"
+      ],
       "risks": [
         "More complex to plan: three seed types and harvest periods",
         "Lentil is sensitive to heat at flowering (March - April)"
+      ],
+      "risks_fr": [
+        "Plus complexe à planifier : trois types de semences et trois périodes de récolte",
+        "La lentille est sensible à la chaleur à la floraison (mars - avril)"
       ],
       "gaps": [
         "The exact three-year sequence is a scenario to validate locally",
         "Access to lentil seeds and buyers",
         "Equipment for harvesting legumes"
+      ],
+      "gaps_fr": [
+        "La suite exacte sur trois ans est un scénario à valider localement",
+        "L’accès aux semences de lentille et aux acheteurs",
+        "Le matériel pour récolter les légumineuses"
       ],
       "sources": [
         {
@@ -693,6 +806,13 @@
         "In the driest recent season (2022-2023), its crops score 56/100 (wheat after wheat: 48).",
         "Needs about 144 mm of extra water per season to reach full yield (1440 m³/ha).",
         "Income includes about 500 MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate)."
+      ],
+      "evidence_fr": [
+        "Rejouée sur les vraies saisons 2011-2025, elle aurait perdu de l’argent 4,7 saisons sur 15 (blé sur blé : 9).",
+        "Adaptation au climat : 74/100 aujourd’hui, 74/100 avec le climat 1991-2005.",
+        "Lors de la saison récente la plus sèche (2022-2023), ses cultures obtiennent 56/100 (blé sur blé : 48).",
+        "Il faut environ 144 mm d’eau en plus par saison pour un plein rendement (1 440 m³/ha).",
+        "Le revenu inclut environ 500 MAD/ha d’engrais azoté économisés pour la céréale qui suit la légumineuse (estimation)."
       ]
     }
   ],
@@ -703,6 +823,21 @@
     "pest_break": "Breaks pest and disease cycles",
     "forage": "Feeds livestock"
   },
+  "soil_labels_fr": {
+    "nitrogen": "Apporte de l’azote",
+    "cover": "Couvre le sol (moins d’érosion)",
+    "organic_matter": "Enrichit en matière organique",
+    "pest_break": "Casse les cycles des ravageurs et maladies",
+    "forage": "Nourrit le bétail"
+  },
+  "assumptions_fr": [
+    "Pluie efficace : 75 % de la pluie des mois de culture atteint la culture (hypothèse).",
+    "Pénalité de chaleur : chaque °C de température maximale moyenne au-dessus de la limite de la culture pendant la floraison retire 12,5 % du rendement (hypothèse).",
+    "Crédit azote : une céréale après une légumineuse économise environ 500 MAD/ha d’engrais (hypothèse, à valider localement).",
+    "Les rendements, les prix et les coûts sont des valeurs provisoires, à vérifier par région, variété et saison.",
+    "Les profits, les pertes et les saisons à perte sont des résultats de simulation, pas des résultats observés sur des fermes.",
+    "Les notes du sol (0-3) sont qualitatives et dépendent de la gestion des résidus."
+  ],
   "assumptions": [
     "Effective rainfall: 75 % of the rain in the growing months reaches the crop (assumption).",
     "Heat penalty: each °C of mean daily max above the crop limit during flowering removes 12.5 % of yield (assumption).",

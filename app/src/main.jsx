@@ -5,9 +5,12 @@ import './styles.css';
 import './theme.css';
 import './motion.css';
 import App from './App.jsx';
+import { LangProvider } from './lib/i18n';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <LangProvider>
+      <App />
+    </LangProvider>
   </React.StrictMode>,
 );

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { REGIONS, FIRST_SEASON, LAST_SEASON, BASELINE_PERIOD, RECENT_PERIOD, HOT_DAY_C } from './config.mjs';
 import { CROPS, CROP_SOURCES } from './crops.mjs';
 import { ROTATIONS, SOIL_LABELS } from './rotations.mjs';
+import { ROTATIONS_FR, SOIL_LABELS_FR, CROPS_FR, METHOD_FR, evidenceFr, assumptionsFr } from './i18n_fr.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const RAW_DIR = join(ROOT, 'raw');
@@ -227,6 +228,7 @@ function buildRotations(raw, driestYear) {
     return {
       id: rot.id,
       name: rot.name,
+      name_fr: ROTATIONS_FR[rot.id]?.name,
       current: !!rot.current,
       sequence: rot.sequence,
       metrics: {
@@ -241,9 +243,13 @@ function buildRotations(raw, driestYear) {
       },
       soil: rot.soil,
       why: rot.why,
+      why_fr: ROTATIONS_FR[rot.id]?.why,
       benefits: rot.benefits,
+      benefits_fr: ROTATIONS_FR[rot.id]?.benefits,
       risks: rot.risks,
+      risks_fr: ROTATIONS_FR[rot.id]?.risks,
       gaps: rot.gaps,
+      gaps_fr: ROTATIONS_FR[rot.id]?.gaps,
       sources: rot.sources || [],
     };
   });
@@ -262,6 +268,7 @@ function buildRotations(raw, driestYear) {
     if (r.sequence.some((id) => LEGUMES.has(id))) {
       r.evidence.push(`Income includes about ${N_CREDIT_MAD} MAD/ha saved on nitrogen fertiliser for the cereal that follows the legume (estimate).`);
     }
+    r.evidence_fr = evidenceFr(r, base, RECENT_PERIOD, r.sequence.some((id) => LEGUMES.has(id)) ? N_CREDIT_MAD : 0);
   }
   return out;
 }
@@ -306,9 +313,12 @@ async function buildRegion(region) {
     return {
       id: crop.id,
       name: crop.name,
+      name_fr: CROPS_FR[crop.id]?.name,
       system: crop.system,
       planting_window: crop.planting_window,
+      planting_window_fr: CROPS_FR[crop.id]?.planting_window,
       harvest_window: crop.harvest_window,
+      harvest_window_fr: CROPS_FR[crop.id]?.harvest_window,
       water_need_mm: crop.water_need_mm,
       months: crop.months,
       critical_months: crop.critical_months,
@@ -317,6 +327,7 @@ async function buildRegion(region) {
       scenarios: { baseline, recent: recentS, dry_year: singleSeasonScenario(raw, crop, driest.year) },
       score_change: recentS.score - baseline.score,
       notes: crop.notes,
+      notes_fr: CROPS_FR[crop.id]?.notes,
       sources: CROP_SOURCES[crop.id] || [],
     };
   }).sort((a, b) => b.scenarios.recent.score - a.scenarios.recent.score);
@@ -325,9 +336,12 @@ async function buildRegion(region) {
     region_id: region.id,
     generated_at: new Date().toISOString(),
     method: 'rule-based v1 (water balance + heat stress + root zone soil wetness)',
+    method_fr: METHOD_FR,
     crops,
     rotations: buildRotations(raw, driest.year),
     soil_labels: SOIL_LABELS,
+    soil_labels_fr: SOIL_LABELS_FR,
+    assumptions_fr: assumptionsFr(EFFECTIVE_RAIN, N_CREDIT_MAD),
     assumptions: [
       `Effective rainfall: ${EFFECTIVE_RAIN * 100} % of the rain in the growing months reaches the crop (assumption).`,
       'Heat penalty: each °C of mean daily max above the crop limit during flowering removes 12.5 % of yield (assumption).',
