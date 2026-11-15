@@ -1,4 +1,4 @@
-// SeasonReplay - low cost soil sensor (starter code for the engineer)
+// SeasonReplay - low cost soil sensor (ESP32 + capacitive probe + DS18B20)
 //
 // Hardware:
 //   - ESP32 dev board

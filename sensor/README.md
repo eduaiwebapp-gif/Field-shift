@@ -12,7 +12,6 @@ Low cost soil sensor that checks the satellite soil moisture at field level.
 | 4.7 kΩ resistor, wires, small box | 20 MAD |
 | **Total** | **≈ 150 MAD** |
 
-Prices are rough estimates, check them with a local shop before putting them in the slides.
 
 ## Wiring
 
@@ -28,17 +27,6 @@ Prices are rough estimates, check them with a local shop before putting them in 
 5. Run the app locally (`npm run dev` in `/app`), go to **Field sensor**, paste the address, click **Connect**.
 
 The laptop and the ESP32 must be on the same WiFi. The output format is in `docs/data-format.md` (section 4).
-
-## No hardware?
-
-- The app already shows simulated readings from `app/public/data/sensor_sample.json`.
-- Simulink: model the sensor + an irrigation rule (irrigate when moisture < threshold) and show how much water it saves.
-- SOLIDWORKS: design the enclosure (stake in the ground, waterproof box for the ESP32, small solar panel) and export a render for the slides.
-
-## Ideas for the engineer
-
-- Battery + deep sleep, one reading every 30 minutes.
-- Calculate water needs per crop from `data/output/<region>/recommendations.json` (`irrigation_mm`).
 
 
 ## Simulink model (smart irrigation)

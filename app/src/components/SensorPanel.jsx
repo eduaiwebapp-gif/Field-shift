@@ -4,7 +4,7 @@ import { loadSensorSample, fmt } from '../lib/data';
 import { useLang } from '../lib/i18n';
 
 // Soil porosity used to turn volumetric water content (%) into a 0-1 wetness comparable
-// with the satellite root zone soil wetness. TODO engineer: calibrate for the real soil.
+// with the satellite root zone soil wetness. To calibrate for the real soil of each plot.
 const POROSITY_PCT = 45;
 const POLL_MS = 10000;
 

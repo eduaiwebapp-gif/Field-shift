@@ -20,11 +20,11 @@ hot spring days (≥ 30 °C) went from 13.5 to 18.4 per year, dry seasons (< 250
 ## Repository
 
 ```
-app/           web app (React + Vite + ArcGIS Maps SDK)            -> software
-data/          NASA POWER download + rotation and crop model (Node.js)
-data-science/  Python pipeline: sowing rain, cereal screening, ML (handoff/ = outputs used by the app)
-sensor/        ESP32 soil sensor code, Simulink model, 3D enclosure -> engineer
-docs/          data-format.md: the JSON contract between all three
+app/           web app (React + Vite + Esri ArcGIS Maps SDK)
+data/          NASA POWER download, rotation and crop model (Node.js)
+data-science/  planting-time model outputs (handoff/) and the CHIRPS rainfall check (validation/)
+sensor/        ESP32 soil sensor code, Simulink model, 3D concept of the field unit
+docs/          submission text, slides PDF, data format
 ```
 
 ## Data science method (Planting time)

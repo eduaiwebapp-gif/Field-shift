@@ -11,7 +11,7 @@ import { NASA_LAYERS, tileUrl } from '../lib/nasaLayers';
 const REGION_ZOOM = 8;
 
 // ArcGIS map of the selected region, with optional NASA GIBS satellite layers.
-// TODO data scientist: replace the circles with the real region boundaries from the Africa GeoPortal.
+// Next step: replace the circles with the real region boundaries from the Africa GeoPortal.
 export default function MapView({ regions, regionId, onSelect, nasa }) {
   const divRef = useRef(null);
   const viewRef = useRef(null);

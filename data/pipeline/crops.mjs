@@ -67,7 +67,7 @@ export const CROPS = [
   },
 ];
 
-// Sources checked by the data scientist (docs/for-data-scientist and data-science/handoff/review).
+// Crop parameters reviewed by the data scientist against FAO-56 and INRA Morocco sources.
 const CEREAL_GUIDE = { label: 'Morocco cereal guide, Table 11', url: 'https://admin.ardna.org/files/contenus_files/ticket_file641196ed6f8cc-N891-R%C3%A9f%C3%A9rentiel-c%C3%A9r%C3%A9ales-MEP-HB-29_05_2017-%28final%29.pdf' };
 const FAO_WATER = { label: 'FAO, crop water needs (Table 5)', url: 'https://www.fao.org/4/s2022e/s2022e02.htm' };
 const FAO56 = { label: 'FAO-56, crop evapotranspiration', url: 'https://www.fao.org/4/x0490e/x0490e0b.htm' };
