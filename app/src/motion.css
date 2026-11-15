@@ -152,3 +152,8 @@
 #tabs { scroll-margin-top: 84px; }
 .raincheck { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 18px; }
 .rc-stats .trend-v { color: var(--brand); }
+
+/* tab bar: wrap instead of hiding tabs off-screen */
+.tabs { flex-wrap: wrap; overflow: visible; }
+.tabs button { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 640px) { .tabs button { padding: 8px 11px; font-size: 14px; } }
