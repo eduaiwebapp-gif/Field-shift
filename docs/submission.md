@@ -1,6 +1,6 @@
 # Space Apps submission: Field Shift
 
-Copy each section into the matching field of the submission page. Check the field names and character limits on the page, and fill in the team names.
+Copy each section into the matching field of the submission page. Check the field names and character limits on the page.
 
 ---
 
@@ -137,6 +137,6 @@ _Edit this section so it describes exactly how your team used AI. Space Apps ask
 
 ## Team
 
-- _Name_: software, app, presentation
-- _Name_: data science, NASA data and crop model
-- _Name_: mechatronics, soil sensor
+- Mohamed Amjad Eddaniaoui: software, web app, team lead
+- Abdelbari Benouarrak: data science (Python pipeline, sowing rain model, crop data review)
+- Amine Morine: mechatronics (Simulink irrigation simulation, ESP32 soil sensor)

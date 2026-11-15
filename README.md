@@ -69,10 +69,10 @@ npm run dev        # http://localhost:5173
 
 ## Team
 
-- Software / app: _name_
-- Data science: _name_
-- Mechatronics / sensor: _name_
+- **Mohamed Amjad Eddaniaoui**: software, web app, team lead
+- **Abdelbari Benouarrak**: data science (Python pipeline, sowing rain model, crop data review)
+- **Amine Morine**: mechatronics (Simulink irrigation simulation, ESP32 soil sensor)
 
 ## Tools
 
-NASA POWER · Esri ArcGIS Maps SDK for JavaScript · React · Vite · Recharts · ESP32 / Arduino
+NASA POWER · NASA GIBS (MODIS NDVI, SMAP) · Esri ArcGIS Maps SDK for JavaScript · React · Vite · Recharts · framer-motion · Python · MATLAB / Simulink · ESP32 / Arduino
