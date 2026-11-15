@@ -75,7 +75,7 @@ npm run dev        # http://localhost:5173
 
 - **Mohamed Amjad Eddaniaoui**: software, web app, team lead
 - **Abdelbari Benouarrak**: data science (Python pipeline, sowing rain model, crop data review)
-- **Amine Morine**: mechatronics (Simulink irrigation simulation, ESP32 soil sensor, 3D enclosure)
+- **Amine Morine**: mechatronics (Simulink irrigation simulation, ESP32 soil sensor, 3D concept of the field unit)
 
 ## Tools
 

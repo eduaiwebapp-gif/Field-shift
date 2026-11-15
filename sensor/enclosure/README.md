@@ -1,23 +1,28 @@
-# Sensor enclosure (3D model)
+# Field unit (3D concept)
 
-3D model of the field unit by Amine Morine (mechatronics).
+3D concept assembly and render by Amine Morine (SolidWorks), built from standard component models downloaded from CAD libraries (not redistributed here).
 
 ![Exploded view](enclosure_en.png)
 
-| Part | Role |
+## Parts chosen for the prototype
+
+| Part | Notes |
 |---|---|
-| Solar panel | Charges the battery in the field |
-| Translucent lid | Screwed down on the gasket |
-| Sealing gasket | Keeps rain and dust out |
-| ESP32 + battery | Reads the probe, sends the readings over Wi-Fi |
-| IP65 waterproof enclosure | Cable gland for the probe lead, flanges to fix it on a stake |
-| Soil moisture probe | Capacitive, sits in the root zone |
+| IP67 junction box (Gratury, off the shelf) | Opaque hinged lid, rubber seal, steel latches, internal mounting plate for the boards |
+| ESP32-WROOM, 30 pins, USB-C | Reads the probe, sends readings over Wi-Fi, sleeps between readings |
+| LiPo battery, 500 mAh | 3.7 V nominal |
+| 5 V mini solar panel | 53 × 30 mm cell in the model |
+| Capacitive soil moisture probe v1.2 | No exposed metal in the soil, so no corrosion |
 
-## Known limits, next version
+The render shows a concept with a clear screwed lid. The prototype uses the off-the-shelf IP67 box above instead.
 
-- The render shows one cable gland (probe). The solar panel lead needs a second gland so the box stays IP65.
-- A translucent lid in the Moroccan sun can push the inside above 60 °C, too hot for a LiPo battery. Next version: opaque UV-resistant lid or a LiFePO4 cell.
-- Deep sleep between readings, one reading every 30 minutes.
-- Wi-Fi rarely reaches the middle of a field: a LoRa radio would carry the readings to the farm.
+## Design choices and what the next version adds
 
-Files: `enclosure_render_original.jpg` (render as exported, French labels), `enclosure_en.png` and `enclosure_fr.png` (corrected labels with one line per part, used in the app and the slides).
+- Heat: a clear lid in the Moroccan sun can push the inside above 60 °C, too hot for a LiPo. Hence the opaque lid; a LiFePO4 cell would add margin.
+- Two cable glands: probe and solar lead.
+- A solar LiPo charge module: the panel cannot charge the battery directly and the ESP32 board has no charger.
+- The probe electronics are not waterproof: seal them in the head, only the sensing blade goes in the soil.
+- Deep sleep, one reading every 30 minutes, so a small panel is enough.
+- Range: Wi-Fi rarely reaches the middle of a field; LoRa would carry the readings to the farm.
+
+Files: `enclosure_render_original.jpg` (render as exported), `enclosure_en.png` / `enclosure_fr.png` (corrected labels, used in the app and slides).

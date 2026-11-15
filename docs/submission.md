@@ -78,7 +78,7 @@ Average rainfall barely changed, because a few very wet years (like 2021) pull i
 6. **Income simulator**: for a given crop, area and selling price, estimates the profit in a bad, typical and good year, and compares all crops on the same area.
 7. **Field sensor**: an ESP32 with a capacitive soil moisture probe and a temperature probe measures the real soil moisture in the field. The app compares it with the satellite root zone soil wetness for the region and tells the farmer whether to irrigate earlier, or whether they can save water.
    **Smart irrigation, simulated** (MATLAB/Simulink): the engineer built a closed-loop model of a tomato plot in Doukkala using the FAO-56 root-zone water balance, dθ/dt = 100/Zr × (I + P − Kc·ET0), with Kc 1.15, ET0 0.22 mm/h, Zr 300 mm, and the ESP32 sensor reading including ADC noise. A hysteresis controller opens a 5 mm/h valve below 22 % soil moisture and closes it above 35 %. Over 10 days without rain the crop uses about 61 mm; the valve opened twice (9.9 h in total) and applied 49 mm, the rest coming from water stored in the soil, and moisture never approached saturation (45 %), so no water drains below the roots. In the app the same model runs in the browser for every crop of the rotations, with FAO-56 mid-season Kc (Table 12) and real root depths (Table 22): deeper roots store more water (wheat 1.25 m holds 163 mm in the 22-35 % band, faba bean 0.6 m only 78 mm), so they need fewer, longer irrigations. It also shows that ESP32 sensor noise opens the valve days early (wheat: day 7.9 instead of 12.4), which argues for averaging readings. Model script: sensor/simulink.
-   **Field unit (3D model)**: Amine designed the enclosure: a small solar panel, a sealed IP65 box with a gasket, the ESP32 and its battery, and a capacitive probe through a cable gland. We also list what the next version must fix: a second gland for the solar lead, a lid and battery that survive Moroccan summer heat (opaque UV-resistant lid or LiFePO4 cell), deep sleep, and LoRa for range. Files: sensor/enclosure.
+   **Field unit (3D concept)**: Amine built a 3D concept assembly and render in SolidWorks from standard component models (ESP32-WROOM 30-pin board, 500 mAh LiPo, 5 V mini solar panel, capacitive probe v1.2). For the prototype we chose an off-the-shelf IP67 junction box with an opaque hinged lid and an internal mounting plate: the opaque lid keeps the battery cooler than a clear one in the Moroccan sun. Still to add: a second cable gland for the solar lead, a solar LiPo charge module, the probe electronics sealed in its head, and deep sleep so a small panel is enough. Details: sensor/enclosure.
 8. **How it works**: explains the terms used (evapotranspiration, root zone soil moisture, heat stress, nitrogen fixation, bare soil periods), the difference between satellite and field measurements, and the limits of the model.
 9. **Map**: an Esri ArcGIS map of the regions.
 
@@ -115,7 +115,7 @@ The tool is designed to support farmers and agronomists, not to replace their ju
 - Data: NASA POWER API, NASA GIBS (MODIS NDVI, SMAP), UCSB CHIRPS v2 via ClimateSERV (rainfall cross-check), Node.js data pipeline, Python data science pipeline (NumPy, logistic regression)
 - App: React, Vite, Recharts, Esri ArcGIS Maps SDK for JavaScript, hosted on Vercel
 - Hardware: ESP32, capacitive soil moisture sensor, DS18B20 temperature probe, Arduino
-- Design and simulation: MATLAB / Simulink (root zone water balance and irrigation controller), 3D CAD model of the sensor enclosure
+- Design and simulation: MATLAB / Simulink (root zone water balance and irrigation controller), SolidWorks (3D concept assembly of the field unit)
 - Collaboration: GitHub
 
 ## Use of artificial intelligence
@@ -143,4 +143,4 @@ _Edit this section so it describes exactly how your team used AI. Space Apps ask
 
 - Mohamed Amjad Eddaniaoui: software, web app, team lead
 - Abdelbari Benouarrak: data science (Python pipeline, sowing rain model, crop data review)
-- Amine Morine: mechatronics (Simulink irrigation simulation, ESP32 soil sensor, 3D enclosure)
+- Amine Morine: mechatronics (Simulink irrigation simulation, ESP32 soil sensor, 3D concept of the field unit)

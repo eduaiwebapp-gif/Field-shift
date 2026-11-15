@@ -8,6 +8,20 @@ import { useLang } from '../lib/i18n';
 const POROSITY_PCT = 45;
 const POLL_MS = 10000;
 
+// Parts of the field unit (component models used in the 3D concept assembly)
+const PARTS = [
+  { en: ['IP67 junction box', 'Off-the-shelf box (Gratury): opaque hinged lid, rubber seal, steel latches, internal mounting plate for the boards'],
+    fr: ['Boîtier de dérivation IP67', 'Boîtier du commerce (Gratury) : couvercle opaque à charnière, joint caoutchouc, grenouillères en acier, plaque de montage interne'] },
+  { en: ['ESP32-WROOM, 30 pins, USB-C', 'Reads the probe, sends readings over Wi-Fi, sleeps between readings'],
+    fr: ['ESP32-WROOM, 30 broches, USB-C', 'Lit la sonde, envoie les mesures en Wi-Fi, dort entre deux mesures'] },
+  { en: ['LiPo battery, 500 mAh', '3.7 V nominal, charged by the solar panel through a charge module'],
+    fr: ['Batterie LiPo, 500 mAh', '3,7 V nominal, chargée par le panneau solaire via un module de charge'] },
+  { img: '/images/part_solar-cell.jpg', en: ['5 V mini solar panel', '53 × 30 mm cell in the 3D model'],
+    fr: ['Mini panneau solaire 5 V', 'Cellule de 53 × 30 mm dans le modèle 3D'] },
+  { img: '/images/part_probe.jpg', en: ['Capacitive soil moisture probe v1.2', 'No exposed metal in the soil, so it does not corrode like resistive probes'],
+    fr: ['Sonde capacitive d’humidité v1.2', 'Pas de métal exposé dans le sol, elle ne se corrode pas comme les sondes résistives'] },
+];
+
 export default function SensorPanel({ climate }) {
   const { L, lang } = useLang();
   const dateLocale = lang === 'fr' ? 'fr-FR' : 'en-GB';
@@ -121,19 +135,31 @@ export default function SensorPanel({ climate }) {
 
       <h3 className="enc-title">{L('The field unit', 'Le boîtier au champ')}</h3>
       <p className="muted">
-        {L('3D model of the sensor box by our mechatronics engineer: solar powered, sealed against rain and dust, with the probe in the root zone.',
-          'Modèle 3D du boîtier par notre ingénieur en mécatronique : alimenté par le soleil, étanche à la pluie et à la poussière, avec la sonde dans la zone des racines.')}
+        {L('3D concept assembly and render by our mechatronics engineer (SolidWorks), built from standard component models: solar powered, sealed against rain and dust, with the probe in the root zone.',
+          'Assemblage 3D de concept et rendu par notre ingénieur en mécatronique (SolidWorks), à partir de modèles de composants standards : alimenté par le soleil, étanche à la pluie et à la poussière, avec la sonde dans la zone des racines.')}
       </p>
       <img className="enclosure" src={`/images/enclosure_${lang === 'fr' ? 'fr' : 'en'}.jpg`} width="1600" height="893" loading="lazy"
         alt={L('Exploded 3D view of the sensor box: solar panel, translucent lid, sealing gasket, ESP32 board and battery, IP65 enclosure with a cable gland, and the soil moisture probe',
           'Vue 3D éclatée du boîtier : panneau solaire, capot translucide, joint d’étanchéité, carte ESP32 et batterie, boîtier IP65 avec presse-étoupe, et sonde d’humidité du sol')} />
+      <h4 className="enc-title">{L('Parts chosen for the prototype', 'Pièces choisies pour le prototype')}</h4>
+      <div className="parts">
+        {PARTS.map((p) => (
+          <div className="part" key={p.en[0]}>
+            {p.img && <img src={p.img} alt="" loading="lazy" width="1024" height="768" />}
+            <div><b>{L(p.en[0], p.fr[0])}</b><p className="muted small">{L(p.en[1], p.fr[1])}</p></div>
+          </div>
+        ))}
+      </div>
+
       <div className="callout mid">
-        <b>{L('What we will change in the next version', 'Ce que nous changerons dans la prochaine version')}</b>
+        <b>{L('Design choices and what the next version adds', 'Choix de conception et ajouts de la prochaine version')}</b>
         <ul className="enc-notes">
-          <li>{L('A second cable gland for the solar panel lead, so the box stays IP65.', 'Un deuxième presse-étoupe pour le câble du panneau solaire, pour que le boîtier reste IP65.')}</li>
-          <li>{L('Heat: under a translucent lid in the Moroccan sun the inside can pass 60 °C, too hot for a LiPo battery. We will use an opaque UV-resistant lid or a LiFePO4 cell.',
-            'Chaleur : sous un capot translucide, au soleil marocain, l’intérieur peut dépasser 60 °C, trop chaud pour une batterie LiPo. Nous prendrons un capot opaque résistant aux UV ou une cellule LiFePO4.')}</li>
-          <li>{L('Battery life: deep sleep between readings, one reading every 30 minutes.', 'Autonomie : veille profonde entre deux mesures, une mesure toutes les 30 minutes.')}</li>
+          <li>{L('Heat: a clear lid in the Moroccan sun can push the inside above 60 °C, too hot for a LiPo battery. That is why the prototype box has an opaque lid; a LiFePO4 cell would add margin.',
+            'Chaleur : sous un capot transparent, au soleil marocain, l’intérieur peut dépasser 60 °C, trop chaud pour une batterie LiPo. C’est pourquoi le boîtier du prototype a un couvercle opaque ; une cellule LiFePO4 ajouterait de la marge.')}</li>
+          <li>{L('Two cable glands, one for the probe and one for the solar lead, so the box keeps its seal.', 'Deux presse-étoupes, un pour la sonde et un pour le câble solaire, pour que le boîtier reste étanche.')}</li>
+          <li>{L('A small solar LiPo charge module: the panel cannot charge the battery directly and the ESP32 board has no charger.', 'Un petit module de charge solaire LiPo : le panneau ne peut pas charger la batterie directement et la carte ESP32 n’a pas de chargeur.')}</li>
+          <li>{L('Probe: its electronics are not waterproof, so they are sealed in the head and only the sensing blade goes in the soil.', 'Sonde : son électronique n’est pas étanche, elle est donc scellée dans la tête et seule la lame de mesure va dans le sol.')}</li>
+          <li>{L('Battery life: a small panel only works with deep sleep between readings, one reading every 30 minutes.', 'Autonomie : un petit panneau ne suffit qu’avec la veille profonde entre deux mesures, une mesure toutes les 30 minutes.')}</li>
           <li>{L('Range: Wi-Fi rarely reaches the middle of a field, so a LoRa radio would send the readings to the farm.', 'Portée : le Wi-Fi atteint rarement le milieu d’un champ, une radio LoRa enverrait les mesures jusqu’à la ferme.')}</li>
         </ul>
       </div>
