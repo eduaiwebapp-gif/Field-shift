@@ -83,7 +83,7 @@ export default function SimulationCard() {
             </defs>
             <CartesianGrid stroke="var(--grid)" vertical={false} />
             <XAxis dataKey="t" type="number" domain={[0, sim.metadata.stop_time_h]} ticks={Array.from({ length: days + 1 }, (_, i) => i * 24).filter((v, i) => days <= 4 || i % 2 === 0)} tickFormatter={(v) => `${v} h`} tick={{ fontSize: 11 }} />
-            <YAxis yAxisId="m" domain={[18, 40]} tick={{ fontSize: 11 }} unit="%" width={48} />
+            <YAxis yAxisId="m" domain={[20, 40]} ticks={[20, 25, 30, 35, 40]} tick={{ fontSize: 11 }} unit="%" width={48} />
             <YAxis yAxisId="i" orientation="right" domain={[0, 20]} hide />
             <Tooltip
               labelFormatter={(v) => `${Number(v).toFixed(1)} h`}
@@ -97,7 +97,7 @@ export default function SimulationCard() {
         </ResponsiveContainer>
       </div>
       <p className="muted small">
-        Over {days} days without rain the tomato uses about {fmt(s.crop_water_use_mm, 0)} mm of water. The valve opened only twice,
+        Over {days} days without rain the tomato uses about {fmt(s.crop_water_use_mm, 0)} mm of water. The valve opened only twice,{' '}
         {fmt(s.irrigation_on_time_h, 1)} h in total, and applied {fmt(s.irrigation_total_mm, 0)} mm: the rest came from water already
         stored in the soil. Moisture never came close to saturation (45 %), so no water drained away below the roots.
         Figures from the engineer's MATLAB/Simulink run; the curve is regenerated from the same model for display.
