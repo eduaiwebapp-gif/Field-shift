@@ -15,7 +15,7 @@ export default function SimulationCard() {
   const [scenario, setScenario] = useState(0);
 
   useEffect(() => {
-    fetch(`${BASE}/simulation/irrigation_72h.json`).then((r) => r.json()).then(setSim).catch(() => {});
+    fetch(`${BASE}/simulation/irrigation_240h.json`).then((r) => r.json()).then(setSim).catch(() => {});
     fetch(`${BASE}/field-shift/doukkala/irrigation_demo.json`).then((r) => r.json()).then(setDemo).catch(() => {});
   }, []);
 
@@ -64,13 +64,13 @@ export default function SimulationCard() {
         <div className="tile"><span className="tile-k">Water applied</span><span className="tile-v"><CountUp value={s.irrigation_total_mm} decimals={1} /> mm</span><span className="tile-s">over {days} days</span></div>
         <div className="tile"><span className="tile-k">Per day</span><span className="tile-v"><CountUp value={s.irrigation_total_mm / days} decimals={1} /> mm</span><span className="tile-s">tomato needs ≈ 6.0 mm/day</span></div>
         <div className="tile"><span className="tile-k">Valve open</span><span className="tile-v"><CountUp value={s.irrigation_on_time_h} decimals={1} /> h</span><span className="tile-s">out of {sim.metadata.stop_time_h} h</span></div>
-        <div className="tile"><span className="tile-k">Moisture kept between</span><span className="tile-v">{fmt(s.moisture_min_pct, 0)}–{fmt(s.moisture_max_pct, 0)} %</span><span className="tile-s">target band 25–35 %</span></div>
+        <div className="tile"><span className="tile-k">Moisture kept between</span><span className="tile-v">{fmt(s.moisture_min_pct, 0)}–{fmt(s.moisture_max_pct, 0)} %</span><span className="tile-s">target band 22–35 %</span></div>
       </div>
 
       <div className="legend-row">
         <span><i className="sw moist" /> Soil moisture from the sensor</span>
         <span><i className="sw irr" /> Irrigation (mm/h)</span>
-        <span><i className="sw band" /> On at 25 %, off at 35 %</span>
+        <span><i className="sw band" /> Valve opens below 22 %, closes above 35 %</span>
       </div>
       <div className="chart">
         <ResponsiveContainer width="100%" height={260}>
@@ -82,14 +82,14 @@ export default function SimulationCard() {
               </linearGradient>
             </defs>
             <CartesianGrid stroke="var(--grid)" vertical={false} />
-            <XAxis dataKey="t" type="number" domain={[0, sim.metadata.stop_time_h]} ticks={[0, 12, 24, 36, 48, 60, 72]} tickFormatter={(v) => `${v} h`} tick={{ fontSize: 11 }} />
-            <YAxis yAxisId="m" domain={[20, 40]} tick={{ fontSize: 11 }} unit="%" width={48} />
+            <XAxis dataKey="t" type="number" domain={[0, sim.metadata.stop_time_h]} ticks={Array.from({ length: days + 1 }, (_, i) => i * 24).filter((v, i) => days <= 4 || i % 2 === 0)} tickFormatter={(v) => `${v} h`} tick={{ fontSize: 11 }} />
+            <YAxis yAxisId="m" domain={[18, 40]} tick={{ fontSize: 11 }} unit="%" width={48} />
             <YAxis yAxisId="i" orientation="right" domain={[0, 20]} hide />
             <Tooltip
               labelFormatter={(v) => `${Number(v).toFixed(1)} h`}
               formatter={(v, n) => (n === 'm' ? [`${Number(v).toFixed(1)} %`, 'Soil moisture'] : [`${v} mm/h`, 'Irrigation'])}
             />
-            <ReferenceLine yAxisId="m" y={25} stroke="#b8432c" strokeDasharray="5 4" />
+            <ReferenceLine yAxisId="m" y={22} stroke="#b8432c" strokeDasharray="5 4" />
             <ReferenceLine yAxisId="m" y={35} stroke="#215a39" strokeDasharray="5 4" />
             <Area yAxisId="i" dataKey="irr" type="stepAfter" stroke="#1baf7a" fill="#1baf7a" fillOpacity={0.25} strokeWidth={2} isAnimationActive />
             <Area yAxisId="m" dataKey="m" type="monotone" stroke="#2f6dae" fill="url(#gMoist)" strokeWidth={2} dot={false} isAnimationActive />
@@ -97,8 +97,10 @@ export default function SimulationCard() {
         </ResponsiveContainer>
       </div>
       <p className="muted small">
-        The valve opens for {fmt(s.irrigation_on_time_h, 1)} h, fills the root zone to 35 %, then stays closed while the tomato
-        drinks the water. The system gives about what the crop uses, with no waste. Simulated data, {days} days, no rain.
+        Over {days} days without rain the tomato uses about {fmt(s.crop_water_use_mm, 0)} mm of water. The valve opened only twice,
+        {fmt(s.irrigation_on_time_h, 1)} h in total, and applied {fmt(s.irrigation_total_mm, 0)} mm: the rest came from water already
+        stored in the soil. Moisture never came close to saturation (45 %), so no water drained away below the roots.
+        Figures from the engineer's MATLAB/Simulink run; the curve is regenerated from the same model for display.
       </p>
 
       {demo && (

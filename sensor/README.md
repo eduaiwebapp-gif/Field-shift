@@ -39,3 +39,17 @@ The laptop and the ESP32 must be on the same WiFi. The output format is in `docs
 
 - Battery + deep sleep, one reading every 30 minutes.
 - Calculate water needs per crop from `data/output/<region>/recommendations.json` (`irrigation_mm`).
+
+
+## Simulink model (smart irrigation)
+
+[simulink/simulation_du_projet.m](simulink/simulation_du_projet.m) builds, runs and exports the Simulink model `Smart_Irrigation_Model` (MATLAB + Simulink R2021a+):
+
+- Soil: FAO-56 root-zone water balance, dθ/dt = 100/Zr × (I + P − Kc·ET0), Zr = 300 mm, Kc = 1.15 (tomato), ET0 = 0.22 mm/h, no rain, θ limited to 10-45 %.
+- Sensor: ESP32 reading = θ + band-limited white noise (covariance 0.05, Ts 0.1 h).
+- Controller: relay, valve 5 mm/h on below 22 %, off above 35 %.
+- Result (10 days): moisture 22.0-35.6 %, 49.3 mm applied in 9.9 h of valve time, against about 61 mm of crop water use.
+
+![Simulink scope, 240 h](simulink/scope_240h.png)
+
+`regenerate_series.js` rebuilds the displayed time series from the same equations with seeded noise (the app shows the MATLAB summary values).
