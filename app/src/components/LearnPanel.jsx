@@ -63,7 +63,7 @@ export default function LearnPanel() {
   return (
     <section className="panel">
       <header className="panel-head">
-        <h2>{L('How to read Field Shift', 'Comment lire Field Shift')}</h2>
+        <h2>{L('How to read SeasonReplay', 'Comment lire SeasonReplay')}</h2>
         <p className="muted">{L('The data behind the advice, and its limits.', 'Les données derrière les conseils, et leurs limites.')}</p>
       </header>
 
@@ -138,8 +138,8 @@ export default function LearnPanel() {
         <li>{L('It does not know the farmer’s soil type, equipment, water access or buyers.', 'Il ne connaît ni le type de sol de l’agriculteur, ni son matériel, ni son accès à l’eau, ni ses acheteurs.')}</li>
       </ul>
       <div className="callout mid">
-        {L('Field Shift supports farmers’ decisions. It does not replace their experience or the advice of local agricultural experts.',
-          'Field Shift aide les agriculteurs à décider. Il ne remplace ni leur expérience ni les conseils des experts agricoles locaux.')}
+        {L('SeasonReplay supports farmers’ decisions. It does not replace their experience or the advice of local agricultural experts.',
+          'SeasonReplay aide les agriculteurs à décider. Il ne remplace ni leur expérience ni les conseils des experts agricoles locaux.')}
       </div>
     </section>
   );

@@ -1,11 +1,11 @@
-![Field Shift](brand/png/banner.png)
+![SeasonReplay](brand/png/banner.png)
 
-# Field Shift
+# SeasonReplay
 
-**NASA Space Apps Challenge 2026, Casablanca: "Field Shift: Adapting Farms with NASA Data"** · [Live app](https://field-shift-self.vercel.app)
+**NASA Space Apps Challenge 2026, Casablanca: "Field Shift: Adapting Farms with NASA Data"** · [Live app](https://seasonreplay.vercel.app)
 
 Morocco's climate has shifted, but most farmers still grow wheat after wheat.
-Field Shift is a decision-support tool that uses NASA data to help farmers explore crop rotations that protect soil and hold up in dry years:
+SeasonReplay is a decision-support tool that uses NASA data to help farmers explore crop rotations that protect soil and hold up in dry years:
 
 - **compare rotations**: 4 strategies including the current one, replayed on the real 2011-2025 seasons, ranked by the farmer's priorities (income, dry years, water, soil), with why, evidence, benefits, risks and information gaps
 - **what if**: replay the same seasons with less rain or more spring heat

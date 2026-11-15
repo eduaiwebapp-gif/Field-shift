@@ -6,7 +6,7 @@ Messages ready to send in the group or in private.
 
 ## To the data scientist
 
-The app is live: https://field-shift-self.vercel.app and the repo is https://github.com/eduaiwebapp-gif/Field-shift (send me your GitHub username so I add you).
+The app is live: https://seasonreplay.vercel.app and the repo is https://github.com/eduaiwebapp-gif/SeasonReplay (send me your GitHub username so I add you).
 
 The NASA POWER pipeline is in `data/`. `npm run all` downloads the data for Chaouia and Doukkala and rebuilds the JSON the app reads. What I need from you, in this order:
 
@@ -20,7 +20,7 @@ Any change pushed to `main` goes live automatically. Run `npm run all` before pu
 
 ## To the engineer
 
-The app is live: https://field-shift-self.vercel.app (Field sensor tab). Send me your GitHub username so I add you to the repo.
+The app is live: https://seasonreplay.vercel.app (Field sensor tab). Send me your GitHub username so I add you to the repo.
 
 Everything for the sensor is in `sensor/`: the ESP32 code, the wiring and the parts list. What I need, in this order:
 

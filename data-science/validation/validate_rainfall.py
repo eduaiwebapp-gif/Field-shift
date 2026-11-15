@@ -1,4 +1,4 @@
-"""Compare NASA POWER and CHIRPS daily rainfall at the Field Shift pilot sites."""
+"""Compare NASA POWER and CHIRPS daily rainfall at the SeasonReplay pilot sites."""
 
 import argparse
 import json

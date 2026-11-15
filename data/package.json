@@ -1,5 +1,5 @@
 {
-  "name": "field-shift-data",
+  "name": "seasonreplay-data",
   "private": true,
   "type": "module",
   "description": "Downloads NASA POWER data and builds the JSON files the app reads",

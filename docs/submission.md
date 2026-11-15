@@ -1,4 +1,4 @@
-# Space Apps submission: Field Shift
+# Space Apps submission: SeasonReplay
 
 Copy each section into the matching field of the submission page. Check the field names and character limits on the page.
 
@@ -6,16 +6,16 @@ Copy each section into the matching field of the submission page. Check the fiel
 
 ## Project name
 
-Field Shift
+SeasonReplay
 
 ## High-level summary (short version)
 
-Morocco's climate has shifted, but most farmers still grow wheat after wheat as they did 30 years ago. Field Shift is a decision-support tool that uses 35 years of NASA POWER data to help farmers in the Casablanca-Settat region explore crop rotations that protect their soil and hold up in dry years. It compares four rotations, including the current one, by replaying each of them on the real seasons measured by NASA, and explains for each one why it is suggested, the evidence, its benefits for soil (nitrogen, erosion, pests), its risks and what still needs local checking. Farmers set their own priorities (income, dry-year safety, water, soil health) and the ranking adapts. In our simulation for Chaouia, wheat after wheat would have lost money in 9 of the last 15 seasons, while a barley and faba bean rotation would have lost money only once. A Python machine learning pipeline shows when the autumn sowing rains usually arrive, and a MATLAB/Simulink model with a low cost soil sensor (about 150 MAD) turns field moisture into irrigation advice. Crop inputs are sourced from FAO, INRA Morocco and Moroccan crop guides and are clearly labelled as provisional.
+Morocco's climate has shifted, but most farmers still grow wheat after wheat as they did 30 years ago. SeasonReplay is a decision-support tool that uses 35 years of NASA POWER data to help farmers in the Casablanca-Settat region explore crop rotations that protect their soil and hold up in dry years. It compares four rotations, including the current one, by replaying each of them on the real seasons measured by NASA, and explains for each one why it is suggested, the evidence, its benefits for soil (nitrogen, erosion, pests), its risks and what still needs local checking. Farmers set their own priorities (income, dry-year safety, water, soil health) and the ranking adapts. In our simulation for Chaouia, wheat after wheat would have lost money in 9 of the last 15 seasons, while a barley and faba bean rotation would have lost money only once. A Python machine learning pipeline shows when the autumn sowing rains usually arrive, and a MATLAB/Simulink model with a low cost soil sensor (about 150 MAD) turns field moisture into irrigation advice. Crop inputs are sourced from FAO, INRA Morocco and Moroccan crop guides and are clearly labelled as provisional.
 
 ## Links
 
-- Live app: https://field-shift-self.vercel.app
-- Code: https://github.com/eduaiwebapp-gif/Field-shift (make the repository public before submitting)
+- Live app: https://seasonreplay.vercel.app
+- Code: https://github.com/eduaiwebapp-gif/SeasonReplay (make the repository public before submitting)
 - Demo video: _add link_
 - Slides: _add link_
 
@@ -39,7 +39,7 @@ We compared 1991-2005 with 2011-2025 using NASA POWER daily data:
 
 Average rainfall barely changed, because a few very wet years (like 2021) pull it up. That is exactly why farmers can miss the shift: what changed is the frequency of dry years and the heat during the most sensitive weeks of the crop cycle.
 
-### What Field Shift does
+### What SeasonReplay does
 
 1. **Compare rotations** (main feature): four strategies for the region, including the current one:
    - Wheat after wheat (current practice)

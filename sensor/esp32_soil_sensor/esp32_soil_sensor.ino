@@ -1,4 +1,4 @@
-// Field Shift - low cost soil sensor (starter code for the engineer)
+// SeasonReplay - low cost soil sensor (starter code for the engineer)
 //
 // Hardware:
 //   - ESP32 dev board

@@ -233,8 +233,8 @@ export default function RotationsPanel({ recommendations, climate }) {
       )}
 
       <div className="callout mid">
-        {L('Field Shift helps you explore options. It does not replace your own experience or the advice of a local agronomist: check soil type, seed and market access, and pest pressure on your farm before changing a rotation.',
-          'Field Shift vous aide à explorer des options. Il ne remplace ni votre expérience ni les conseils d’un agronome local : vérifiez le type de sol, l’accès aux semences et au marché, et la pression des ravageurs sur votre ferme avant de changer de rotation.')}
+        {L('SeasonReplay helps you explore options. It does not replace your own experience or the advice of a local agronomist: check soil type, seed and market access, and pest pressure on your farm before changing a rotation.',
+          'SeasonReplay vous aide à explorer des options. Il ne remplace ni votre expérience ni les conseils d’un agronome local : vérifiez le type de sol, l’accès aux semences et au marché, et la pression des ravageurs sur votre ferme avant de changer de rotation.')}
       </div>
     </section>
   );

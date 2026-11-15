@@ -45,7 +45,7 @@ export default function RainCheck({ regionId }) {
       <p className="muted small">
         {L('Data:', 'Données :')} <a href="https://www.chc.ucsb.edu/data/chirps" target="_blank" rel="noreferrer">UCSB CHIRPS v2</a> via ClimateSERV
         {L('and NASA POWER daily. Method and files in', 'et NASA POWER journalier. Méthode et fichiers dans')}{' '}
-        <a href="https://github.com/eduaiwebapp-gif/Field-shift/tree/main/data-science/validation" target="_blank" rel="noreferrer">data-science/validation</a>.
+        <a href="https://github.com/eduaiwebapp-gif/SeasonReplay/tree/main/data-science/validation" target="_blank" rel="noreferrer">data-science/validation</a>.
       </p>
     </div>
   );

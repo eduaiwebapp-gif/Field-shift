@@ -100,7 +100,7 @@ export default function App() {
             <div className="brand">
               <img className="logo" src="/favicon.svg" alt="" width="38" height="38" />
               <div>
-                <div className="brand-name">Field Shift</div>
+                <div className="brand-name">SeasonReplay</div>
                 <div className="brand-sub">{L('Adapting Moroccan farms with NASA data', 'Adapter les fermes marocaines grâce aux données NASA')}</div>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function App() {
               </div>
             )}
             <LangSwitch />
-            <a className="gh" href="https://github.com/eduaiwebapp-gif/Field-shift" aria-label={L('Source code on GitHub', 'Code source sur GitHub')}>
+            <a className="gh" href="https://github.com/eduaiwebapp-gif/SeasonReplay" aria-label={L('Source code on GitHub', 'Code source sur GitHub')}>
               <Icon name="github" size={20} />
             </a>
           </div>
@@ -142,8 +142,8 @@ export default function App() {
                   <span className="hero-accent">{pick(safest, 'name')}{L(':', ' :')} {fmt(safest.metrics.failed_seasons, dec(safest.metrics.failed_seasons))}.</span>
                 </motion.h1>
                 <motion.p className="hero-sub" variants={rise} custom={2} initial="hidden" animate="show">
-                  {L(`The climate of ${shortName} has shifted. Field Shift replays crop rotations on the real seasons measured by NASA, so farmers can explore the ones that protect their soil and their income.`,
-                    `Le climat de la ${shortName} a changé. Field Shift rejoue les rotations de cultures sur les vraies saisons mesurées par la NASA, pour que les agriculteurs trouvent celles qui protègent leur sol et leur revenu.`)}
+                  {L(`The climate of ${shortName} has shifted. SeasonReplay replays crop rotations on the real seasons measured by NASA, so farmers can explore the ones that protect their soil and their income.`,
+                    `Le climat de la ${shortName} a changé. SeasonReplay rejoue les rotations de cultures sur les vraies saisons mesurées par la NASA, pour que les agriculteurs trouvent celles qui protègent leur sol et leur revenu.`)}
                   <span className="hero-note"> {L('Simulation on NASA climate data with provisional, sourced crop inputs.', 'Simulation sur les données climatiques de la NASA, avec des paramètres de cultures sourcés mais provisoires.')}</span>
                 </motion.p>
                 <motion.div className="hero-actions" variants={rise} custom={3} initial="hidden" animate="show">
@@ -250,7 +250,7 @@ export default function App() {
             </div>
             <p className="muted small">
               {L('Built for NASA Space Apps Challenge 2026, Casablanca', 'Conçu pour le NASA Space Apps Challenge 2026, Casablanca')} ·{' '}
-              <a href="https://github.com/eduaiwebapp-gif/Field-shift">{L('Source code', 'Code source')}</a> ·{' '}
+              <a href="https://github.com/eduaiwebapp-gif/SeasonReplay">{L('Source code', 'Code source')}</a> ·{' '}
               {L('Supports, never replaces, the farmer’s judgment.', 'Aide l’agriculteur à décider, sans jamais remplacer son jugement.')}
             </p>
           </footer>

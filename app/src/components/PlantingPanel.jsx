@@ -143,7 +143,7 @@ export default function PlantingPanel({ regionId }) {
       <p className="muted small">
         {L('Built by our data scientist in Python from NASA POWER daily data. Rain threshold from', 'Réalisé par notre data scientist en Python à partir des données journalières NASA POWER. Seuil de pluie de l’')}{' '}
         <a href={replay.threshold_source} target="_blank" rel="noreferrer">{L('INRA Morocco', 'INRA Maroc')}</a>. {L('Result files in the', 'Fichiers de résultats dans le dossier')}{' '}
-        <a href="https://github.com/eduaiwebapp-gif/Field-shift/tree/main/data-science/handoff" target="_blank" rel="noreferrer">data-science/handoff</a>{L(' folder.', '.')}
+        <a href="https://github.com/eduaiwebapp-gif/SeasonReplay/tree/main/data-science/handoff" target="_blank" rel="noreferrer">data-science/handoff</a>{L(' folder.', '.')}
       </p>
     </section>
   );

@@ -1,4 +1,4 @@
-# Field Shift brand
+# SeasonReplay brand
 
 The sun rises over shifting crop rows, watched by a satellite in orbit: farm decisions from NASA Earth data.
 
@@ -24,4 +24,4 @@ Use the PNG files where fonts may not load (GitHub, slides, social media). The S
 
 Fonts: Space Grotesk (headings), Inter (text).
 
-These are Field Shift's own logos. NASA, Esri and other partner logos are trademarks and are not included: do not add them without checking each organization's usage rules.
+These are SeasonReplay's own logos. NASA, Esri and other partner logos are trademarks and are not included: do not add them without checking each organization's usage rules.
